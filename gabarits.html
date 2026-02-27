@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gabarits OneNote — Équipe Techno</title>
+<title>Gabarits OneNote | Équipe Techno</title>
 <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/fr/7/73/Logo-C%C3%A9gep_G%C3%A9rald-Godin.svg">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
@@ -111,6 +111,12 @@ html.dark {
   color:var(--gold); border:1px solid rgba(201,168,76,.3);
   padding:.35rem .9rem;
 }
+.onenote-logo {
+  height:24px;
+  width:24px;
+  object-fit:contain;
+  opacity:.95;
+}
 .theme-toggle {
   background:none; border:1px solid var(--site-border);
   color:var(--site-muted); cursor:pointer;
@@ -191,6 +197,13 @@ body {
   border:1px solid #ccc; border-radius:3px; padding:1px 5px;
   font-family:monospace;
 }
+html.dark .instructions p { color:#ede3bf; }
+html.dark .instructions p strong { color:#fff3cc; }
+html.dark .instructions kbd {
+  background:#2a2a36;
+  color:#f6f1e6;
+  border-color:#55556b;
+}
 
 /* ─── MAIN ─── */
 .main { max-width:900px; margin:0 auto; padding:64px 56px 96px; }
@@ -268,6 +281,10 @@ body {
 .copy-btn:hover { background:var(--red); }
 .copy-btn:active { transform:scale(.97); }
 .copy-btn.copied { background:var(--green); }
+html.dark .copy-btn { background:#8f2f2f; color:#ffffff; }
+html.dark .copy-btn:hover { background:#b83232; }
+html.dark .copy-btn.copied,
+html.dark .copy-btn.copied:hover { background:var(--green); color:#ffffff; }
 
 /* ─── PREVIEW ─── */
 .preview {
@@ -425,7 +442,7 @@ footer {
 </head>
 <body>
 
-<!-- ═══ SITE HEADER — Équipe Techno ═══ -->
+<!-- ═══ SITE HEADER - Équipe Techno ═══ -->
 <div class="site-header">
   <div class="site-header-inner">
     <div class="logo-wrap">
@@ -438,6 +455,7 @@ footer {
       </div>
     </div>
     <div class="header-right">
+      <img class="onenote-logo" src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_OneNote_Icon_%282025_-_present%29.svg" alt="Logo OneNote">
       <div class="site-badge">Gabarits OneNote</div>
       <button class="theme-toggle" id="themeBtn" aria-label="Basculer le thème" title="Clair / Sombre">
         <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -456,13 +474,6 @@ footer {
     <div class="hero-eyebrow">OneNote · Gabarits de pages</div>
     <h1>Des notes <em>structurées,</em><br>une équipe alignée.</h1>
     <p class="hero-desc">Choisissez un gabarit, cliquez <strong style="color:#fff;">Copier</strong>, collez dans OneNote. Titres stylés, tableaux et cases à cocher prêts à remplir.</p>
-    <div class="hero-pills">
-      <span class="pill">Soutien administratif</span>
-      <span class="pill">Professionnels</span>
-      <span class="pill">Cadres</span>
-      <span class="pill">Enseignants</span>
-      <span class="pill">Étudiants</span>
-    </div>
     <div class="hero-bottom-line"></div>
   </div>
 </div>
@@ -507,7 +518,6 @@ footer {
     </div>
   </div>
   <div class="preview theme-red">
-    <div class="prev-title">Compte rendu de réunion</div>
     <div class="prev-meta">
       <div class="prev-meta-row">
         <div class="prev-meta-cell"><span class="prev-meta-label">📅 Date</span><span class="prev-meta-value">jj/mm/aaaa</span></div>
@@ -519,9 +529,9 @@ footer {
     <div class="prev-section">
       <div class="prev-section-title"><span>Participants</span></div>
       <table class="prev-table">
-        <tr><th>Nom</th><th>Titre / Rôle</th><th>Présent</th></tr>
-        <tr><td style="font-style:italic;color:#bbb"></td><td></td><td>✅</td></tr>
-        <tr><td style="font-style:italic;color:#bbb"></td><td></td><td>🔴 Absent excusé</td></tr>
+        <tr><th>Nom</th><th>Présence</th></tr>
+        <tr><td style="font-style:italic;color:#bbb"></td><td>✅ Présent(e)</td></tr>
+        <tr><td style="font-style:italic;color:#bbb"></td><td>🔴 Absent(e)</td></tr>
       </table>
     </div>
     <div class="prev-section">
@@ -539,38 +549,51 @@ footer {
       </table>
     </div>
   </div>
-  <div class="copy-src" id="tpl-cr">
+<div class="copy-src" id="tpl-cr">
 <h1>Compte rendu de réunion</h1>
 <table style="width:100%;border-collapse:collapse;">
   <tr>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📅 Date</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>🕐 Heure</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:28%;"><strong>📅 Date</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="2"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🕐 Heure</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="2"></td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📍 Lieu / Lien</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="2"></td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>✍️ Rédacteur</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="2"></td>
+  </tr>
+  <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📁 Dossier</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="2"></td>
+  </tr>
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;" colspan="3">👥 Participants</th>
+  </tr>
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Nom</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Présence</th>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">✅ Présent(e)</td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">✅ Présent(e)</td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">🔴 Absent(e)</td>
   </tr>
 </table>
 
-<h2>👥 Participants</h2>
-<table style="width:100%;border-collapse:collapse;">
-  <tr style="background:#f0f0f0;">
-    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Nom</th>
-    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Titre / Rôle</th>
-    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Présence</th>
-  </tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">✅ Présent</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">✅ Présent</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">🔴 Absent excusé</td></tr>
-</table>
+<p style="font-size:10pt;font-style:italic;">Note : utilisez « Détails de la réunion » pour ajouter automatiquement les informations d'une réunion Outlook ou Teams (date et lieu, lien Outlook, participants, et éléments liés comme enregistrements ou message d'invitation). Il ne reste ensuite qu'à compléter vos notes.</p>
 
 <h2>📋 Ordre du jour</h2>
 <table style="width:100%;border-collapse:collapse;">
@@ -581,11 +604,11 @@ footer {
 </table>
 
 <h2>💬 Discussion et décisions</h2>
-<p><strong>Point 1 —</strong></p>
+<p><strong>Point 1 -</strong></p>
 <p><br></p>
 <p><em>Décision :</em></p>
 <p><br></p>
-<p><strong>Point 2 —</strong></p>
+<p><strong>Point 2 -</strong></p>
 <p><br></p>
 <p><em>Décision :</em></p>
 <p><br></p>
@@ -634,7 +657,6 @@ footer {
     </div>
   </div>
   <div class="preview theme-blue">
-    <div class="prev-title">Bilan de la semaine</div>
     <div class="prev-meta">
       <div class="prev-meta-row">
         <div class="prev-meta-cell"><span class="prev-meta-label">📅 Semaine</span><span class="prev-meta-value">du jj/mm au jj/mm/aaaa</span></div>
@@ -648,7 +670,7 @@ footer {
       <div class="prev-check"><div class="prev-check-box"></div>Tâche complétée</div>
     </div>
     <div class="prev-section">
-      <div class="prev-section-title"><span>Priorités — Semaine prochaine</span></div>
+      <div class="prev-section-title"><span>Priorités - Semaine prochaine</span></div>
       <table class="prev-table">
         <tr><th>#</th><th>Priorité</th><th>Contexte / objectif</th></tr>
         <tr><td>1</td><td></td><td></td></tr>
@@ -656,18 +678,22 @@ footer {
       </table>
     </div>
   </div>
-  <div class="copy-src" id="tpl-bh">
+<div class="copy-src" id="tpl-bh">
 <h1>Bilan hebdomadaire</h1>
 <table style="width:100%;border-collapse:collapse;">
   <tr>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:20%;"><strong>📅 Semaine</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;">Du &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; au</td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:20%;"><strong>👤 Nom</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;"><strong>📅 Semaine</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:70%;">Du &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; au</td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>👤 Nom</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🏢 Équipe / Service</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+  <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📋 Poste</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;"></td>
   </tr>
@@ -705,7 +731,7 @@ footer {
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td></tr>
 </table>
 
-<h2>🎯 Priorités — Semaine prochaine</h2>
+<h2>🎯 Priorités - Semaine prochaine</h2>
 <table style="width:100%;border-collapse:collapse;">
   <tr style="background:#f0f0f0;">
     <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">#</th>
@@ -750,7 +776,6 @@ footer {
     </div>
   </div>
   <div class="preview theme-purple">
-    <div class="prev-title">Processus : <span style="color:#bbb;font-style:italic;font-weight:normal"></span></div>
     <div class="prev-meta">
       <div class="prev-meta-row">
         <div class="prev-meta-cell"><span class="prev-meta-label">Version</span><span class="prev-meta-value">1.0</span></div>
@@ -768,22 +793,26 @@ footer {
       </table>
     </div>
   </div>
-  <div class="copy-src" id="tpl-proc">
+<div class="copy-src" id="tpl-proc">
 <h1>Documentation de processus</h1>
 <table style="width:100%;border-collapse:collapse;">
   <tr>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📌 Processus</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;"><strong>📌 Processus</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:70%;"></td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🔖 Version</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;">1.0</td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📅 Dernière révision</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">1.0</td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📅 Dernière révision</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>✍️ Responsable</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+  <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🏢 Unité / Service</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;"></td>
   </tr>
@@ -895,7 +924,6 @@ footer {
     </div>
   </div>
   <div class="preview theme-gold">
-    <div class="prev-title">Projet : <span style="color:#bbb;font-style:italic;font-weight:normal"></span></div>
     <div class="prev-meta">
       <div class="prev-meta-row">
         <div class="prev-meta-cell"><span class="prev-meta-label">📅 Début</span><span class="prev-meta-value">jj/mm</span></div>
@@ -914,28 +942,34 @@ footer {
       </table>
     </div>
   </div>
-  <div class="copy-src" id="tpl-proj">
+<div class="copy-src" id="tpl-proj">
 <h1>Tableau de bord de projet</h1>
 <table style="width:100%;border-collapse:collapse;">
   <tr>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📌 Projet</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;"><strong>📌 Projet</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:70%;"></td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📅 Début</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>🏁 Fin prévue</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🏁 Fin prévue</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>👤 Responsable</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+  <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🔵 Statut</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;">En cours</td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🏢 Unité</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+  <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>💰 Budget</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;"></td>
   </tr>
@@ -1022,7 +1056,7 @@ footer {
     <div class="card-left">
       <span class="card-icon">📚</span>
       <div>
-        <div class="card-title">Préparation de cours — Enseignant</div>
+        <div class="card-title">Préparation de cours - Enseignant</div>
         <div class="card-subtitle">Plan de séance · Objectifs · Matériel</div>
       </div>
     </div>
@@ -1032,7 +1066,6 @@ footer {
     </div>
   </div>
   <div class="preview theme-teal">
-    <div class="prev-title">Plan de séance</div>
     <div class="prev-meta">
       <div class="prev-meta-row">
         <div class="prev-meta-cell"><span class="prev-meta-label">📚 Cours</span><span class="prev-meta-value"></span></div>
@@ -1051,28 +1084,32 @@ footer {
       </table>
     </div>
   </div>
-  <div class="copy-src" id="tpl-ens">
+<div class="copy-src" id="tpl-ens">
 <h1>Plan de séance</h1>
 <table style="width:100%;border-collapse:collapse;">
   <tr>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📚 Cours</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;"><strong>📚 Cours</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:70%;"></td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📅 Date</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>🕐 Durée totale</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🕐 Durée totale</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>👥 Groupe</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+  <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📍 Local</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;"></td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📖 Thème / Séance</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
   </tr>
 </table>
 
@@ -1116,7 +1153,7 @@ footer {
     <td style="padding:8px 14px;border:1px solid #ccc;"></td>
   </tr>
   <tr>
-    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Prochain cours — Sujet</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Prochain cours - Sujet</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;"></td>
   </tr>
 </table>
@@ -1130,7 +1167,7 @@ footer {
     <div class="card-left">
       <span class="card-icon">✏️</span>
       <div>
-        <div class="card-title">Notes de cours — Étudiant</div>
+        <div class="card-title">Notes de cours - Étudiant</div>
         <div class="card-subtitle">Notions · Questions · Synthèse personnelle</div>
       </div>
     </div>
@@ -1140,13 +1177,14 @@ footer {
     </div>
   </div>
   <div class="preview theme-orange">
-    <div class="prev-title">Notes de cours</div>
     <div class="prev-meta">
       <div class="prev-meta-row">
         <div class="prev-meta-cell"><span class="prev-meta-label">📚 Cours</span><span class="prev-meta-value"></span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">👩‍🏫 Enseignant(e)</span><span class="prev-meta-value"></span></div>
+      </div>
+      <div class="prev-meta-row">
+        <div class="prev-meta-cell"><span class="prev-meta-label">📆 Semaine</span><span class="prev-meta-value">Semaine #__</span></div>
         <div class="prev-meta-cell"><span class="prev-meta-label">📅 Date</span><span class="prev-meta-value">jj/mm/aaaa</span></div>
-        <div class="prev-meta-cell"><span class="prev-meta-label">Séance</span><span class="prev-meta-value">#__</span></div>
-        <div class="prev-meta-cell"><span class="prev-meta-label">Enseignant</span><span class="prev-meta-value"></span></div>
       </div>
     </div>
     <div class="prev-section">
@@ -1160,23 +1198,26 @@ footer {
       <div class="prev-field">❓ </div>
     </div>
   </div>
-  <div class="copy-src" id="tpl-etu">
+<div class="copy-src" id="tpl-etu">
 <h1>Notes de cours</h1>
 <table style="width:100%;border-collapse:collapse;">
   <tr>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📚 Cours</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3"></td>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;" colspan="2">Informations du cours</th>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;"><strong>📚 Cours</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:70%;"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>👩‍🏫 Enseignant(e)</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📆 Semaine</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📅 Date</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>Séance #</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
-  </tr>
-  <tr>
-    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Enseignant</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Thème</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;"></td>
   </tr>
 </table>
@@ -1216,7 +1257,7 @@ footer {
 <p><br></p>
 
 <h2>✏️ Ma synthèse personnelle</h2>
-<p><em>Ce que je retiens de cette séance — dans mes propres mots :</em></p>
+<p><em>Ce que je retiens de cette séance - dans mes propres mots :</em></p>
 <p><br></p>
 <p><br></p>
 
@@ -1248,12 +1289,12 @@ footer {
   <div class="section-header-text">
     <div class="section-label">Section 03</div>
     <h2>Exemples de documentation</h2>
-    <p>Trois niveaux — Simple · Intermédiaire · Avancée</p>
+    <p>Trois niveaux - Simple · Intermédiaire · Avancée</p>
   </div>
   <div class="section-header-line"></div>
 </div>
 
-<p style="font-size:.88rem;color:var(--ink-mid);line-height:1.75;margin-bottom:40px;max-width:680px;">Ces exemples sont prêts à utiliser — ils illustrent comment documenter un processus réel dans votre service. Copiez l'exemple qui correspond à votre niveau de complexité, puis adaptez le contenu.</p>
+<p style="font-size:.88rem;color:var(--ink-mid);line-height:1.75;margin-bottom:40px;max-width:680px;">Ces exemples sont prêts à utiliser - ils illustrent comment documenter un processus réel dans votre service. Copiez l'exemple qui correspond à votre niveau de complexité, puis adaptez le contenu.</p>
 
 
 <!-- ══ EXEMPLE A : DOCUMENTATION SIMPLE ══ -->
@@ -1262,7 +1303,7 @@ footer {
     <div class="card-left">
       <span class="card-icon">📄</span>
       <div>
-        <div class="card-title">Exemple A — Documentation simple</div>
+        <div class="card-title">Exemple A - Documentation simple</div>
         <div class="card-subtitle">Procédure en quelques étapes claires · Idéal pour débuter</div>
       </div>
     </div>
@@ -1272,7 +1313,6 @@ footer {
     </div>
   </div>
   <div class="preview theme-green">
-    <div class="prev-title">Comment effectuer une demande d'absence</div>
     <div class="prev-meta">
       <div class="prev-meta-row">
         <div class="prev-meta-cell"><span class="prev-meta-label">Version</span><span class="prev-meta-value">1.0</span></div>
@@ -1286,7 +1326,7 @@ footer {
         <tr><th>Étape</th><th>Action</th><th>Outil</th></tr>
         <tr><td>1</td><td>Remplir le formulaire de demande</td><td>Formulaire RH</td></tr>
         <tr><td>2</td><td>Envoyer au gestionnaire</td><td>Courriel</td></tr>
-        <tr><td>3</td><td>Attendre la confirmation</td><td>—</td></tr>
+        <tr><td>3</td><td>Attendre la confirmation</td><td>-</td></tr>
       </table>
     </div>
   </div>
@@ -1294,14 +1334,18 @@ footer {
 <h1>Comment effectuer une demande d'absence</h1>
 <table style="width:100%;border-collapse:collapse;">
   <tr>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>🔖 Version</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;">1.0</td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📅 Révisé le</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;"><strong>🔖 Version</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:70%;">1.0</td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📅 Révisé le</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>✍️ Rédigé par</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;">Ressources humaines</td>
+  </tr>
+  <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🏢 Service</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;">Tous les services</td>
   </tr>
@@ -1323,10 +1367,10 @@ footer {
     <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:25%;">Outil</th>
     <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:25%;">Délai</th>
   </tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">1</td><td style="padding:8px 14px;border:1px solid #ccc;">Se connecter au portail RH</td><td style="padding:8px 14px;border:1px solid #ccc;">Portail intranet</td><td style="padding:8px 14px;border:1px solid #ccc;">—</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">1</td><td style="padding:8px 14px;border:1px solid #ccc;">Se connecter au portail RH</td><td style="padding:8px 14px;border:1px solid #ccc;">Portail intranet</td><td style="padding:8px 14px;border:1px solid #ccc;">-</td></tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;">2</td><td style="padding:8px 14px;border:1px solid #ccc;">Remplir le formulaire de demande d'absence</td><td style="padding:8px 14px;border:1px solid #ccc;">Formulaire F-12</td><td style="padding:8px 14px;border:1px solid #ccc;">5 minutes</td></tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;">3</td><td style="padding:8px 14px;border:1px solid #ccc;">Envoyer la demande à son gestionnaire immédiat</td><td style="padding:8px 14px;border:1px solid #ccc;">Courriel</td><td style="padding:8px 14px;border:1px solid #ccc;">48h avant</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">4</td><td style="padding:8px 14px;border:1px solid #ccc;">Attendre la confirmation écrite du gestionnaire</td><td style="padding:8px 14px;border:1px solid #ccc;">—</td><td style="padding:8px 14px;border:1px solid #ccc;">2 jours ouvrables</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">4</td><td style="padding:8px 14px;border:1px solid #ccc;">Attendre la confirmation écrite du gestionnaire</td><td style="padding:8px 14px;border:1px solid #ccc;">-</td><td style="padding:8px 14px;border:1px solid #ccc;">2 jours ouvrables</td></tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;">5</td><td style="padding:8px 14px;border:1px solid #ccc;">Mettre à jour son agenda partagé</td><td style="padding:8px 14px;border:1px solid #ccc;">Outlook</td><td style="padding:8px 14px;border:1px solid #ccc;">Une fois approuvé</td></tr>
 </table>
 
@@ -1352,7 +1396,7 @@ footer {
     <div class="card-left">
       <span class="card-icon">📑</span>
       <div>
-        <div class="card-title">Exemple B — Documentation intermédiaire</div>
+        <div class="card-title">Exemple B - Documentation intermédiaire</div>
         <div class="card-subtitle">Procédure avec plusieurs acteurs et outils · Idéal pour services partagés</div>
       </div>
     </div>
@@ -1362,7 +1406,6 @@ footer {
     </div>
   </div>
   <div class="preview theme-blue">
-    <div class="prev-title">Gestion des accès aux systèmes — Nouvel employé</div>
     <div class="prev-meta">
       <div class="prev-meta-row">
         <div class="prev-meta-cell"><span class="prev-meta-label">Version</span><span class="prev-meta-value">2.1</span></div>
@@ -1381,21 +1424,25 @@ footer {
     </div>
   </div>
   <div class="copy-src" id="tpl-docB">
-<h1>Gestion des accès aux systèmes — Nouvel employé</h1>
+<h1>Gestion des accès aux systèmes - Nouvel employé</h1>
 <table style="width:100%;border-collapse:collapse;">
   <tr>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📌 Processus</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3">Création des accès informatiques pour un nouvel employé</td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;"><strong>📌 Processus</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:70%;">Création des accès informatiques pour un nouvel employé</td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🔖 Version</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;">2.1</td>
+  </tr>
+  <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📅 Révisé le</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;">Janvier 2025</td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>✍️ Responsable</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;">Service des technologies de l'information</td>
+  </tr>
+  <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Acteurs impliqués</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;">RH · Gestionnaire · TI · Employé</td>
   </tr>
@@ -1419,31 +1466,31 @@ footer {
 
 <h2>📋 Procédure détaillée par acteur</h2>
 
-<h3>Étape 1 — Ressources humaines (J − 5 jours ouvrables)</h3>
+<h3>Étape 1 - Ressources humaines (J − 5 jours ouvrables)</h3>
 <p>Dès qu'une embauche est confirmée et que la date d'entrée en poste est connue, les RH doivent :</p>
 <p>1. Créer la fiche de l'employé dans le SIRH avec les informations complètes (nom légal, date de naissance, poste, service, date d'entrée).</p>
-<p>2. Générer l'avis d'embauche automatique depuis le SIRH — cet avis est envoyé par courriel au Service TI et au gestionnaire concerné.</p>
+<p>2. Générer l'avis d'embauche automatique depuis le SIRH - cet avis est envoyé par courriel au Service TI et au gestionnaire concerné.</p>
 <p>3. Vérifier que le formulaire de demande d'accès TI (formulaire TI-03) est joint à l'avis ou transmis séparément au gestionnaire pour qu'il le complète.</p>
 <p><em>Important : si la date d'entrée est confirmée à moins de 5 jours ouvrables, les RH doivent téléphoner directement au TI (poste 3300) pour déclencher une procédure d'urgence.</em></p>
 
-<h3>Étape 2 — Gestionnaire immédiat (J − 3 jours ouvrables)</h3>
+<h3>Étape 2 - Gestionnaire immédiat (J − 3 jours ouvrables)</h3>
 <p>Le gestionnaire est responsable d'identifier précisément les accès dont la nouvelle personne aura besoin dans l'exercice de ses fonctions. Il doit :</p>
 <p>1. Remplir le formulaire TI-03 disponible sur l'intranet (<em>RH → Formulaires → Accès informatiques</em>). Ce formulaire demande : les systèmes requis, le niveau d'accès (lecture / écriture / admin), les groupes de partage réseau, ainsi que la durée si l'employé est temporaire.</p>
 <p>2. Retourner le formulaire complété au TI par courriel à <strong>ti@organisation.qc.ca</strong> avec l'objet : <em>« Accès nouvel employé – [Nom] – [Date d'entrée] »</em>.</p>
 <p>3. Pour tout accès à des systèmes sensibles ou financiers, joindre également le formulaire d'autorisation F-07 signé par le directeur de service.</p>
 
-<h3>Étape 3 — Service TI (J − 1 jour ouvrable)</h3>
+<h3>Étape 3 - Service TI (J − 1 jour ouvrable)</h3>
 <p>À la réception du formulaire TI-03, le technicien assigné procède dans l'ordre suivant :</p>
 <p>1. <strong>Création du compte Active Directory</strong> : ouvrir la console <em>Utilisateurs et ordinateurs Active Directory</em>, créer le compte dans l'unité organisationnelle (OU) correspondant au service, appliquer les groupes de sécurité standard du poste.</p>
 <p>2. <strong>Provisionnement Office 365</strong> : assigner la licence appropriée dans le portail Microsoft 365 Admin Center. La synchronisation avec Azure AD prend environ 15 à 30 minutes.</p>
 <p>3. <strong>Accès aux applications additionnelles</strong> : selon les demandes du gestionnaire, configurer les accès dans chaque système (SIRH, VPN, lecteurs réseau partagés, etc.).</p>
 <p>4. <strong>Préparer la fiche de connexion initiale</strong> : noter le nom d'utilisateur, le mot de passe temporaire et les instructions de première connexion sur le formulaire TI-Accueil.</p>
 
-<h3>Étape 4 — Remise des accès (Jour J)</h3>
+<h3>Étape 4 - Remise des accès (Jour J)</h3>
 <p>Le matin de l'entrée en poste, le technicien TI ou le gestionnaire remet la fiche de connexion à l'employé en mains propres. L'employé doit immédiatement :</p>
 <p>1. Se connecter à son poste de travail avec le mot de passe temporaire.</p>
 <p>2. Changer son mot de passe au premier démarrage (le système l'y oblige).</p>
-<p>3. Activer l'authentification multifacteur (AMF) sur le portail Microsoft (<em>aka.ms/mysecurityinfo</em>) — cette étape est obligatoire et doit être complétée dans les 24 heures.</p>
+<p>3. Activer l'authentification multifacteur (AMF) sur le portail Microsoft (<em>aka.ms/mysecurityinfo</em>) - cette étape est obligatoire et doit être complétée dans les 24 heures.</p>
 <p>4. Signer et retourner au TI le formulaire d'accusé de réception des accès (formulaire TI-Accueil complété).</p>
 
 <h2>⚠️ Cas particuliers</h2>
@@ -1479,7 +1526,7 @@ footer {
     <div class="card-left">
       <span class="card-icon">📘</span>
       <div>
-        <div class="card-title">Exemple C — Documentation avancée</div>
+        <div class="card-title">Exemple C - Documentation avancée</div>
         <div class="card-subtitle">Procédure complexe avec erreurs, références et historique · Services spécialisés</div>
       </div>
     </div>
@@ -1489,7 +1536,6 @@ footer {
     </div>
   </div>
   <div class="preview theme-purple">
-    <div class="prev-title">Paramétrage des droits d'accès — Bibliothèque</div>
     <div class="prev-meta">
       <div class="prev-meta-row">
         <div class="prev-meta-cell"><span class="prev-meta-label">Version</span><span class="prev-meta-value">3.2</span></div>
@@ -1507,27 +1553,31 @@ footer {
     </div>
   </div>
   <div class="copy-src" id="tpl-docC">
-<h1>Paramétrage des droits d'accès — Bibliothèque (Koha)</h1>
+<h1>Paramétrage des droits d'accès - Bibliothèque (Koha)</h1>
 <table style="width:100%;border-collapse:collapse;">
   <tr>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📌 Sujet</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3">Paramétrage des catégories d'usagers et des droits de prêt dans Koha</td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;"><strong>📌 Sujet</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:70%;">Paramétrage des catégories d'usagers et des droits de prêt dans Koha</td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🔖 Version</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;">3.2</td>
+  </tr>
+  <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📅 Révisé le</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;">Janvier 2025</td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>✍️ Rédigé par</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+  <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🏛 Service</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;">Bibliothèque</td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Utilisateurs visés</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3">Techniciennes en documentation · Bibliothécaires</td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">Techniciennes en documentation · Bibliothécaires</td>
   </tr>
 </table>
 
@@ -1551,11 +1601,11 @@ footer {
 
 <h2>📋 Procédure détaillée</h2>
 
-<h3>Étape 1 — Préparer et valider les informations avant de toucher au système</h3>
+<h3>Étape 1 - Préparer et valider les informations avant de toucher au système</h3>
 <p>Avant de se connecter à Koha, rassembler les documents de référence. Ouvrir le fichier <em>Quotas_2025.xlsx</em> et le fichier <em>Catégories_Koha.xlsx</em> côte à côte. Vérifier que la demande de modification provient bien d'une résolution du comité bibliothèque (courriel ou procès-verbal). Si ce mandat est absent, interrompre la procédure et contacter le responsable de la bibliothèque.</p>
 <p>Identifier précisément quelles catégories doivent être modifiées et noter les nouvelles valeurs à saisir. Il est fortement recommandé de noter les valeurs actuelles (avant modification) dans un commentaire ou un journal de bord pour permettre un retour arrière rapide en cas d'erreur.</p>
 
-<h3>Étape 2 — Se connecter à l'environnement de TEST et effectuer les modifications</h3>
+<h3>Étape 2 - Se connecter à l'environnement de TEST et effectuer les modifications</h3>
 <p>Toujours commencer par l'environnement de test. Se connecter à <strong>koha-test.organisation.qc.ca</strong> avec ses identifiants habituels (VPN requis). Dans le menu principal, aller à <em>Administration → Paramètres → Catégories d'usagers</em>.</p>
 <p>La liste affiche toutes les catégories actives. Cliquer sur le code de la catégorie à modifier (ex. : <strong>ETU01</strong> pour étudiant temps plein, <strong>ENS</strong> pour enseignant, <strong>PER</strong> pour personnel). Une fiche de configuration s'ouvre. Les champs à modifier sont :</p>
 <p>• <strong>Nombre maximal de prêts :</strong> Mettre la valeur du tableau des quotas approuvés.</p>
@@ -1564,15 +1614,15 @@ footer {
 <p>• <strong>Réservations :</strong> Activer pour tous, sauf les usagers de type Visiteur.</p>
 <p>Cliquer sur <strong>Enregistrer</strong> en bas de page. Koha confirme la modification par un bandeau vert.</p>
 
-<h3>Étape 3 — Tester avec un compte usager fictif</h3>
+<h3>Étape 3 - Tester avec un compte usager fictif</h3>
 <p>Dans l'environnement de test, accéder à la fiche du compte de test correspondant à la catégorie modifiée. Le compte de test est nommé selon la convention <strong>TEST_[CODE]</strong> (ex. : TEST_ETU01). Simuler un prêt, un retour et une réservation pour vérifier que les limites s'appliquent correctement.</p>
 <p>Si le test est concluant, prendre une capture d'écran de la fiche de configuration et l'enregistrer dans le dossier <em>Serveur partagé → Bibliothèque → Captures → [Session_Année]</em>. Cette capture sert de preuve en cas de litige ou d'audit.</p>
 
-<h3>Étape 4 — Appliquer les modifications en PRODUCTION</h3>
-<p>Se déconnecter de l'environnement de test. Se connecter à l'instance de production à l'adresse habituelle de Koha. Reprendre exactement la même séquence qu'à l'étape 2. Ne jamais copier-coller des URL de l'environnement de test vers la production — les identifiants d'enregistrements peuvent différer.</p>
+<h3>Étape 4 - Appliquer les modifications en PRODUCTION</h3>
+<p>Se déconnecter de l'environnement de test. Se connecter à l'instance de production à l'adresse habituelle de Koha. Reprendre exactement la même séquence qu'à l'étape 2. Ne jamais copier-coller des URL de l'environnement de test vers la production - les identifiants d'enregistrements peuvent différer.</p>
 <p>Après chaque modification, reprendre une capture d'écran de la fiche de configuration en production. Consigner la modification dans le journal des changements (tableau Historique ci-dessous) : date, catégorie modifiée, valeurs avant et après, nom du technicien.</p>
 
-<h3>Étape 5 — Aviser l'équipe et archiver</h3>
+<h3>Étape 5 - Aviser l'équipe et archiver</h3>
 <p>Envoyer un courriel à l'ensemble de l'équipe de la bibliothèque (liste de distribution : equipe-biblio@organisation.qc.ca) pour les informer des catégories modifiées et des nouvelles valeurs. Joindre le tableau récapitulatif des modifications. Cette communication est essentielle pour que les collègues puissent répondre adéquatement aux questions des usagers.</p>
 <p>Archiver les captures d'écran et le courriel de confirmation dans le dossier partagé correspondant à la session.</p>
 
@@ -1594,7 +1644,7 @@ footer {
   <tr><td style="padding:8px 14px;border:1px solid #ccc;"><em>« Accès refusé »</em> pour un usager valide</td><td style="padding:8px 14px;border:1px solid #ccc;">La fiche usager appartient à une ancienne catégorie ou la catégorie a été mal assignée lors de l'inscription</td><td style="padding:8px 14px;border:1px solid #ccc;">Ouvrir la fiche usager → vérifier et corriger la catégorie → sauvegarder → retester</td></tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;"><em>« Limite de prêt atteinte »</em> alors que ce n'est pas le cas</td><td style="padding:8px 14px;border:1px solid #ccc;">Quota de la catégorie mal configuré ou des prêts non retournés bloquent le compteur</td><td style="padding:8px 14px;border:1px solid #ccc;">Vérifier le quota dans Administration → Catégories. Consulter aussi les prêts en cours de l'usager pour détecter des retours non enregistrés</td></tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;">La catégorie n'apparaît plus dans la liste</td><td style="padding:8px 14px;border:1px solid #ccc;">Catégorie désactivée ou supprimée par erreur lors d'une précédente intervention</td><td style="padding:8px 14px;border:1px solid #ccc;">Consulter le fichier de référence des catégories pour identifier le bon code, puis contacter le support Koha interne pour restaurer si nécessaire</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Les modifications ne sont pas enregistrées</td><td style="padding:8px 14px;border:1px solid #ccc;">Session Koha expirée (délai de 30 minutes) ou le bouton Enregistrer n'a pas été cliqué</td><td style="padding:8px 14px;border:1px solid #ccc;">Se reconnecter à Koha. Recommencer depuis l'étape 2. Ne pas utiliser le bouton Précédent du navigateur — cela peut corrompre la session</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Les modifications ne sont pas enregistrées</td><td style="padding:8px 14px;border:1px solid #ccc;">Session Koha expirée (délai de 30 minutes) ou le bouton Enregistrer n'a pas été cliqué</td><td style="padding:8px 14px;border:1px solid #ccc;">Se reconnecter à Koha. Recommencer depuis l'étape 2. Ne pas utiliser le bouton Précédent du navigateur - cela peut corrompre la session</td></tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;">Un renouvellement est refusé alors qu'il devrait être permis</td><td style="padding:8px 14px;border:1px solid #ccc;">Le document est réservé par un autre usager, ce qui bloque automatiquement le renouvellement, indépendamment du quota</td><td style="padding:8px 14px;border:1px solid #ccc;">Comportement normal de Koha. Informer l'usager que le document est réclamé et lui proposer une réservation une fois retourné</td></tr>
 </table>
 
@@ -1630,7 +1680,7 @@ footer {
     <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Par</th>
   </tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;">Janvier 2025</td><td style="padding:8px 14px;border:1px solid #ccc;">Ajout de la section erreurs courantes · Mise à jour des quotas session hiver 2025 · Ajout étape test en env. de test</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Août 2024</td><td style="padding:8px 14px;border:1px solid #ccc;">Migration vers Koha v23.11 — mise à jour des chemins de menu Administration</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Août 2024</td><td style="padding:8px 14px;border:1px solid #ccc;">Migration vers Koha v23.11 - mise à jour des chemins de menu Administration</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;">Janvier 2024</td><td style="padding:8px 14px;border:1px solid #ccc;">Ajout de la catégorie ETU-PT (étudiant temps partiel) · Révision politique de renouvellements pour enseignants</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;">Septembre 2023</td><td style="padding:8px 14px;border:1px solid #ccc;">Création initiale de la documentation</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
 </table>
@@ -1653,7 +1703,7 @@ footer {
   <div class="footer-right">Service du développement pédagogique &nbsp;·&nbsp; © 2026</div>
 </footer>
 
-<div class="toast" id="toast">✓ Gabarit copié — collez dans OneNote avec Ctrl+V</div>
+<div class="toast" id="toast">✓ Gabarit copié - collez dans OneNote avec Ctrl+V</div>
 
 <script>
 // ─── Theme toggle ─────────────────────────────────────────────────────────
@@ -1684,7 +1734,7 @@ themeBtn.addEventListener('click', () => {
 //              The closest reliable HTML equivalent that pastes as interactive
 //              To-Do items in OneNote is a <ul> with list-style-type:none and
 //              each item preceded by the Unicode TODO checkbox symbol rendered
-//              via a <span data-onenote-todo> attribute — but even this is
+//              via a <span data-onenote-todo> attribute - but even this is
 //              stripped. The only cross-platform approach confirmed to work is
 //              to render checkboxes as "☐ " prefix text. Users can then select
 //              those lines in OneNote and apply the To-Do tag (Ctrl+1) in bulk.
@@ -1692,13 +1742,103 @@ themeBtn.addEventListener('click', () => {
 //
 // ─────────────────────────────────────────────────────────────────────────
 
+function getFieldPlaceholder(labelText) {
+  const raw = (labelText || '').toLowerCase();
+  const label = raw
+    .replace(/[^\p{L}\p{N}\s/#-]/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  if (!label) return 'À remplir';
+  if (label.includes('nom')) return 'Nom complet';
+  if (label.includes('courriel') || label.includes('email') || label.includes('e-mail')) return 'nom@domaine.ca';
+  if (label.includes('date') && label.includes('heure')) return 'jj/mm/aaaa hh:mm';
+  if (label.includes('date')) return 'jj/mm/aaaa';
+  if (label.includes('heure')) return 'hh:mm';
+  if (label.includes('lieu') || label.includes('lien') || label.includes('local') || label.includes('url')) return 'Salle ou URL';
+  if (label.includes('equipe') || label.includes('équipe') || label.includes('service') || label.includes('unite') || label.includes('unité')) return 'Nom du service';
+  if (label.includes('poste') || label.includes('titre') || label.includes('role') || label.includes('rôle') || label.includes('responsable')) return 'Nom de la personne';
+  if (label.includes('projet') || label.includes('processus') || label.includes('sujet') || label.includes('theme') || label.includes('thème')) return 'Titre';
+  if (label.includes('cours')) return 'Nom du cours';
+  if (label.includes('semaine')) return 'Semaine #__';
+  if (label.includes('enseignant')) return 'Nom de la personne';
+  if (label.includes('groupe')) return 'Nom du groupe';
+  if (label.includes('dossier')) return 'Nom du dossier';
+  if (label.includes('debut') || label.includes('début') || label.includes('fin') || label.includes('echeance') || label.includes('échéance')) return 'jj/mm/aaaa';
+  if (label.includes('duree') || label.includes('durée')) return '__ min';
+  if (label.includes('budget')) return 'Montant';
+  if (label.includes('statut')) return 'En cours';
+  if (label.includes('version')) return '1.0';
+  return 'À remplir';
+}
+
 function buildHTML(el) {
-  // Clone and process: strip style attrs from headings so OneNote uses its styles
+  // Clone and process for a clean, spacious OneNote paste
   const clone = el.cloneNode(true);
 
   // Remove style attributes from h1-h6 so OneNote Heading styles apply
   clone.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach(h => {
     h.removeAttribute('style');
+  });
+
+  // Add explicit visual separators before sections (OneNote may ignore CSS borders)
+  clone.querySelectorAll('h2').forEach((h2) => {
+    const prevEl = h2.previousElementSibling;
+    if (prevEl && prevEl.tagName === 'H1') return;
+    if (prevEl && prevEl.classList && prevEl.classList.contains('section-divider')) return;
+    const sep = document.createElement('p');
+    sep.className = 'section-divider';
+    sep.textContent = '────────────────────────────────────────';
+    h2.parentNode.insertBefore(sep, h2);
+  });
+
+  // Normalize tables: remove inline table sizing/padding so global rules control spacing
+  clone.querySelectorAll('table,tr,th,td').forEach(node => {
+    node.removeAttribute('style');
+  });
+
+  // Ensure empty table cells remain visible and writable after paste
+  clone.querySelectorAll('td').forEach((td) => {
+    const txt = (td.textContent || '').replace(/\u00a0/g, ' ').trim();
+    const isEmpty = txt === '' && td.children.length === 0;
+    if (!isEmpty) return;
+
+    td.classList.add('entry-cell');
+    td.innerHTML = '&nbsp;';
+  });
+
+  // Add clear placeholders in label/value tables (e.g., "👤 Nom" -> "À remplir")
+  clone.querySelectorAll('tr').forEach((tr) => {
+    const rowCells = Array.from(tr.querySelectorAll('td'));
+    if (!rowCells.length || tr.querySelector('th')) return;
+
+    const hasLabelCells = rowCells.some((c) => c.querySelector('strong'));
+    if (!hasLabelCells) return;
+
+    rowCells.forEach((cell, idx) => {
+      const txt = (cell.textContent || '').replace(/\u00a0/g, ' ').trim();
+      const isEmpty = txt === '' && cell.children.length === 0;
+      if (!isEmpty) return;
+
+      const prev = rowCells[idx - 1];
+      const next = rowCells[idx + 1];
+      const prevStrong = prev ? prev.querySelector('strong') : null;
+      const nextStrong = next ? next.querySelector('strong') : null;
+      const nearLabel = prevStrong || nextStrong;
+      if (!nearLabel) return;
+
+      const labelText = prevStrong ? prevStrong.textContent : nextStrong.textContent;
+      const placeholder = getFieldPlaceholder(labelText);
+      cell.classList.add('entry-cell');
+      cell.innerHTML = `<span class="placeholder">${placeholder}</span>`;
+    });
+  });
+
+  // For all remaining empty data cells, render visible writing lines
+  clone.querySelectorAll('td.entry-cell').forEach((td) => {
+    if (td.querySelector('.placeholder')) return;
+    td.classList.add('entry-cell-lined');
+    td.innerHTML = '<div class="entry-line">&nbsp;</div><div class="entry-line">&nbsp;</div>';
   });
 
   // Replace <input type="checkbox"> with a styled span that pastes well
@@ -1715,14 +1855,24 @@ function buildHTML(el) {
 <head>
 <meta charset="UTF-8">
 <style>
-  body  { font-family:Calibri,sans-serif; font-size:11pt; line-height:1.5; margin:0; padding:0; color:#000; }
-  /* NO font-size on headings — let OneNote apply its own Heading styles */
+  body  { font-family:Calibri,sans-serif; font-size:12pt; line-height:1.7; margin:0; padding:4px 2px; color:#000; }
+  /* NO font-size on headings - let OneNote apply its own Heading styles */
   h1,h2,h3,h4,h5,h6 { font-family:Calibri,sans-serif; }
-  table  { border-collapse:collapse; width:100%; margin:10px 0; }
-  td,th  { padding:7px 12px; border:1px solid #cccccc; vertical-align:top; }
+  h1 { margin: 0 0 12px 0; }
+  h2 { margin: 18px 0 10px 0; }
+  h1 + h2 { margin-top:16px; }
+  h3,h4,h5,h6 { margin: 18px 0 8px 0; }
+  .section-divider { margin:18px 0 10px; color:#b3b3b3; letter-spacing:0.02em; }
+  table  { border-collapse:collapse; width:100% !important; min-width:960px; table-layout:fixed; margin:18px 0 24px; }
+  td,th  { padding:12px 16px; border:1px solid #cccccc; vertical-align:top; line-height:1.55; }
   th     { background-color:#f2f2f2; font-weight:bold; text-align:left; }
+  td.entry-cell { min-height:44px; }
+  .placeholder { color:#6f6f6f; font-style:italic; }
+  .entry-line { height:18px; border-bottom:1px solid #d9d9d9; }
+  .entry-line + .entry-line { margin-top:8px; }
   tr:nth-child(even) td { background-color:#fafafa; }
-  p      { margin:5px 0; }
+  p      { margin:8px 0; }
+  li     { margin:4px 0; }
   strong { font-weight:bold; }
   em     { font-style:italic; }
 </style>
@@ -1758,6 +1908,48 @@ function fallbackCopy(el, btn) {
   const tmp = document.createElement('div');
   const clone = el.cloneNode(true);
   clone.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach(h => h.removeAttribute('style'));
+  clone.querySelectorAll('h2').forEach((h2) => {
+    const prevEl = h2.previousElementSibling;
+    if (prevEl && prevEl.tagName === 'H1') return;
+    if (prevEl && prevEl.classList && prevEl.classList.contains('section-divider')) return;
+    const sep = document.createElement('p');
+    sep.textContent = '────────────────────────────────────────';
+    h2.parentNode.insertBefore(sep, h2);
+  });
+  clone.querySelectorAll('table,tr,th,td').forEach(node => node.removeAttribute('style'));
+  clone.querySelectorAll('td').forEach((td) => {
+    const txt = (td.textContent || '').replace(/\u00a0/g, ' ').trim();
+    const isEmpty = txt === '' && td.children.length === 0;
+    if (isEmpty) td.innerHTML = '&nbsp;';
+  });
+  clone.querySelectorAll('tr').forEach((tr) => {
+    const rowCells = Array.from(tr.querySelectorAll('td'));
+    if (!rowCells.length || tr.querySelector('th')) return;
+
+    const hasLabelCells = rowCells.some((c) => c.querySelector('strong'));
+    if (!hasLabelCells) return;
+
+    rowCells.forEach((cell, idx) => {
+      const txt = (cell.textContent || '').replace(/\u00a0/g, ' ').trim();
+      const isEmpty = txt === '' && cell.children.length === 0;
+      if (!isEmpty) return;
+
+      const prev = rowCells[idx - 1];
+      const next = rowCells[idx + 1];
+      const prevStrong = prev ? prev.querySelector('strong') : null;
+      const nextStrong = next ? next.querySelector('strong') : null;
+      const nearLabel = prevStrong || nextStrong;
+      if (!nearLabel) return;
+
+      const labelText = prevStrong ? prevStrong.textContent : nextStrong.textContent;
+      cell.textContent = getFieldPlaceholder(labelText);
+    });
+  });
+  clone.querySelectorAll('td').forEach((td) => {
+    const txt = (td.textContent || '').replace(/\u00a0/g, ' ').trim();
+    if (txt !== '') return;
+    td.innerHTML = '<div style="height:18px;border-bottom:1px solid #d9d9d9;">&nbsp;</div><div style="height:18px;border-bottom:1px solid #d9d9d9;margin-top:8px;">&nbsp;</div>';
+  });
   clone.querySelectorAll('input[type="checkbox"]').forEach(cb => {
     const s = document.createElement('span'); s.textContent = '☐ ';
     cb.parentNode.replaceChild(s, cb);
@@ -1790,3 +1982,4 @@ function showSuccess(btn) {
 </script>
 </body>
 </html>
+
