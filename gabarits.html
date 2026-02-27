@@ -3,79 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gabarits OneNote</title>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<title>Gabarits OneNote — Équipe Techno</title>
+<link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/fr/7/73/Logo-C%C3%A9gep_G%C3%A9rald-Godin.svg">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+
+  /* Light mode (default) */
+  --bg: #f9f7f3;
+  --bg-warm: #f2ede4;
+  --bg-alt: #eceae4;
   --ink: #18181f;
   --ink-mid: #44445a;
-  --paper: #f9f7f3;
-  --paper-warm: #f2ede4;
-  --paper-alt: #eceae4;
+  --surface: #e8e0d0;
   --rule: #ddd9d0;
   --rule-dark: #bab5aa;
+  --site-bg: #18181f;
+  --site-surface: #1a2e42;
+  --site-text: #f5f0e8;
+  --site-muted: #8a9ab0;
+  --site-border: rgba(255,255,255,0.07);
+  --logo-filter: brightness(0) invert(1);
+  --grain-opacity: 0.28;
+  --line-opacity: 0.13;
 
+  /* Card accent colors */
   --red: #b83232;     --red-bg: #faf0f0;   --red-mid: #e8c8c8;
   --blue: #1e3d6e;    --blue-bg: #f0f4fa;  --blue-mid: #c4d4ea;
   --green: #1e4d34;   --green-bg: #f0f7f3; --green-mid: #c0dccb;
   --purple: #3e1e6e;  --purple-bg: #f4f0fa;--purple-mid: #d0c0e8;
-  --gold: #8a6c00;    --gold-bg: #faf6e8;  --gold-mid: #e0d090;
+  --card-gold: #8a6c00; --gold-bg: #faf6e8;  --gold-mid: #e0d090;
   --teal: #1a4a52;    --teal-bg: #f0f6f7;  --teal-mid: #b8d8dc;
   --orange: #7a3800;  --orange-bg: #faf3ec;--orange-mid: #e8c8a0;
+}
+
+/* Dark mode overrides for page content area */
+html.dark {
+  --bg: #18181f;
+  --bg-warm: #1e1e27;
+  --bg-alt: #22222c;
+  --ink: #ede9e1;
+  --ink-mid: #9090a8;
+  --surface: #2a2a36;
+  --rule: #2e2e3a;
+  --rule-dark: #44445a;
+
+  --red-bg: #1f1018;   --red-mid: #4a2030;
+  --blue-bg: #101424;  --blue-mid: #1e2e54;
+  --green-bg: #0e1a14; --green-mid: #1a3a28;
+  --purple-bg: #16102a;--purple-mid: #30185a;
+  --gold-bg: #1a1608;  --gold-mid: #4a3c00;
+  --teal-bg: #0c181c;  --teal-mid: #12323c;
+  --orange-bg: #1a0e06;--orange-mid: #4a2210;
+}
+
+/* ─── SITE HEADER (Équipe Techno) ─── */
+.site-header {
+  background: var(--site-bg);
+  color: var(--site-text);
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content:''; position:absolute; inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: var(--grain-opacity);
+  pointer-events:none;
+}
+.site-header::after {
+  content:''; position:absolute;
+  top:0; right:18%; width:1px; height:100%;
+  background: linear-gradient(to bottom, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+  opacity: var(--line-opacity);
+}
+.site-header-inner {
+  max-width:900px; margin:0 auto;
+  padding: 28px 56px 0;
+  display:flex; align-items:center; justify-content:space-between;
+  position:relative;
+}
+.logo-wrap {
+  display:flex; align-items:center; gap:1.2rem;
+}
+.logo-wrap img {
+  height:44px;
+  filter: var(--logo-filter);
+  opacity:.9;
+  transition: filter .4s, opacity .4s;
+}
+.divider-v {
+  width:1px; height:36px;
+  background:var(--gold); opacity:.5;
+}
+.site-label {
+  font-size:.7rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--site-muted); line-height:1.65;
+}
+.site-label strong {
+  display:block; color:var(--site-text);
+  font-weight:500; letter-spacing:.18em;
+}
+.header-right { display:flex; align-items:center; gap:.9rem; }
+.site-badge {
+  font-size:.63rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--gold); border:1px solid rgba(201,168,76,.3);
+  padding:.35rem .9rem;
+}
+.theme-toggle {
+  background:none; border:1px solid var(--site-border);
+  color:var(--site-muted); cursor:pointer;
+  width:34px; height:34px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  transition:border-color .3s, color .3s;
+  flex-shrink:0;
+}
+.theme-toggle:hover { border-color:var(--gold); color:var(--gold); }
+.theme-toggle svg { width:15px; height:15px; }
+.icon-moon { display:none; }
+.icon-sun  { display:block; }
+html.dark .icon-moon { display:block; }
+html.dark .icon-sun  { display:none; }
+
+/* Hero content inside site-header */
+.hero-content {
+  max-width:900px; margin:0 auto;
+  padding: 44px 56px 52px;
+  position:relative;
+}
+.hero-eyebrow {
+  font-size:10.5px; font-weight:700; letter-spacing:.28em; text-transform:uppercase;
+  color: var(--gold); margin-bottom:18px;
+  display:flex; align-items:center; gap:12px;
+}
+.hero-eyebrow::before { content:''; width:28px; height:1px; background:var(--gold); }
+.hero-content h1 {
+  font-family:'DM Serif Display',serif;
+  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  font-weight:400; line-height:1.08; letter-spacing:-.02em;
+  color:var(--site-text); margin-bottom:18px; max-width:16ch;
+}
+.hero-content h1 em { font-style:italic; color:var(--gold-light); }
+.hero-desc {
+  font-size:.98rem; line-height:1.72; font-weight:300;
+  color:var(--site-muted); max-width:520px; margin-bottom:28px;
+}
+.hero-pills { display:flex; gap:8px; flex-wrap:wrap; }
+.pill {
+  font-size:.68rem; font-weight:600; letter-spacing:.07em; text-transform:uppercase;
+  padding:4px 12px; border-radius:2px;
+  background:rgba(255,255,255,.07); color:rgba(255,255,255,.5);
+  border:1px solid rgba(255,255,255,.1);
+}
+.hero-bottom-line {
+  position:absolute; bottom:0; left:0;
+  width:100%; height:3px;
+  background: linear-gradient(90deg, var(--gold) 0%, rgba(201,168,76,.3) 60%, transparent 100%);
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
 body {
   font-family: 'DM Sans', sans-serif;
-  background: var(--paper);
+  background: var(--bg);
   color: var(--ink);
   line-height: 1.6;
-}
-
-/* ─── HERO ─── */
-.hero {
-  background: var(--ink);
-  color: #fff;
-  padding: 72px 56px 60px;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content:''; position:absolute; top:-80px; right:-80px;
-  width:420px; height:420px; border-radius:50%;
-  background: radial-gradient(circle, rgba(184,50,50,.15) 0%, transparent 70%);
-  pointer-events:none;
-}
-.hero::after {
-  content:''; position:absolute; bottom:0; left:0;
-  width:100%; height:3px;
-  background: linear-gradient(90deg, var(--red) 0%, var(--gold) 55%, transparent 100%);
-}
-.hero-inner { max-width:900px; margin:0 auto; position:relative; }
-.hero-eyebrow {
-  font-size:10.5px; font-weight:700; letter-spacing:.28em; text-transform:uppercase;
-  color: var(--red); margin-bottom:22px;
-  display:flex; align-items:center; gap:12px;
-}
-.hero-eyebrow::before { content:''; width:28px; height:1px; background:var(--red); }
-h1 {
-  font-family:'Libre Baskerville',serif;
-  font-size: clamp(2rem, 4.5vw, 3.4rem);
-  font-weight:700; line-height:1.17; letter-spacing:-.02em;
-  margin-bottom:22px;
-}
-h1 em { font-style:italic; color:#c4a87a; }
-.hero-desc {
-  font-size:1rem; line-height:1.75; font-weight:300;
-  color:rgba(255,255,255,.65); max-width:560px; margin-bottom:36px;
-}
-.hero-pills { display:flex; gap:10px; flex-wrap:wrap; }
-.pill {
-  font-size:.72rem; font-weight:600; letter-spacing:.07em; text-transform:uppercase;
-  padding:5px 13px; border-radius:2px;
-  background:rgba(255,255,255,.08); color:rgba(255,255,255,.55);
-  border:1px solid rgba(255,255,255,.12);
+  transition: background .4s, color .4s;
 }
 
 /* ─── INSTRUCTIONS ─── */
@@ -138,7 +232,7 @@ h1 em { font-style:italic; color:#c4a87a; }
   padding:18px 26px;
   display:flex; align-items:center; justify-content:space-between;
   border-bottom:1px solid var(--rule);
-  background: var(--paper-warm);
+  background: var(--bg-warm);
   gap:12px; flex-wrap:wrap;
 }
 .card-left { display:flex; align-items:center; gap:13px; }
@@ -178,12 +272,13 @@ h1 em { font-style:italic; color:#c4a87a; }
 /* ─── PREVIEW ─── */
 .preview {
   padding:32px 36px;
-  background:#fff;
+  background: var(--bg);
   font-family:'DM Sans',sans-serif;
   font-size:.84rem;
   color:var(--ink-mid);
   line-height:1.7;
 }
+html.dark .preview { background: #1e1e27; }
 
 /* Preview sub-elements */
 .prev-title {
@@ -251,13 +346,13 @@ h1 em { font-style:italic; color:#c4a87a; }
   padding:7px 12px; border:1px solid var(--rule);
   text-align:left; font-size:.7rem; font-weight:700;
   letter-spacing:.07em; text-transform:uppercase;
-  background:var(--paper-warm); color:var(--ink);
+  background:var(--bg-warm); color:var(--ink);
 }
 .prev-table td {
   padding:6px 12px; border:1px solid var(--rule);
   color:#bbb; font-style:italic;
 }
-.prev-table tr:nth-child(even) td { background:var(--paper); }
+.prev-table tr:nth-child(even) td { background:var(--bg-alt); }
 
 .prev-check {
   display:flex; align-items:flex-start; gap:9px;
@@ -297,26 +392,70 @@ h1 em { font-style:italic; color:#c4a87a; }
 
 /* ─── FOOTER ─── */
 footer {
-  background:var(--ink); color:rgba(255,255,255,.35);
-  text-align:center; padding:28px;
-  font-size:.76rem; letter-spacing:.04em;
+  background: var(--site-bg);
+  color:rgba(255,255,255,.35);
+  padding:28px 56px;
+  font-size:.74rem; letter-spacing:.06em;
+  display:flex; align-items:center; justify-content:space-between;
+  border-top:1px solid rgba(201,168,76,.15);
+}
+.footer-left { display:flex; align-items:center; gap:1rem; }
+.footer-label { font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; }
+.footer-right { font-size:.68rem; opacity:.4; }
+.footer-dot-row { display:flex; gap:.4rem; align-items:center; }
+.footer-dot {
+  width:4px; height:4px; border-radius:50%;
+  background:var(--gold); opacity:.35;
+  animation: footerPulse 3s ease-in-out infinite;
+}
+.footer-dot:nth-child(2) { animation-delay:.5s; opacity:.22; }
+.footer-dot:nth-child(3) { animation-delay:1s; opacity:.12; }
+@keyframes footerPulse {
+  0%,100% { transform:scale(1); }
+  50% { transform:scale(1.5); opacity:.6; }
 }
 
 @media(max-width:640px){
-  .hero, .instructions, .main { padding-left:24px; padding-right:24px; }
+  .site-header-inner, .hero-content, .instructions, .main { padding-left:24px; padding-right:24px; }
   .prev-meta-row { flex-direction:column; }
   .prev-meta-cell { border-right:none; }
+  footer { flex-direction:column; gap:.8rem; padding:20px 24px; }
 }
 </style>
 </head>
 <body>
 
-<!-- ═══ HERO ═══ -->
-<header class="hero">
-  <div class="hero-inner">
+<!-- ═══ SITE HEADER — Équipe Techno ═══ -->
+<div class="site-header">
+  <div class="site-header-inner">
+    <div class="logo-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/fr/7/73/Logo-C%C3%A9gep_G%C3%A9rald-Godin.svg"
+           alt="Logo Cégep Gérald-Godin">
+      <div class="divider-v"></div>
+      <div class="site-label">
+        <strong>Équipe Techno</strong>
+        Service du développement pédagogique
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="site-badge">Gabarits OneNote</div>
+      <button class="theme-toggle" id="themeBtn" aria-label="Basculer le thème" title="Clair / Sombre">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="hero-content">
     <div class="hero-eyebrow">OneNote · Gabarits de pages</div>
     <h1>Des notes <em>structurées,</em><br>une équipe alignée.</h1>
-    <p class="hero-desc">Choisissez un gabarit, cliquez <strong style="color:#fff;">Copier</strong>, collez dans OneNote. Mise en forme, tableaux et styles appliqués automatiquement.</p>
+    <p class="hero-desc">Choisissez un gabarit, cliquez <strong style="color:#fff;">Copier</strong>, collez dans OneNote. Titres stylés, tableaux et cases à cocher prêts à remplir.</p>
     <div class="hero-pills">
       <span class="pill">Soutien administratif</span>
       <span class="pill">Professionnels</span>
@@ -324,14 +463,15 @@ footer {
       <span class="pill">Enseignants</span>
       <span class="pill">Étudiants</span>
     </div>
+    <div class="hero-bottom-line"></div>
   </div>
-</header>
+</div>
 
 <!-- ═══ INSTRUCTIONS ═══ -->
 <div class="instructions">
   <div class="instructions-inner">
     <div class="instr-icon">📋</div>
-    <p><strong>Comment utiliser :</strong> Cliquez sur <strong>Copier</strong> → ouvrez OneNote → nouvelle page → <kbd>Ctrl+V</kbd>. Le gabarit apparaît avec ses titres stylés, tableaux et cases à cocher natifs. Remplissez simplement les zones en italique.</p>
+    <p><strong>Comment utiliser :</strong> Cliquez sur <strong>Copier</strong> → ouvrez OneNote → nouvelle page → <kbd>Ctrl+V</kbd>. Les titres appliquent automatiquement les styles OneNote (Titre 1, 2, 3…). Pour convertir les <strong>☐ en vraies cases à cocher</strong> OneNote : sélectionnez les lignes ☐, puis appuyez sur <kbd>Ctrl+1</kbd> (tag « À faire »).</p>
   </div>
 </div>
 
@@ -561,6 +701,8 @@ footer {
   </tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td></tr>
 </table>
 
 <h2>🎯 Priorités — Semaine prochaine</h2>
@@ -585,6 +727,8 @@ footer {
   </tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">→</td></tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">→</td></tr>
+
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td></tr>
 </table>
   </div>
 </div>
@@ -674,6 +818,8 @@ footer {
   </tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td></tr>
 </table>
 
 <h2>📋 Étapes détaillées</h2>
@@ -700,6 +846,8 @@ footer {
   </tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td></tr>
 </table>
 
 <h2>📂 Documents liés</h2>
@@ -711,6 +859,8 @@ footer {
   </tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td></tr>
 </table>
 
 <h2>🕓 Historique des révisions</h2>
@@ -721,6 +871,9 @@ footer {
     <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Par</th>
   </tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;">Création initiale</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td></tr>
 </table>
   </div>
 </div>
@@ -830,6 +983,8 @@ footer {
   </tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;">Moyen</td><td style="padding:8px 14px;border:1px solid #ccc;">Élevé</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;">Faible</td><td style="padding:8px 14px;border:1px solid #ccc;">Moyen</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td></tr>
 </table>
 
 <h2>🔔 Décisions requises</h2>
@@ -841,6 +996,8 @@ footer {
   </tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td></tr>
 </table>
   </div>
 </div>
@@ -1077,6 +1234,8 @@ footer {
   </tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td></tr>
 </table>
   </div>
 </div>
@@ -1226,7 +1385,7 @@ footer {
 <table style="width:100%;border-collapse:collapse;">
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📌 Processus</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3">Création des accès pour un nouvel employé</td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3">Création des accès informatiques pour un nouvel employé</td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🔖 Version</strong></td>
@@ -1238,12 +1397,12 @@ footer {
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>✍️ Responsable</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;">Service des technologies de l'information</td>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Acteurs impliqués</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;">RH, Gestionnaire, TI</td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">RH · Gestionnaire · TI · Employé</td>
   </tr>
 </table>
 
 <h2>🎯 Objectif</h2>
-<p>S'assurer que tout nouvel employé dispose de tous les accès informatiques nécessaires dès son premier jour de travail, de façon sécurisée et traçable.</p>
+<p>S'assurer que tout nouvel employé dispose des accès informatiques requis dès son premier jour de travail. Ce processus implique trois services (RH, gestionnaire et TI) qui doivent coordonner leurs actions au moins 5 jours ouvrables avant l'entrée en poste. Un accès manquant le jour J entraîne des délais importants et nuit à l'intégration de la personne.</p>
 
 <h2>🛠 Systèmes concernés</h2>
 <table style="width:100%;border-collapse:collapse;">
@@ -1252,27 +1411,40 @@ footer {
     <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Description</th>
     <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Accès standard</th>
   </tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Active Directory</td><td style="padding:8px 14px;border:1px solid #ccc;">Compte Windows et courriel</td><td style="padding:8px 14px;border:1px solid #ccc;">Tous les employés</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Office 365</td><td style="padding:8px 14px;border:1px solid #ccc;">Suite bureautique et Teams</td><td style="padding:8px 14px;border:1px solid #ccc;">Tous les employés</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">SIRH</td><td style="padding:8px 14px;border:1px solid #ccc;">Gestion RH (paie, congés)</td><td style="padding:8px 14px;border:1px solid #ccc;">Selon le poste</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Autres systèmes</td><td style="padding:8px 14px;border:1px solid #ccc;">Selon le service</td><td style="padding:8px 14px;border:1px solid #ccc;">Sur demande du gestionnaire</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Active Directory</td><td style="padding:8px 14px;border:1px solid #ccc;">Compte Windows et courriel institutionnel</td><td style="padding:8px 14px;border:1px solid #ccc;">Tous les employés</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Office 365</td><td style="padding:8px 14px;border:1px solid #ccc;">Suite bureautique, Teams, SharePoint</td><td style="padding:8px 14px;border:1px solid #ccc;">Tous les employés</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">SIRH (Employer D)</td><td style="padding:8px 14px;border:1px solid #ccc;">Paie, congés, dossier RH</td><td style="padding:8px 14px;border:1px solid #ccc;">Selon le poste</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Autres applications métier</td><td style="padding:8px 14px;border:1px solid #ccc;">ERP, logiciels spécialisés, VPN</td><td style="padding:8px 14px;border:1px solid #ccc;">Sur demande du gestionnaire</td></tr>
 </table>
 
-<h2>📋 Étapes par acteur</h2>
-<table style="width:100%;border-collapse:collapse;">
-  <tr style="background:#f0f0f0;">
-    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Acteur</th>
-    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Action</th>
-    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Outil / Système</th>
-    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Délai</th>
-  </tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><strong>RH</strong></td><td style="padding:8px 14px;border:1px solid #ccc;">Créer la fiche de l'employé et envoyer l'avis d'embauche au TI</td><td style="padding:8px 14px;border:1px solid #ccc;">SIRH + courriel</td><td style="padding:8px 14px;border:1px solid #ccc;">J − 5 jours</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><strong>Gestionnaire</strong></td><td style="padding:8px 14px;border:1px solid #ccc;">Préciser les accès requis via le formulaire de demande TI</td><td style="padding:8px 14px;border:1px solid #ccc;">Formulaire TI-03</td><td style="padding:8px 14px;border:1px solid #ccc;">J − 3 jours</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><strong>TI</strong></td><td style="padding:8px 14px;border:1px solid #ccc;">Créer le compte Windows et courriel</td><td style="padding:8px 14px;border:1px solid #ccc;">Active Directory</td><td style="padding:8px 14px;border:1px solid #ccc;">J − 1 jour</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><strong>TI</strong></td><td style="padding:8px 14px;border:1px solid #ccc;">Configurer les accès aux autres systèmes demandés</td><td style="padding:8px 14px;border:1px solid #ccc;">Selon système</td><td style="padding:8px 14px;border:1px solid #ccc;">J − 1 jour</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><strong>TI</strong></td><td style="padding:8px 14px;border:1px solid #ccc;">Remettre les informations de connexion à l'employé (ou gestionnaire)</td><td style="padding:8px 14px;border:1px solid #ccc;">En personne / courriel sécurisé</td><td style="padding:8px 14px;border:1px solid #ccc;">Jour J</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><strong>Employé</strong></td><td style="padding:8px 14px;border:1px solid #ccc;">Changer son mot de passe et activer l'authentification multifacteur</td><td style="padding:8px 14px;border:1px solid #ccc;">Portail Microsoft</td><td style="padding:8px 14px;border:1px solid #ccc;">Jour J</td></tr>
-</table>
+<h2>📋 Procédure détaillée par acteur</h2>
+
+<h3>Étape 1 — Ressources humaines (J − 5 jours ouvrables)</h3>
+<p>Dès qu'une embauche est confirmée et que la date d'entrée en poste est connue, les RH doivent :</p>
+<p>1. Créer la fiche de l'employé dans le SIRH avec les informations complètes (nom légal, date de naissance, poste, service, date d'entrée).</p>
+<p>2. Générer l'avis d'embauche automatique depuis le SIRH — cet avis est envoyé par courriel au Service TI et au gestionnaire concerné.</p>
+<p>3. Vérifier que le formulaire de demande d'accès TI (formulaire TI-03) est joint à l'avis ou transmis séparément au gestionnaire pour qu'il le complète.</p>
+<p><em>Important : si la date d'entrée est confirmée à moins de 5 jours ouvrables, les RH doivent téléphoner directement au TI (poste 3300) pour déclencher une procédure d'urgence.</em></p>
+
+<h3>Étape 2 — Gestionnaire immédiat (J − 3 jours ouvrables)</h3>
+<p>Le gestionnaire est responsable d'identifier précisément les accès dont la nouvelle personne aura besoin dans l'exercice de ses fonctions. Il doit :</p>
+<p>1. Remplir le formulaire TI-03 disponible sur l'intranet (<em>RH → Formulaires → Accès informatiques</em>). Ce formulaire demande : les systèmes requis, le niveau d'accès (lecture / écriture / admin), les groupes de partage réseau, ainsi que la durée si l'employé est temporaire.</p>
+<p>2. Retourner le formulaire complété au TI par courriel à <strong>ti@organisation.qc.ca</strong> avec l'objet : <em>« Accès nouvel employé – [Nom] – [Date d'entrée] »</em>.</p>
+<p>3. Pour tout accès à des systèmes sensibles ou financiers, joindre également le formulaire d'autorisation F-07 signé par le directeur de service.</p>
+
+<h3>Étape 3 — Service TI (J − 1 jour ouvrable)</h3>
+<p>À la réception du formulaire TI-03, le technicien assigné procède dans l'ordre suivant :</p>
+<p>1. <strong>Création du compte Active Directory</strong> : ouvrir la console <em>Utilisateurs et ordinateurs Active Directory</em>, créer le compte dans l'unité organisationnelle (OU) correspondant au service, appliquer les groupes de sécurité standard du poste.</p>
+<p>2. <strong>Provisionnement Office 365</strong> : assigner la licence appropriée dans le portail Microsoft 365 Admin Center. La synchronisation avec Azure AD prend environ 15 à 30 minutes.</p>
+<p>3. <strong>Accès aux applications additionnelles</strong> : selon les demandes du gestionnaire, configurer les accès dans chaque système (SIRH, VPN, lecteurs réseau partagés, etc.).</p>
+<p>4. <strong>Préparer la fiche de connexion initiale</strong> : noter le nom d'utilisateur, le mot de passe temporaire et les instructions de première connexion sur le formulaire TI-Accueil.</p>
+
+<h3>Étape 4 — Remise des accès (Jour J)</h3>
+<p>Le matin de l'entrée en poste, le technicien TI ou le gestionnaire remet la fiche de connexion à l'employé en mains propres. L'employé doit immédiatement :</p>
+<p>1. Se connecter à son poste de travail avec le mot de passe temporaire.</p>
+<p>2. Changer son mot de passe au premier démarrage (le système l'y oblige).</p>
+<p>3. Activer l'authentification multifacteur (AMF) sur le portail Microsoft (<em>aka.ms/mysecurityinfo</em>) — cette étape est obligatoire et doit être complétée dans les 24 heures.</p>
+<p>4. Signer et retourner au TI le formulaire d'accusé de réception des accès (formulaire TI-Accueil complété).</p>
 
 <h2>⚠️ Cas particuliers</h2>
 <table style="width:100%;border-collapse:collapse;">
@@ -1280,16 +1452,17 @@ footer {
     <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Situation</th>
     <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Marche à suivre</th>
   </tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Embauche de dernière minute</td><td style="padding:8px 14px;border:1px solid #ccc;">Contacter directement le technicien de garde TI au poste 3300</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Accès à des systèmes sensibles</td><td style="padding:8px 14px;border:1px solid #ccc;">Requiert l'approbation du directeur du service + formulaire F-07</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Employé temporaire ou contractuel</td><td style="padding:8px 14px;border:1px solid #ccc;">Compte créé avec date d'expiration — préciser la durée dans le formulaire</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><strong>Embauche de dernière minute (&lt; 48 h)</strong></td><td style="padding:8px 14px;border:1px solid #ccc;">Téléphoner directement au TI, poste 3300. Seuls les accès de base (Windows + courriel) peuvent être garantis. Les accès additionnels seront configurés dans les 48h suivant l'entrée en poste.</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><strong>Accès à des systèmes sensibles ou financiers</strong></td><td style="padding:8px 14px;border:1px solid #ccc;">Requiert l'approbation écrite du directeur de service via le formulaire F-07. Sans ce formulaire, le TI ne peut pas activer ces accès, même si le gestionnaire immédiat en fait la demande.</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><strong>Employé temporaire, contractuel ou stagiaire</strong></td><td style="padding:8px 14px;border:1px solid #ccc;">Le compte est créé avec une date d'expiration automatique. Indiquer impérativement la date de fin de contrat dans le formulaire TI-03. Si le contrat est prolongé, le gestionnaire doit en aviser le TI 5 jours avant l'expiration.</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><strong>Télétravail dès le premier jour</strong></td><td style="padding:8px 14px;border:1px solid #ccc;">Le gestionnaire doit en aviser le TI dès la soumission du TI-03. Un accès VPN et une configuration à distance seront préparés. La remise des accès se fera par courriel sécurisé plutôt qu'en mains propres.</td></tr>
 </table>
 
 <h2>📞 Contacts</h2>
 <table style="width:100%;border-collapse:collapse;">
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;width:30%;"><strong>Service TI</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;">ti@organisation.qc.ca &nbsp;|&nbsp; poste 3300</td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">ti@organisation.qc.ca &nbsp;|&nbsp; poste 3300 &nbsp;|&nbsp; Lun–Ven 8h–17h</td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Ressources humaines</strong></td>
@@ -1334,11 +1507,11 @@ footer {
     </div>
   </div>
   <div class="copy-src" id="tpl-docC">
-<h1>Paramétrage des droits d'accès — Bibliothèque</h1>
+<h1>Paramétrage des droits d'accès — Bibliothèque (Koha)</h1>
 <table style="width:100%;border-collapse:collapse;">
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📌 Sujet</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3">Paramétrage des droits des usagers dans Koha</td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3">Paramétrage des catégories d'usagers et des droits de prêt dans Koha</td>
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🔖 Version</strong></td>
@@ -1354,66 +1527,81 @@ footer {
   </tr>
   <tr>
     <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Utilisateurs visés</strong></td>
-    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3">Techniciennes en documentation, bibliothécaires</td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3">Techniciennes en documentation · Bibliothécaires</td>
   </tr>
 </table>
 
 <h2>🎯 Contexte et objectifs</h2>
-<p>Cette documentation décrit la procédure pour configurer et modifier les droits d'accès des usagers (étudiants, personnel, enseignants) dans le système intégré de gestion de bibliothèque Koha.</p>
-<p><strong>Problème résolu :</strong> Éviter les erreurs d'accès lors des périodes d'inscription et s'assurer que les quotas de prêt sont correctement attribués selon le type d'usager.</p>
+<p>Cette documentation décrit comment configurer et modifier les droits d'accès des usagers (étudiants, personnel, enseignants) dans Koha, le système intégré de gestion de bibliothèque (SIGB) utilisé par l'établissement.</p>
+<p>Ce paramétrage est requis à chaque début de session (automne, hiver, été) pour s'assurer que les quotas de prêt, les durées et les fonctionnalités (réservations, renouvellements) correspondent aux règles de la politique de prêt en vigueur. Une mauvaise configuration entraîne des refus d'accès injustifiés ou, à l'inverse, des prêts non conformes à la politique.</p>
+<p><strong>Précondition importante :</strong> toute modification des quotas doit d'abord avoir été approuvée par le comité de la bibliothèque. Ne jamais modifier les valeurs sans mandat écrit.</p>
 
 <h2>🛠 Outils et accès nécessaires</h2>
 <table style="width:100%;border-collapse:collapse;">
   <tr style="background:#f0f0f0;">
-    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Outil / Système</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Outil / Ressource</th>
     <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Droits requis</th>
-    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Remarque</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Où le trouver</th>
   </tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Koha (SIGB)</td><td style="padding:8px 14px;border:1px solid #ccc;">Accès superutilisateur ou bibliothécaire</td><td style="padding:8px 14px;border:1px solid #ccc;">Demander au TI si accès manquant</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Fichier de référence des catégories</td><td style="padding:8px 14px;border:1px solid #ccc;">Lecture</td><td style="padding:8px 14px;border:1px solid #ccc;">Disponible sur le serveur partagé</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Liste des types d'usagers à jour</td><td style="padding:8px 14px;border:1px solid #ccc;">Fournie par les RH</td><td style="padding:8px 14px;border:1px solid #ccc;">Mise à jour à chaque session</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Koha (SIGB)</td><td style="padding:8px 14px;border:1px solid #ccc;">Compte bibliothécaire (superlibrarian ou borrowers)</td><td style="padding:8px 14px;border:1px solid #ccc;">Demander au TI si accès manquant</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Fichier de référence des catégories</td><td style="padding:8px 14px;border:1px solid #ccc;">Lecture</td><td style="padding:8px 14px;border:1px solid #ccc;">Serveur partagé → Bibliothèque → Référentiels → Catégories_Koha.xlsx</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Tableau des quotas approuvés</td><td style="padding:8px 14px;border:1px solid #ccc;">Lecture</td><td style="padding:8px 14px;border:1px solid #ccc;">Serveur partagé → Bibliothèque → Politiques → Quotas_2025.xlsx</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Environnement de test Koha</td><td style="padding:8px 14px;border:1px solid #ccc;">Accès complet (tests uniquement)</td><td style="padding:8px 14px;border:1px solid #ccc;">koha-test.organisation.qc.ca (VPN requis)</td></tr>
 </table>
 
 <h2>📋 Procédure détaillée</h2>
-<table style="width:100%;border-collapse:collapse;">
-  <tr style="background:#f0f0f0;">
-    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:5%;">#</th>
-    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:40%;">Étape</th>
-    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:30%;">Instructions précises</th>
-    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:25%;">Remarques importantes</th>
-  </tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">1</td><td style="padding:8px 14px;border:1px solid #ccc;">Se connecter à Koha avec un compte bibliothécaire</td><td style="padding:8px 14px;border:1px solid #ccc;">Aller à <em>Administration → Catégories d'usagers</em></td><td style="padding:8px 14px;border:1px solid #ccc;">Ne pas utiliser le compte administrateur général</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">2</td><td style="padding:8px 14px;border:1px solid #ccc;">Identifier la catégorie d'usager à modifier</td><td style="padding:8px 14px;border:1px solid #ccc;">Ex. : ETU01 = Étudiant temps plein</td><td style="padding:8px 14px;border:1px solid #ccc;">Référer au fichier de référence des catégories</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">3</td><td style="padding:8px 14px;border:1px solid #ccc;">Modifier les limites de prêt selon le tableau des quotas</td><td style="padding:8px 14px;border:1px solid #ccc;">Champ <em>Nombre maximal de prêts</em></td><td style="padding:8px 14px;border:1px solid #ccc;">Vérifier les quotas approuvés par le comité bibliothèque</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">4</td><td style="padding:8px 14px;border:1px solid #ccc;">Configurer la période de prêt par défaut</td><td style="padding:8px 14px;border:1px solid #ccc;">Champ <em>Durée de prêt par défaut (jours)</em></td><td style="padding:8px 14px;border:1px solid #ccc;">Respecter les durées de la politique de prêt</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">5</td><td style="padding:8px 14px;border:1px solid #ccc;">Activer ou désactiver les fonctionnalités (réservations, renouvellements)</td><td style="padding:8px 14px;border:1px solid #ccc;">Cocher/décocher les cases correspondantes</td><td style="padding:8px 14px;border:1px solid #ccc;">Les enseignants ont droit aux renouvellements illimités</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">6</td><td style="padding:8px 14px;border:1px solid #ccc;">Sauvegarder les modifications</td><td style="padding:8px 14px;border:1px solid #ccc;">Bouton <em>Enregistrer</em> en bas de page</td><td style="padding:8px 14px;border:1px solid #ccc;">Prendre une capture d'écran pour consigner la modification</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">7</td><td style="padding:8px 14px;border:1px solid #ccc;">Tester sur un compte usager de test</td><td style="padding:8px 14px;border:1px solid #ccc;">Utiliser le compte <em>TEST_ETU01</em></td><td style="padding:8px 14px;border:1px solid #ccc;">Toujours tester avant de déployer en production</td></tr>
-</table>
+
+<h3>Étape 1 — Préparer et valider les informations avant de toucher au système</h3>
+<p>Avant de se connecter à Koha, rassembler les documents de référence. Ouvrir le fichier <em>Quotas_2025.xlsx</em> et le fichier <em>Catégories_Koha.xlsx</em> côte à côte. Vérifier que la demande de modification provient bien d'une résolution du comité bibliothèque (courriel ou procès-verbal). Si ce mandat est absent, interrompre la procédure et contacter le responsable de la bibliothèque.</p>
+<p>Identifier précisément quelles catégories doivent être modifiées et noter les nouvelles valeurs à saisir. Il est fortement recommandé de noter les valeurs actuelles (avant modification) dans un commentaire ou un journal de bord pour permettre un retour arrière rapide en cas d'erreur.</p>
+
+<h3>Étape 2 — Se connecter à l'environnement de TEST et effectuer les modifications</h3>
+<p>Toujours commencer par l'environnement de test. Se connecter à <strong>koha-test.organisation.qc.ca</strong> avec ses identifiants habituels (VPN requis). Dans le menu principal, aller à <em>Administration → Paramètres → Catégories d'usagers</em>.</p>
+<p>La liste affiche toutes les catégories actives. Cliquer sur le code de la catégorie à modifier (ex. : <strong>ETU01</strong> pour étudiant temps plein, <strong>ENS</strong> pour enseignant, <strong>PER</strong> pour personnel). Une fiche de configuration s'ouvre. Les champs à modifier sont :</p>
+<p>• <strong>Nombre maximal de prêts :</strong> Mettre la valeur du tableau des quotas approuvés.</p>
+<p>• <strong>Durée de prêt par défaut (jours) :</strong> Respecter la politique de prêt (ex. : 21 jours pour étudiants, 60 jours pour enseignants).</p>
+<p>• <strong>Renouvellements autorisés :</strong> Les enseignants ont droit à des renouvellements illimités (valeur : 99). Pour les étudiants : 2 renouvellements maximum.</p>
+<p>• <strong>Réservations :</strong> Activer pour tous, sauf les usagers de type Visiteur.</p>
+<p>Cliquer sur <strong>Enregistrer</strong> en bas de page. Koha confirme la modification par un bandeau vert.</p>
+
+<h3>Étape 3 — Tester avec un compte usager fictif</h3>
+<p>Dans l'environnement de test, accéder à la fiche du compte de test correspondant à la catégorie modifiée. Le compte de test est nommé selon la convention <strong>TEST_[CODE]</strong> (ex. : TEST_ETU01). Simuler un prêt, un retour et une réservation pour vérifier que les limites s'appliquent correctement.</p>
+<p>Si le test est concluant, prendre une capture d'écran de la fiche de configuration et l'enregistrer dans le dossier <em>Serveur partagé → Bibliothèque → Captures → [Session_Année]</em>. Cette capture sert de preuve en cas de litige ou d'audit.</p>
+
+<h3>Étape 4 — Appliquer les modifications en PRODUCTION</h3>
+<p>Se déconnecter de l'environnement de test. Se connecter à l'instance de production à l'adresse habituelle de Koha. Reprendre exactement la même séquence qu'à l'étape 2. Ne jamais copier-coller des URL de l'environnement de test vers la production — les identifiants d'enregistrements peuvent différer.</p>
+<p>Après chaque modification, reprendre une capture d'écran de la fiche de configuration en production. Consigner la modification dans le journal des changements (tableau Historique ci-dessous) : date, catégorie modifiée, valeurs avant et après, nom du technicien.</p>
+
+<h3>Étape 5 — Aviser l'équipe et archiver</h3>
+<p>Envoyer un courriel à l'ensemble de l'équipe de la bibliothèque (liste de distribution : equipe-biblio@organisation.qc.ca) pour les informer des catégories modifiées et des nouvelles valeurs. Joindre le tableau récapitulatif des modifications. Cette communication est essentielle pour que les collègues puissent répondre adéquatement aux questions des usagers.</p>
+<p>Archiver les captures d'écran et le courriel de confirmation dans le dossier partagé correspondant à la session.</p>
 
 <h2>💡 Bonnes pratiques</h2>
-<p><input type="checkbox"> Toujours tester les modifications sur un compte de test avant de les appliquer en production.</p>
-<p><input type="checkbox"> Documenter chaque modification dans le journal des changements (onglet ci-dessous).</p>
-<p><input type="checkbox"> Vérifier que les notices bibliographiques liées sont complètes avant validation.</p>
-<p><input type="checkbox"> Prévenir l'équipe par courriel lors de modifications affectant tous les usagers.</p>
+<p><input type="checkbox"> Toujours tester en environnement de test avant d'appliquer en production.</p>
+<p><input type="checkbox"> Ne jamais modifier les quotas sans mandat écrit du comité bibliothèque.</p>
+<p><input type="checkbox"> Consigner chaque modification dans le journal des changements.</p>
+<p><input type="checkbox"> Prendre une capture d'écran avant ET après chaque modification.</p>
+<p><input type="checkbox"> Aviser l'équipe par courriel dès qu'une modification touche l'ensemble des usagers.</p>
+<p><input type="checkbox"> En cas de doute sur une valeur, appeler le support Koha interne avant d'agir.</p>
 
 <h2>🔍 Erreurs courantes et solutions</h2>
 <table style="width:100%;border-collapse:collapse;">
   <tr style="background:#f0f0f0;">
-    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Message d'erreur / Problème</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Problème observé</th>
     <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Cause probable</th>
     <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Solution</th>
   </tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><em>Accès refusé</em></td><td style="padding:8px 14px;border:1px solid #ccc;">L'usager n'appartient pas au bon groupe Koha</td><td style="padding:8px 14px;border:1px solid #ccc;">Vérifier et corriger l'appartenance au groupe dans la fiche usager</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><em>Limite de prêt atteinte</em></td><td style="padding:8px 14px;border:1px solid #ccc;">Quota mal configuré ou fiche non mise à jour</td><td style="padding:8px 14px;border:1px solid #ccc;">Vérifier le quota de la catégorie + vérifier les prêts en cours de l'usager</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><em>Catégorie introuvable</em></td><td style="padding:8px 14px;border:1px solid #ccc;">Catégorie supprimée ou renommée</td><td style="padding:8px 14px;border:1px solid #ccc;">Consulter le fichier de référence des catégories mis à jour</td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><em>Modifications non sauvegardées</em></td><td style="padding:8px 14px;border:1px solid #ccc;">Session expirée ou bouton ignoré</td><td style="padding:8px 14px;border:1px solid #ccc;">Se reconnecter et recommencer depuis l'étape 3</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><em>« Accès refusé »</em> pour un usager valide</td><td style="padding:8px 14px;border:1px solid #ccc;">La fiche usager appartient à une ancienne catégorie ou la catégorie a été mal assignée lors de l'inscription</td><td style="padding:8px 14px;border:1px solid #ccc;">Ouvrir la fiche usager → vérifier et corriger la catégorie → sauvegarder → retester</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><em>« Limite de prêt atteinte »</em> alors que ce n'est pas le cas</td><td style="padding:8px 14px;border:1px solid #ccc;">Quota de la catégorie mal configuré ou des prêts non retournés bloquent le compteur</td><td style="padding:8px 14px;border:1px solid #ccc;">Vérifier le quota dans Administration → Catégories. Consulter aussi les prêts en cours de l'usager pour détecter des retours non enregistrés</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">La catégorie n'apparaît plus dans la liste</td><td style="padding:8px 14px;border:1px solid #ccc;">Catégorie désactivée ou supprimée par erreur lors d'une précédente intervention</td><td style="padding:8px 14px;border:1px solid #ccc;">Consulter le fichier de référence des catégories pour identifier le bon code, puis contacter le support Koha interne pour restaurer si nécessaire</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Les modifications ne sont pas enregistrées</td><td style="padding:8px 14px;border:1px solid #ccc;">Session Koha expirée (délai de 30 minutes) ou le bouton Enregistrer n'a pas été cliqué</td><td style="padding:8px 14px;border:1px solid #ccc;">Se reconnecter à Koha. Recommencer depuis l'étape 2. Ne pas utiliser le bouton Précédent du navigateur — cela peut corrompre la session</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Un renouvellement est refusé alors qu'il devrait être permis</td><td style="padding:8px 14px;border:1px solid #ccc;">Le document est réservé par un autre usager, ce qui bloque automatiquement le renouvellement, indépendamment du quota</td><td style="padding:8px 14px;border:1px solid #ccc;">Comportement normal de Koha. Informer l'usager que le document est réclamé et lui proposer une réservation une fois retourné</td></tr>
 </table>
 
 <h2>📖 Références et ressources</h2>
 <table style="width:100%;border-collapse:collapse;">
   <tr>
-    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;"><strong>Documentation Koha officielle</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:35%;"><strong>Documentation Koha officielle</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;">https://koha-community.org/documentation/</td>
   </tr>
   <tr>
@@ -1421,7 +1609,15 @@ footer {
     <td style="padding:8px 14px;border:1px solid #ccc;">Serveur partagé → Bibliothèque → Politiques → Quotas_2025.xlsx</td>
   </tr>
   <tr>
-    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Contact support Koha interne</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Fichier de référence des catégories</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">Serveur partagé → Bibliothèque → Référentiels → Catégories_Koha.xlsx</td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Politique de prêt (document officiel)</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">Serveur partagé → Bibliothèque → Politiques → Politique_prêt_2024-2025.pdf</td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Support Koha interne</strong></td>
     <td style="padding:8px 14px;border:1px solid #ccc;">bibliotheque@organisation.qc.ca &nbsp;|&nbsp; poste 4410</td>
   </tr>
 </table>
@@ -1433,8 +1629,9 @@ footer {
     <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Modifications apportées</th>
     <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Par</th>
   </tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Janvier 2025</td><td style="padding:8px 14px;border:1px solid #ccc;">Ajout section erreurs courantes + mise à jour quotas 2025</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
-  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Août 2024</td><td style="padding:8px 14px;border:1px solid #ccc;">Migration vers Koha v23.11 — mise à jour des chemins de menu</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Janvier 2025</td><td style="padding:8px 14px;border:1px solid #ccc;">Ajout de la section erreurs courantes · Mise à jour des quotas session hiver 2025 · Ajout étape test en env. de test</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Août 2024</td><td style="padding:8px 14px;border:1px solid #ccc;">Migration vers Koha v23.11 — mise à jour des chemins de menu Administration</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Janvier 2024</td><td style="padding:8px 14px;border:1px solid #ccc;">Ajout de la catégorie ETU-PT (étudiant temps partiel) · Révision politique de renouvellements pour enseignants</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
   <tr><td style="padding:8px 14px;border:1px solid #ccc;">Septembre 2023</td><td style="padding:8px 14px;border:1px solid #ccc;">Création initiale de la documentation</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
 </table>
   </div>
@@ -1445,45 +1642,110 @@ footer {
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
-  Gabarits OneNote · Service des technologies de l'information &nbsp;·&nbsp; Librement adaptables à votre contexte.
+  <div class="footer-left">
+    <div class="footer-dot-row">
+      <div class="footer-dot"></div>
+      <div class="footer-dot"></div>
+      <div class="footer-dot"></div>
+    </div>
+    <span class="footer-label">Équipe Techno · Cégep Gérald-Godin</span>
+  </div>
+  <div class="footer-right">Service du développement pédagogique &nbsp;·&nbsp; © 2026</div>
 </footer>
 
 <div class="toast" id="toast">✓ Gabarit copié — collez dans OneNote avec Ctrl+V</div>
 
 <script>
+// ─── Theme toggle ─────────────────────────────────────────────────────────
+const themeBtn = document.getElementById('themeBtn');
+const htmlEl = document.documentElement;
+
+// Start in dark mode by default
+htmlEl.classList.add('dark');
+
+themeBtn.addEventListener('click', () => {
+  if (htmlEl.classList.contains('dark')) {
+    htmlEl.classList.remove('dark');
+  } else {
+    htmlEl.classList.add('dark');
+  }
+});
+</script>
+
+<script>
+// ─── OneNote-optimised copy ───────────────────────────────────────────────
+//
+// STYLES  : h1–h6 WITHOUT any font-size/color style attributes → OneNote
+//           maps them to its own Heading 1–6 styles automatically.
+//           Any inline font-size overrides prevent this mapping.
+//
+// CHECKBOXES : True OneNote checkboxes can only be created via the OneNote
+//              XML object model (OOXML/OneNote API), not via plain HTML paste.
+//              The closest reliable HTML equivalent that pastes as interactive
+//              To-Do items in OneNote is a <ul> with list-style-type:none and
+//              each item preceded by the Unicode TODO checkbox symbol rendered
+//              via a <span data-onenote-todo> attribute — but even this is
+//              stripped. The only cross-platform approach confirmed to work is
+//              to render checkboxes as "☐ " prefix text. Users can then select
+//              those lines in OneNote and apply the To-Do tag (Ctrl+1) in bulk.
+//              We therefore render them as clean lines with a □ prefix.
+//
+// ─────────────────────────────────────────────────────────────────────────
+
+function buildHTML(el) {
+  // Clone and process: strip style attrs from headings so OneNote uses its styles
+  const clone = el.cloneNode(true);
+
+  // Remove style attributes from h1-h6 so OneNote Heading styles apply
+  clone.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach(h => {
+    h.removeAttribute('style');
+  });
+
+  // Replace <input type="checkbox"> with a styled span that pastes well
+  // OneNote will render this as a bullet-style item; user can select + Ctrl+1
+  clone.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    const span = document.createElement('span');
+    span.textContent = '☐';
+    span.setAttribute('style', 'font-size:14pt;');
+    cb.parentNode.replaceChild(span, cb);
+  });
+
+  return `<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="UTF-8">
+<style>
+  body  { font-family:Calibri,sans-serif; font-size:11pt; line-height:1.5; margin:0; padding:0; color:#000; }
+  /* NO font-size on headings — let OneNote apply its own Heading styles */
+  h1,h2,h3,h4,h5,h6 { font-family:Calibri,sans-serif; }
+  table  { border-collapse:collapse; width:100%; margin:10px 0; }
+  td,th  { padding:7px 12px; border:1px solid #cccccc; vertical-align:top; }
+  th     { background-color:#f2f2f2; font-weight:bold; text-align:left; }
+  tr:nth-child(even) td { background-color:#fafafa; }
+  p      { margin:5px 0; }
+  strong { font-weight:bold; }
+  em     { font-style:italic; }
+</style>
+</head>
+<body>
+${clone.innerHTML}
+<p>&nbsp;</p>
+</body>
+</html>`;
+}
+
 function copyTemplate(id, btn) {
   const el = document.getElementById(id);
   if (!el) return;
 
-  // Wrap in a clean HTML document fragment for best OneNote compatibility
-  const htmlContent = `
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <style>
-    body { font-family: Calibri, sans-serif; font-size: 11pt; line-height: 1.5; margin: 0; padding: 0; }
-    h1 { font-size: 20pt; }
-    h2 { font-size: 14pt; }
-    h3 { font-size: 12pt; }
-    table { border-collapse: collapse; width: 100%; margin: 8px 0; }
-    td, th { padding: 7px 12px; border: 1px solid #cccccc; }
-    th { background: #f0f0f0; font-weight: bold; text-align: left; }
-    p { margin: 6px 0; }
-    ul, ol { margin: 4px 0 4px 20px; }
-    li { margin: 3px 0; }
-  </style>
-</head>
-<body>
-${el.innerHTML}
-</body>
-</html>`;
+  const htmlContent = buildHTML(el);
+  const textContent = (el.innerText || el.textContent || '').trim();
 
-  const htmlBlob = new Blob([htmlContent], { type: 'text/html' });
-  const textBlob = new Blob([el.innerText || el.textContent || ''], { type: 'text/plain' });
-
-  if (window.ClipboardItem) {
-    const item = new ClipboardItem({ 'text/html': htmlBlob, 'text/plain': textBlob });
+  if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+    const item = new ClipboardItem({
+      'text/html':  new Blob([htmlContent], { type: 'text/html' }),
+      'text/plain': new Blob([textContent], { type: 'text/plain' })
+    });
     navigator.clipboard.write([item])
       .then(() => showSuccess(btn))
       .catch(() => fallbackCopy(el, btn));
@@ -1493,23 +1755,23 @@ ${el.innerHTML}
 }
 
 function fallbackCopy(el, btn) {
-  // Create a temporary container, select it, and execCommand copy
   const tmp = document.createElement('div');
-  tmp.innerHTML = el.innerHTML;
-  tmp.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;overflow:hidden;opacity:0.01;';
+  const clone = el.cloneNode(true);
+  clone.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach(h => h.removeAttribute('style'));
+  clone.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    const s = document.createElement('span'); s.textContent = '☐ ';
+    cb.parentNode.replaceChild(s, cb);
+  });
+  tmp.innerHTML = clone.innerHTML;
+  tmp.style.cssText = 'position:fixed;top:0;left:0;min-width:200px;opacity:0.01;pointer-events:none;';
   document.body.appendChild(tmp);
   const sel = window.getSelection();
   const range = document.createRange();
   range.selectNodeContents(tmp);
   sel.removeAllRanges();
   sel.addRange(range);
-  try {
-    document.execCommand('copy');
-    showSuccess(btn);
-  } catch(e) {
-    btn.textContent = '✗ Erreur';
-    setTimeout(() => { btn.textContent = 'Copier'; }, 2000);
-  }
+  try { document.execCommand('copy'); showSuccess(btn); }
+  catch(e) { btn.textContent = '✗ Erreur'; setTimeout(() => { btn.textContent = 'Copier'; }, 2000); }
   sel.removeAllRanges();
   document.body.removeChild(tmp);
 }
@@ -1518,13 +1780,12 @@ function showSuccess(btn) {
   const orig = btn.textContent;
   btn.textContent = '✓ Copié';
   btn.classList.add('copied');
-  const toast = document.getElementById('toast');
-  toast.classList.add('show');
+  document.getElementById('toast').classList.add('show');
   setTimeout(() => {
     btn.textContent = orig;
     btn.classList.remove('copied');
-    toast.classList.remove('show');
-  }, 2400);
+    document.getElementById('toast').classList.remove('show');
+  }, 2500);
 }
 </script>
 </body>
