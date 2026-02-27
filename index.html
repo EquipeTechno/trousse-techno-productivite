@@ -297,6 +297,8 @@
         .tip-item:hover .tip-shortcut { background: #0d9488; }
         .shortcut-tag { transition: box-shadow 0.15s, background 0.15s; }
         .shortcut-tag:hover { box-shadow: 0 0 0 2px #38bdf8; background: #dbeafe !important; }
+        .tile-shortcut { transition: box-shadow 0.15s, background 0.15s; border-radius: 6px; display: inline-block; padding: 0.15rem 0.45rem; }
+        .tile-shortcut:hover { box-shadow: 0 0 0 2px #38bdf8; background: #dbeafe !important; }
         .tip-description { color: var(--text-medium); font-size: 0.95rem; }
         .tip-subhead {
             font-family: 'Crimson Pro', serif; font-size: 1.4rem;
@@ -373,6 +375,19 @@
         .digitale-tile {
             background: rgba(255,255,255,0.55); padding: 1.25rem;
             border-radius: 10px; border: 1px solid rgba(16,185,129,0.2);
+        }
+        .digitale-cta {
+            font-size: 0.82rem;
+            padding: 0.45rem 0.75rem;
+            border-radius: 6px;
+            background: #0f766e !important;
+            color: #fff;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        .digitale-cta:hover {
+            background: #0b5f59 !important;
+            transform: none !important;
         }
 
         /* ---- QUICK LINKS ---- */
@@ -493,7 +508,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon">🗂️</div>
+                    <div class="card-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Microsoft_Edge_logo_%282019%29.svg" alt="Edge" style="width:2rem;height:2rem;"></div>
                     <div>
                         <h3>Onglets dans l'Explorateur</h3>
                         <span class="shortcut-tag">Ctrl + T</span>
@@ -535,7 +550,7 @@
                     Vous voulez montrer quelque chose sur votre écran à un(e) collègue, mais le texte est trop petit pour le lire de loin? Zoomez directement avec la Loupe Windows - votre collègue peut rester à bonne distance et voir clairement. <strong>Win + +</strong> pour zoomer, <strong>Win + -</strong> pour dézoomer, <strong>Win + Échap</strong> pour quitter.
                 </p>
                 <div class="card-actions">
-                    <button class="btn btn-secondary" onclick="window.open('ms-settings:easeofaccess-magnifier')">Paramètres loupe</button>
+                    <button class="btn btn-primary" onclick="window.open('ms-settings:easeofaccess-magnifier')">Paramètres loupe</button>
                 </div>
             </div>
 
@@ -574,22 +589,6 @@
 
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon">🌙</div>
-                    <div>
-                        <h3>Éclairage nocturne</h3>
-                    </div>
-                </div>
-                <p class="card-description">
-                    L'éclairage nocturne réduit la lumière bleue émise par l'écran après le coucher du soleil. Moins de fatigue oculaire en soirée, meilleur sommeil. Vous pouvez le programmer pour qu'il s'active automatiquement au coucher du soleil et s'intensifie graduellement.
-                </p>
-                <div class="card-actions">
-                    <button class="btn btn-secondary" onclick="window.open('ms-settings:nightlight')">Activer l'éclairage nocturne</button>
-                    <button class="btn btn-secondary" onclick="alert('Paramètres → Système → Affichage → Éclairage nocturne\n\nOptions :\n• Intensité de la teinte chaude (curseur)\n• Programmation automatique (coucher/lever du soleil)\n• Activation immédiate\n\nConseil : commencez à 50 % d\'intensité et ajustez selon votre confort.')">Configurer</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
                     <div class="card-icon">📋</div>
                     <div>
                         <h3>Presse-papiers étendu</h3>
@@ -600,7 +599,7 @@
                     Win + V ouvre l'historique de tout ce que vous avez copié récemment - pas seulement le dernier élément. Vous pouvez épingler des éléments fréquents (formules, signatures, codes) pour les retrouver rapidement.
                 </p>
                 <div class="card-actions">
-                    <button class="btn btn-secondary" onclick="window.open('ms-settings:clipboard')">Activer l'historique</button>
+                    <button class="btn btn-primary" onclick="window.open('ms-settings:clipboard')">Activer l'historique</button>
                 </div>
             </div>
 
@@ -628,7 +627,23 @@
                     Le mode sombre réduit la fatigue oculaire en longue session, diminue l'éblouissement dans un bureau bien éclairé et peut économiser la batterie sur certains écrans. Une fois adopté, difficile de revenir en arrière!
                 </p>
                 <div class="card-actions">
-                    <button class="btn btn-secondary" onclick="window.open('ms-settings:colors')">Activer le mode sombre</button>
+                    <button class="btn btn-primary" onclick="window.open('ms-settings:colors')">Activer le mode sombre</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🌙</div>
+                    <div>
+                        <h3>Éclairage nocturne</h3>
+                    </div>
+                </div>
+                <p class="card-description">
+                    L'éclairage nocturne réduit la lumière bleue émise par l'écran après le coucher du soleil. Moins de fatigue oculaire en soirée, meilleur sommeil. Vous pouvez le programmer pour qu'il s'active automatiquement au coucher du soleil et s'intensifie graduellement.
+                </p>
+                <div class="card-actions">
+                    <button class="btn btn-primary" onclick="window.open('ms-settings:nightlight')">Activer l'éclairage nocturne</button>
+                    <button class="btn btn-secondary" onclick="alert('Paramètres → Système → Affichage → Éclairage nocturne\n\nOptions :\n• Intensité de la teinte chaude (curseur)\n• Programmation automatique (coucher/lever du soleil)\n• Activation immédiate\n\nConseil : commencez à 50 % d\'intensité et ajustez selon votre confort.')">Configurer</button>
                 </div>
             </div>
 
@@ -691,7 +706,7 @@
                     Assistance rapide est intégré à Windows - sans installation, sans compte. Vous aidez un collègue? Donnez-lui un code à 6 chiffres. Il le saisit dans son propre Assistance rapide, et vous voyez ou contrôlez son écran à distance. Idéal pour le soutien entre collègues quand Teams n'est pas disponible.
                 </p>
                 <div class="card-actions">
-                    <button class="btn btn-secondary" onclick="window.open('ms-quick-assist:')">Ouvrir Assistance rapide</button>
+                    <button class="btn btn-primary" onclick="window.open('ms-quick-assist:')">Ouvrir Assistance rapide</button>
                     <button class="btn btn-secondary" onclick="alert('Win + Ctrl + Q = ouvrir Assistance rapide\n\nPour aider un collègue :\n1. Ouvrez Assistance rapide → « Aider quelqu\'un »\n2. Connectez-vous avec votre compte Microsoft\n3. Partagez le code à 6 chiffres\n→ Votre collègue le saisit dans son Assistance rapide\n→ Vous voyez son écran, et pouvez en prendre le contrôle\n\nPour recevoir de l\'aide :\n1. Ouvrez Assistance rapide → « Obtenir de l\'aide »\n2. Entrez le code fourni par votre collègue')">Comment faire?</button>
                 </div>
             </div>
@@ -708,7 +723,7 @@
                     Windows 11 peut sous-titrer en temps réel tout ce qui se dit sur votre ordinateur - réunions Teams ou Zoom, vidéos, balados, appels. Les sous-titres apparaissent en superposition, sans enregistrer ni envoyer l'audio nulle part. Idéal pour mieux suivre les réunions à distance, une personne qui parle vite, ou simplement sans écouteurs.
                 </p>
                 <div class="card-actions">
-                    <button class="btn btn-secondary" onclick="window.open('ms-settings:easeofaccess-closedcaptioning')">Activer les sous-titres</button>
+                    <button class="btn btn-primary" onclick="window.open('ms-settings:easeofaccess-closedcaptioning')">Activer les sous-titres</button>
                     <button class="btn btn-secondary" onclick="alert('Raccourci : Ctrl + Win + L pour activer/désactiver rapidement\n\nPersonnaliser :\nParamètres → Accessibilité → Sous-titres\n→ Position (haut, bas, superposé)\n→ Taille et couleur du texte\n→ Langue (fonctionne en français et en anglais)\n\n✅ Traitement 100% local sur votre appareil\nAucun audio transmis à Microsoft.')">Personnaliser</button>
                 </div>
             </div>
@@ -804,7 +819,7 @@
                 <div class="card-header">
                     <div class="card-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Microsoft_Office_Bookings_%282024-present%29.svg" alt="Bookings" style="width:2rem;height:2rem;"></div>
                     <div>
-                        <h3>Bookings personnel - partagez votre disponibilité</h3>
+                        <h3>Page de réservation personnelle - partagez votre disponibilité</h3>
                         <span class="badge badge-tip">Simple et rapide</span>
                     </div>
                 </div>
@@ -812,8 +827,8 @@
                     Créez votre propre page de réservation personnelle en quelques minutes. Vous définissez vos plages disponibles, et vos contacts (collègues ou personnes externes) choisissent eux-mêmes un créneau. Idéal pour les rencontres individuelles ponctuelles - plus besoin d'allers-retours par courriel pour trouver un moment.
                 </p>
                 <div class="card-actions">
-                    <a href="https://outlook.office.com/bookings/" target="_blank" class="btn btn-primary">Créer ma page Bookings</a>
-                    <button class="btn btn-secondary" onclick="alert('Bookings personnel :\n1. Ouvrez Bookings → « Nouveau calendrier de réservation »\n2. Choisissez le type : personnel\n3. Définissez vos disponibilités et la durée de la rencontre\n4. Partagez votre lien personnel\n→ La personne choisit un créneau et reçoit une confirmation automatique\n\nParfait pour :\n• Rencontres 1-à-1 avec des collègues\n• Consultations ponctuelles avec des étudiants ou partenaires\n• Éviter les échanges « tu es libre quand? »')">Comment faire?</button>
+                    <a href="https://outlook.office.com/bookings/" target="_blank" class="btn btn-primary">Ouvrir Bookings</a>
+                    <button class="btn btn-secondary" onclick="alert('Page de réservation personnelle :\n1. Ouvrez Bookings → « Nouveau calendrier de réservation »\n2. Choisissez le type : personnel\n3. Définissez vos disponibilités et la durée de la rencontre\n4. Partagez votre lien personnel\n→ La personne choisit un créneau et reçoit une confirmation automatique\n\nParfait pour :\n• Rencontres 1-à-1 avec des collègues\n• Consultations ponctuelles avec des étudiants ou partenaires\n• Éviter les échanges « tu es libre quand? »')">Comment faire?</button>
                 </div>
             </div>
 
@@ -821,49 +836,16 @@
                 <div class="card-header">
                     <div class="card-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Microsoft_Office_Bookings_%282024-present%29.svg" alt="Bookings" style="width:2rem;height:2rem;"></div>
                     <div>
-                        <h3>Bookings d'équipe - gestion avancée des rendez-vous</h3>
+                        <h3>Page de réservation partagée - gestion avancée des rendez-vous</h3>
                         <span class="badge badge-new">Inclus M365</span>
                     </div>
                 </div>
                 <p class="card-description">
-                    Plus puissant que le Bookings personnel, la version d'équipe permet à plusieurs membres du personnel de partager un seul calendrier de réservation. Vos clients ou collègues voient les disponibilités combinées de toute l'équipe, choisissent un service, une durée, et un intervenant. Confirmations et rappels automatiques inclus. Idéal pour les services avec plusieurs personnes qui offrent des consultations.
+                    Plus puissante que la page de réservation personnelle, la page de réservation partagée permet à plusieurs membres du personnel de partager un seul calendrier de réservation. Les personnes qui réservent voient les disponibilités combinées de toute l'équipe, choisissent le type de rencontre et la durée; selon vos réglages, elles peuvent choisir un intervenant précis ou laisser Bookings attribuer automatiquement la bonne personne. Confirmations et rappels automatiques inclus. Idéal pour les services avec plusieurs personnes qui offrent des consultations.
                 </p>
                 <div class="card-actions">
                     <a href="https://outlook.office.com/bookings/" target="_blank" class="btn btn-primary">Ouvrir Bookings</a>
-                    <button class="btn btn-secondary" onclick="alert('Bookings d\'équipe - fonctionnalités avancées :\n\n• Plusieurs membres du personnel sur un seul calendrier\n• Services distincts avec durées et intervenants différents\n• Règles de disponibilité par service\n• Formulaires de réservation personnalisés\n• Rappels automatiques par courriel\n• Intégration avec Teams (lien de réunion auto)\n\nIdéal pour :\n• Soutien pédagogique avec plusieurs conseillers\n• Permanences administratives d\'un service\n• Consultations techniques avec une équipe TI\n• Entrevues avec plusieurs membres du comité')">Fonctionnalités avancées</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon"><img src="https://upload.wikimedia.org/wikipedia/fr/6/66/Logo_Microsoft_Teams_%282025%29.svg" alt="Teams" style="width:2rem;height:2rem;"></div>
-                    <div>
-                        <h3>Teams - Talkie-walkie 🎙️</h3>
-                        <span class="badge badge-tip">App mobile Teams</span>
-                    </div>
-                </div>
-                <p class="card-description">
-                    La fonction talkie-walkie de Teams permet d'envoyer des messages vocaux instantanés d'un seul appui, comme un vrai talkie-walkie. Parfait pour les échanges rapides entre collègues sans passer par un appel complet. Disponible dans l'application Teams sur mobile.
-                </p>
-                <div class="card-actions">
-                    <button class="btn btn-secondary" onclick="alert('Dans Teams sur mobile :\n→ Onglet « ... Plus » → Talkie-walkie\n\nMaintenez le bouton pour parler, relâchez pour envoyer.\nVos collègues reçoivent le message audio instantanément.\n\nIdéal pour :\n• Les équipes dispersées sur plusieurs étages ou sites\n• Les échanges rapides qui ne méritent pas un appel\n• Situations où écrire est difficile (déplacement, mains occupées)')">Comment activer?</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon"><img src="https://upload.wikimedia.org/wikipedia/fr/6/66/Logo_Microsoft_Teams_%282025%29.svg" alt="Teams" style="width:2rem;height:2rem;"></div>
-                    <div>
-                        <h3>Partage d'écran entre collègues</h3>
-                        <span class="badge badge-tip">Teams · Assistance rapide</span>
-                    </div>
-                </div>
-                <p class="card-description">
-                    Besoin de montrer quelque chose à un collègue ou de lui demander de l'aide sur un problème? Dans Teams, lancez un appel et cliquez sur <strong>Partager l'écran</strong>. L'autre personne peut même prendre le contrôle pour vous montrer comment faire directement sur votre écran. Sans Teams, utilisez <strong>Assistance rapide</strong> (intégré à Windows).
-                </p>
-                <div class="card-actions">
-                    <button class="btn btn-secondary" onclick="alert('Dans Teams :\nAppel → icône 🖥️ Partager → choisissez une fenêtre ou tout l\'écran\n→ Le collègue peut demander le contrôle : vous acceptez\n\nSans Teams - Assistance rapide Windows :\nMenu Démarrer → « Assistance rapide »\n→ Code à 6 chiffres à transmettre à la personne qui aide\n→ Elle voit et contrôle votre écran à distance\n\nWin + Ctrl + Q = raccourci Assistance rapide')">Comment faire?</button>
-                    <button class="btn btn-secondary" onclick="window.open('ms-quick-assist:')">Ouvrir Assistance rapide</button>
+                    <button class="btn btn-secondary" onclick="alert('Page de réservation partagée - fonctionnalités avancées :\n\n• Plusieurs membres du personnel sur un seul calendrier\n• Services distincts avec durées et intervenants différents\n• Règles de disponibilité par service\n• Formulaires de réservation personnalisés\n• Rappels automatiques par courriel\n• Intégration avec Teams (lien de réunion auto)\n\nIdéal pour :\n• Soutien pédagogique avec plusieurs conseillers\n• Permanences administratives d\'un service\n• Consultations techniques avec une équipe TI\n• Entrevues avec plusieurs membres du comité')">Fonctionnalités avancées</button>
                 </div>
             </div>
 
@@ -885,6 +867,22 @@
 
             <div class="card">
                 <div class="card-header">
+                    <div class="card-icon"><img src="https://play-lh.googleusercontent.com/y2JS5BQN_8g3WAjpohJRX3cThSQW_kHxDjyyAD2DpeGM12vkOX75Ie31GrhVVPZZRjI=w240-h480-rw" alt="Omnivox" style="width:2rem;height:2rem;border-radius:6px;"></div>
+                    <div>
+                        <h3>Textes rapides dans MIO (Omnivox)</h3>
+                        <span class="badge badge-tip">Gain de temps</span>
+                    </div>
+                </div>
+                <p class="card-description">
+                    Vous répondez souvent les mêmes choses dans vos messages MIO? Sauvegardez vos réponses fréquentes comme <strong>textes rapides</strong> et insérez-les en un clic lors de la rédaction. Lors de la composition d'un Mio, une option dans la barre d'outils permet de sélectionner le texte à insérer.
+                </p>
+                <div class="card-actions">
+                    <button class="btn btn-secondary" onclick="alert('Dans MIO (Omnivox) :\n\nPour sauvegarder un texte rapide :\nRédigez un message → sélectionnez le texte\n→ cliquez sur l\'icône Textes rapides dans la barre d\'outils\n→ Sauvegarder la sélection\n\nPour utiliser un texte rapide :\nLors de la rédaction, cliquez sur l\'icône Textes rapides\n→ Sélectionnez le texte à insérer\n\nExemples utiles :\n• Formule de salutation standard\n• Réponse aux demandes d\'information fréquentes\n• Instructions récurrentes')">Comment faire?</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
                     <div class="card-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Microsoft_Outlook_Icon_%282025%E2%80%93present%29.svg" alt="Outlook" style="width:2rem;height:2rem;"></div>
                     <div>
                         <h3>Règles automatiques Outlook - classement à l'arrivée</h3>
@@ -898,6 +896,40 @@
                     <button class="btn btn-secondary" onclick="alert('Créer une règle :\n\nMéthode rapide :\nClic droit sur un courriel → Règles → Créer une règle\n→ Choisissez la condition (expéditeur, objet, destinataire…)\n→ Choisissez l\'action (déplacer vers un dossier, marquer, etc.)\n\nMéthode complète :\nFichier → Gérer les règles et les alertes → Nouvelle règle\n\nExemples utiles :\n• Tous les courriels d\'une liste de distribution → dossier dédié\n• Objets contenant [POUR INFO] → marquer comme lu automatiquement\n• CC uniquement (pas destinataire principal) → dossier À lire\n• Courriels d\'un expéditeur spécifique → catégorie colorée')">Créer une règle</button>
                 </div>
             </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">📣</div>
+                    <div>
+                        <h3>Vous devez écrire à Tout le personnel?</h3>
+                        <span class="badge badge-tip">Impact élevé</span>
+                    </div>
+                </div>
+                <p class="card-description">
+                    Le groupe <strong>Tout le personnel</strong> rejoint vraiment <strong>tous les employés</strong>. Un simple « Répondre à tous » peut déclencher une vague de réponses et inonder les boîtes courriel de tout le monde. Avant d'envoyer, validez si le message est essentiel à l'ensemble du cégep. <strong>Premier réflexe : utilisez CCI</strong> pour éviter les réponses à tous.
+                </p>
+                <div class="card-actions">
+                    <button class="btn btn-secondary" onclick="alert('Avant d\'écrire à « Tout le personnel » :\n\n1) Posez-vous la question : est-ce utile à 100% des employés?\n\n2) Dans le message, ajoutez une ligne explicite :\n« Merci de répondre uniquement à l\'expéditeur, pas à tous. »\n\n3) PRIORITÉ : mettez le groupe en CCI si vous n\'attendez aucune réponse collective\n(ou utilisez un canal Teams / SharePoint / intranet pour diffusion).\n\n4) Si une réponse est requise : indiquez QUI doit répondre et COMMENT\n(ex. formulaire Forms, adresse dédiée, ou responsable précis).\n\n✅ Résultat : moins de bruit, moins de surcharge de courriels, et une communication plus claire.')">Bonnes pratiques - priorité CCI</button>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Microsoft_To-Do_icon.svg" alt="To Do" style="width:2rem;height:2rem;"></div>
+                    <div>
+                        <h3>Microsoft To Do - organisez vos tâches</h3>
+                    </div>
+                </div>
+                <p class="card-description">
+                    Vous avez 12 choses à faire aujourd'hui et tout est dans votre tête? Microsoft To Do vous aide à vider votre tête et à ne rien oublier. Créez des listes par projet, définissez des échéances et obtenez des rappels. Sur mobile, capturez une idée en deux secondes sans vous envoyer un courriel à vous-même.
+                </p>
+                <div class="card-actions">
+                    <a href="ms-todo:" target="_blank" class="btn btn-primary" onclick="event.preventDefault();window.open('ms-todo:')">Ouvrir To Do</a>
+                    <button class="btn btn-secondary" onclick="alert('Astuce : créez une liste « À faire aujourd\'hui » chaque matin pour structurer votre journée.\n\nSur mobile : notez vos idées dans To Do - plus besoin de vous envoyer un courriel!\n\n📄 Ctrl + P pour imprimer votre liste proprement\n→ Parfait pour arriver en rencontre avec vos points bien préparés\n\nApplication disponible sur iOS et Android.')">Plus d'informations</button>
+                </div>
+            </div>
+
 
             <div class="card">
                 <div class="card-header">
@@ -956,22 +988,6 @@
 
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Microsoft_To-Do_icon.svg" alt="To Do" style="width:2rem;height:2rem;"></div>
-                    <div>
-                        <h3>Microsoft To Do - organisez vos tâches</h3>
-                    </div>
-                </div>
-                <p class="card-description">
-                    Vous avez 12 choses à faire aujourd'hui et tout est dans votre tête? Microsoft To Do vous aide à vider votre tête et à ne rien oublier. Créez des listes par projet, définissez des échéances et obtenez des rappels. Sur mobile, capturez une idée en deux secondes sans vous envoyer un courriel à vous-même.
-                </p>
-                <div class="card-actions">
-                    <a href="ms-todo:" target="_blank" class="btn btn-primary" onclick="event.preventDefault();window.open('ms-todo:')">Ouvrir To Do</a>
-                    <button class="btn btn-secondary" onclick="alert('Astuce : créez une liste « À faire aujourd\'hui » chaque matin pour structurer votre journée.\n\nSur mobile : notez vos idées dans To Do - plus besoin de vous envoyer un courriel!\n\n📄 Ctrl + P pour imprimer votre liste proprement\n→ Parfait pour arriver en rencontre avec vos points bien préparés\n\nApplication disponible sur iOS et Android.')">Plus d'informations</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
                     <div class="card-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Microsoft_Office_Word_%282025%E2%80%93present%29.svg" alt="Word" style="width:2rem;height:2rem;"></div>
                     <div>
                         <h3>Commentaires dans Word avec @mention</h3>
@@ -979,10 +995,10 @@
                     </div>
                 </div>
                 <p class="card-description">
-                    Plutôt que d'écrire directement dans le document ou d'envoyer un courriel, utilisez les commentaires Word. Ctrl + Alt + M insère un commentaire à l'endroit du curseur. Tapez <strong>@prénom</strong> pour notifier un collègue directement - il reçoit un courriel avec le contexte.
+                    Plutôt que d'écrire directement dans le document ou d'envoyer un courriel, utilisez les commentaires Word. Ctrl + Alt + M insère un commentaire à l'endroit du curseur. Tapez <strong>@nom</strong> pour notifier un collègue directement - il reçoit un courriel avec le contexte.
                 </p>
                 <div class="card-actions">
-                    <button class="btn btn-secondary" onclick="alert('Ctrl + Alt + M = insérer un commentaire\n\nDans le commentaire, tapez @Prénom pour mentionner un collègue\n→ Il recevra une notification courriel avec le lien vers le document\n\nPratique pour les révisions de documents sans version finale_v2_vrai_FINALE.docx 😄')">Plus d'informations</button>
+                    <button class="btn btn-secondary" onclick="alert('Ctrl + Alt + M = insérer un commentaire\n\nDans le commentaire, tapez @nom pour mentionner un collègue\n→ Il recevra une notification courriel avec le lien vers le document\n\nPratique pour les révisions de documents sans version finale_v2_vrai_FINALE.docx 😄')">Plus d'informations</button>
                 </div>
             </div>
 
@@ -1031,7 +1047,7 @@
                     </div>
                 </div>
                 <p class="card-description">
-                    Vous attendez des fichiers de personnes externes (partenaires, étudiants, fournisseurs)? La <strong>demande de fichiers</strong> OneDrive génère un lien de dépôt sécurisé - particulièrement utile pour les fichiers volumineux. La personne externe dépose directement dans votre OneDrive, sans compte Microsoft, sans voir vos autres fichiers.
+                    Vous attendez des fichiers de personnes externes (partenaires, élèves, fournisseurs)? La <strong>demande de fichiers</strong> OneDrive génère un lien de dépôt sécurisé - particulièrement utile pour les fichiers volumineux. La personne externe dépose directement dans votre OneDrive, sans compte Microsoft, sans voir vos autres fichiers.
                 </p>
                 <div class="card-actions">
                                         
@@ -1092,17 +1108,34 @@
 
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon"><img src="https://play-lh.googleusercontent.com/y2JS5BQN_8g3WAjpohJRX3cThSQW_kHxDjyyAD2DpeGM12vkOX75Ie31GrhVVPZZRjI=w240-h480-rw" alt="Omnivox" style="width:2rem;height:2rem;border-radius:6px;"></div>
+                    <div class="card-icon"><img src="https://upload.wikimedia.org/wikipedia/fr/6/66/Logo_Microsoft_Teams_%282025%29.svg" alt="Teams" style="width:2rem;height:2rem;"></div>
                     <div>
-                        <h3>Textes rapides dans MIO (Omnivox)</h3>
-                        <span class="badge badge-tip">Gain de temps</span>
+                        <h3>Talkie-walkie 🎙️</h3>
+                        <span class="badge badge-tip">App mobile Teams</span>
                     </div>
                 </div>
                 <p class="card-description">
-                    Vous répondez souvent les mêmes choses dans vos messages MIO? Sauvegardez vos réponses fréquentes comme <strong>textes rapides</strong> et insérez-les en un clic lors de la rédaction. Lors de la composition d'un Mio, une option dans la barre d'outils permet de sélectionner le texte à insérer.
+                    La fonction talkie-walkie de Teams permet d'envoyer des messages vocaux instantanés d'un seul appui, comme un vrai talkie-walkie. Parfait pour les échanges rapides entre collègues sans passer par un appel complet. Disponible dans l'application Teams sur mobile.
                 </p>
                 <div class="card-actions">
-                    <button class="btn btn-secondary" onclick="alert('Dans MIO (Omnivox) :\n\nPour sauvegarder un texte rapide :\nRédigez un message → sélectionnez le texte\n→ cliquez sur l\'icône Textes rapides dans la barre d\'outils\n→ Sauvegarder la sélection\n\nPour utiliser un texte rapide :\nLors de la rédaction, cliquez sur l\'icône Textes rapides\n→ Sélectionnez le texte à insérer\n\nExemples utiles :\n• Formule de salutation standard\n• Réponse aux demandes d\'information fréquentes\n• Instructions récurrentes')">Comment faire?</button>
+                    <button class="btn btn-secondary" onclick="alert('Dans Teams sur mobile :\n→ Onglet « ... Plus » → Talkie-walkie\n\nMaintenez le bouton pour parler, relâchez pour envoyer.\nVos collègues reçoivent le message audio instantanément.\n\nIdéal pour :\n• Les équipes dispersées sur plusieurs étages ou sites\n• Les échanges rapides qui ne méritent pas un appel\n• Situations où écrire est difficile (déplacement, mains occupées)')">Comment activer?</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><img src="https://upload.wikimedia.org/wikipedia/fr/6/66/Logo_Microsoft_Teams_%282025%29.svg" alt="Teams" style="width:2rem;height:2rem;"></div>
+                    <div>
+                        <h3>Partage d'écran entre collègues</h3>
+                        <span class="badge badge-tip">Teams · Assistance rapide</span>
+                    </div>
+                </div>
+                <p class="card-description">
+                    Besoin de montrer quelque chose à un collègue ou de lui demander de l'aide sur un problème? Dans Teams, lancez un appel et cliquez sur <strong>Partager l'écran</strong>. L'autre personne peut même prendre le contrôle pour vous montrer comment faire directement sur votre écran. Sans Teams, utilisez <strong>Assistance rapide</strong> (intégré à Windows).
+                </p>
+                <div class="card-actions">
+                    <button class="btn btn-secondary" onclick="alert('Dans Teams :\nAppel → icône 🖥️ Partager → choisissez une fenêtre ou tout l\'écran\n→ Le collègue peut demander le contrôle : vous acceptez\n\nSans Teams - Assistance rapide Windows :\nMenu Démarrer → « Assistance rapide »\n→ Code à 6 chiffres à transmettre à la personne qui aide\n→ Elle voit et contrôle votre écran à distance\n\nWin + Ctrl + Q = raccourci Assistance rapide')">Comment faire?</button>
+                    <button class="btn btn-primary" onclick="window.open('ms-quick-assist:')">Ouvrir Assistance rapide</button>
                 </div>
             </div>
 
@@ -1196,6 +1229,22 @@
                 <div class="card-header">
                     <div class="card-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_OneNote_Icon_%282025_-_present%29.svg" alt="OneNote" style="width:2rem;height:2rem;"></div>
                     <div>
+                        <h3>Infos de réunion automatiques dans OneNote</h3>
+                        <span class="badge badge-tip">Prise de notes</span>
+                    </div>
+                </div>
+                <p class="card-description">
+                    Vous aimeriez garder une trace structurée de vos réunions sans recopier les infos manuellement? Dans OneNote, le bouton <strong>Détails de la réunion</strong> insère en un clic les informations d'une réunion Outlook ou Teams dans votre page : date, lieu, ordre du jour et liste des participants. Il ne reste plus qu'à prendre vos notes.
+                </p>
+                <div class="card-actions">
+                    <button class="btn btn-secondary" onclick="alert('Dans OneNote :\n\n1. Ouvrez ou créez une page de notes\n2. Onglet Insertion → Détails de la réunion\n3. Choisissez la réunion dans la liste\n→ OneNote insère automatiquement :\n   • Date et lieu\n   • Lien vers l\'élément Outlook\n   • Enregistrements Teams\n   • Message d\'invitation\n   • Participants (nombre et noms)\n\nIl ne vous reste qu\'à ajouter vos notes!')">Comment faire?</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_OneNote_Icon_%282025_-_present%29.svg" alt="OneNote" style="width:2rem;height:2rem;"></div>
+                    <div>
                         <h3>Gabarits de pages dans OneNote</h3>
                         <span class="badge badge-tip">Cohérence visuelle</span>
                     </div>
@@ -1206,22 +1255,6 @@
                 <div class="card-actions">
                     <a href="gabarits.html" target="_blank" class="btn btn-primary">Voir les gabarits</a>
                     <button class="btn btn-secondary" onclick="alert('Appliquer un gabarit à une page :\n\nDans OneNote → Insérer → Modèles de page\n→ Choisissez un gabarit dans le panneau de droite\n\nOu copiez-collez directement depuis la page de gabarits GG pour récupérer une mise en page toute faite avec les sections adaptées à vos besoins.')">Comment faire?</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_OneNote_Icon_%282025_-_present%29.svg" alt="OneNote" style="width:2rem;height:2rem;"></div>
-                    <div>
-                        <h3>Infos de réunion automatiques dans OneNote</h3>
-                        <span class="badge badge-tip">Prise de notes</span>
-                    </div>
-                </div>
-                <p class="card-description">
-                    Vous aimeriez garder une trace structurée de vos réunions sans recopier les infos manuellement? Dans OneNote, le bouton <strong>Détails de la réunion</strong> insère en un clic les informations d'une réunion Outlook ou Teams dans votre page : date, lieu, ordre du jour et liste des participants. Il ne reste plus qu'à prendre vos notes.
-                </p>
-                <div class="card-actions">
-                    <button class="btn btn-secondary" onclick="alert('Dans OneNote :\n\n1. Ouvrez ou créez une page de notes\n2. Onglet Insertion → Détails de la réunion\n3. Choisissez la réunion dans la liste\n→ OneNote insère automatiquement :\n   • Date et lieu\n   • Lien vers l\'élément Outlook\n   • Enregistrements Teams\n   • Message d\'invitation\n   • Participants (nombre et noms)\n\nIl ne vous reste qu\'à ajouter vos notes!')">Comment faire?</button>
                 </div>
             </div>
 
@@ -1286,7 +1319,7 @@
                     Flameshot est <em>un des meilleurs outils</em> pour créer de la documentation visuelle de qualité. Annotez en direct : numéros encerclés, rectangles de couleur, flèches, texte, et même un outil pour <strong>flouter les informations sensibles</strong> avant de partager une capture.
                 </p>
                 <div class="card-actions">
-                    <button class="btn btn-secondary" onclick="window.location.href='softwarecenter:'">Installer via Centre logiciel</button>
+                    <button class="btn btn-primary" onclick="window.location.href='softwarecenter:'">Installer via Centre logiciel</button>
                     <button class="btn btn-secondary" onclick="alert('Flameshot permet :\n✓ Rectangles et cercles colorés\n✓ Numérotation des étapes\n✓ Flèches et annotations texte\n✓ Flou (brouillage) de zones sensibles\n✓ Copier, enregistrer ou partager directement\n\nParfait pour les guides, procédures et tickets de support.')">Fonctionnalités</button>
                 </div>
             </div>
@@ -1303,7 +1336,7 @@
                     Visual Studio Code n'est pas réservé aux programmeurs. C'est l'éditeur de référence pour ouvrir, modifier et comparer n'importe quel fichier texte, script, CSV ou de configuration. Coloration syntaxique, recherche avancée, gestion de fichiers multiples - bien au-delà du Bloc-notes.
                 </p>
                 <div class="card-actions">
-                    <button class="btn btn-secondary" onclick="window.location.href='softwarecenter:'">Installer via Centre logiciel</button>
+                    <button class="btn btn-primary" onclick="window.location.href='softwarecenter:'">Installer via Centre logiciel</button>
                     <button class="btn btn-secondary" onclick="alert('Cas d\'usage utiles :\n• Modifier un script PowerShell ou batch\n• Ouvrir un gros fichier CSV proprement\n• Comparer deux fichiers côte à côte (Extensions → diff)\n• Rechercher/remplacer dans plusieurs fichiers à la fois\n\nGratuit, open source, très léger.')">Cas d'usage</button>
                 </div>
             </div>
@@ -1320,7 +1353,7 @@
                     Notepad++ avec son plugin <strong>Compare</strong> est l'outil idéal pour voir rapidement les différences entre deux versions d'un fichier texte ou d'un document. Les ajouts apparaissent en vert, les suppressions en rouge - ligne par ligne. Pratique pour suivre les révisions de contrats, politiques ou procédures.
                 </p>
                 <div class="card-actions">
-                    <button class="btn btn-secondary" onclick="window.location.href='softwarecenter:'">Installer via Centre logiciel</button>
+                    <button class="btn btn-primary" onclick="window.location.href='softwarecenter:'">Installer via Centre logiciel</button>
                     <button class="btn btn-secondary" onclick="alert('Pour comparer deux fichiers dans Notepad++ :\n1. Ouvrez les deux fichiers (Ctrl+O)\n2. Plugins → Compare → Compare\n\nLes différences s\'affichent côte à côte avec code couleur :\n🟢 Vert = ligne ajoutée\n🔴 Rouge = ligne supprimée\n🟡 Jaune = ligne modifiée')">Comment faire?</button>
                 </div>
             </div>
@@ -1366,15 +1399,15 @@
                 <div class="card-header">
                     <div class="card-icon">⏱️</div>
                     <div>
-                        <h3>Assistant de concentration - Horloge</h3>
+                        <h3>Sessions de concentration</h3>
                     </div>
                 </div>
                 <p class="card-description">
                     L'application Horloge de Windows 11 inclut un assistant de concentration : planifiez des sessions de travail avec minuteur, pauses intégrées et musique relaxante optionnelle. Basé sur la méthode Pomodoro. Idéal pour les périodes de correction ou de rédaction.
                 </p>
                 <div class="card-actions">
-                    <button class="btn btn-secondary" onclick="window.open('ms-clock://focus')">Ouvrir l'Horloge</button>
-                    <button class="btn btn-secondary" onclick="alert('Horloge Windows 11 → onglet « Concentration »\n\nConfigurez :\n• Durée de la session (25 min par défaut)\n• Durée des pauses\n• Musique de fond Spotify (si connecté)\n\nPendant une session, les notifications sont automatiquement réduites.')">Plus d'informations</button>
+                    <button class="btn btn-primary" onclick="window.open('ms-clock:')">Sessions de concentration</button>
+                    <button class="btn btn-secondary" onclick="alert('Horloge Windows 11 → onglet « Sessions de concentration »\n\nConfigurez :\n• Durée de la session (25 min par défaut)\n• Durée des pauses\n• Musique de fond Spotify (si connecté)\n\nPendant une session, les notifications sont automatiquement réduites.')">Plus d'informations</button>
                 </div>
             </div>
 
@@ -1402,11 +1435,11 @@
                     </div>
                 </div>
                 <p class="card-description">
-                    Quand vous avez besoin de vous concentrer, les notifications sont votre ennemi numéro un. Win + N ouvre le centre de notifications : activez le mode Focus pour bloquer <em>toutes</em> les notifications - Teams, Outlook, Windows - le temps d'un bloc de travail. Vous les retrouverez au centre de notifications quand vous serez prêt(e).
+                    Quand vous avez besoin de vous concentrer, les notifications sont votre ennemi numéro un. Win + N ouvre le centre de notifications : activez "Ne pas déranger" pour bloquer <em>toutes</em> les notifications - Teams, Outlook, Windows - le temps d'un bloc de travail. Vous les retrouverez au centre de notifications quand vous serez prêt(e).
                 </p>
                 <div class="card-actions">
-                    <button class="btn btn-secondary" onclick="window.open('ms-settings:notifications')">Paramètres notifications</button>
-                    <button class="btn btn-secondary" onclick="alert('Win + N → Centre de notifications\n→ Cliquez « Focus » pour l\'activer\n\nOu configurez des plages horaires automatiques :\nParamètres → Système → Notifications → Activer Ne pas déranger automatiquement\n\nAstuce : combinez avec l\'Assistant de concentration (Horloge) pour un bloc de travail structuré avec minuteur et pauses.')">Configurer les plages horaires</button>
+                    <button class="btn btn-primary" onclick="window.open('ms-settings:notifications')">Paramètres notifications</button>
+                    <button class="btn btn-secondary" onclick="alert('Win + N → Centre de notifications\n→ Activez « Ne pas déranger »\n\nOu configurez des plages horaires automatiques :\nParamètres → Système → Notifications → Activer Ne pas déranger automatiquement\n\nAstuce : combinez avec les Sessions de concentration (Horloge) pour un bloc de travail structuré avec minuteur et pauses.')">Configurer les plages horaires</button>
                 </div>
             </div>
 
@@ -1478,7 +1511,7 @@
                     Les Collections sont comme des tableaux de liège numériques. Organisez les ressources web par projet : ajoutez des pages, des images, des notes. Parfait pour la recherche documentaire ou préparer un dossier.
                 </p>
                 <div class="card-actions">
-                    <a href="https://support.microsoft.com/fr-fr/microsoft-edge/organiser-vos-id%C3%A9es-avec-les-collections-dans-microsoft-edge-60fd7bba-6cfd-00b9-3787-b197231b507e" target="_blank" class="btn btn-primary">Guide Collections</a>
+                    <a href="https://support.microsoft.com/fr-fr/microsoft-edge/organiser-vos-id%C3%A9es-avec-les-collections-dans-microsoft-edge-60fd7bba-6cfd-00b9-3787-b197231b507e" target="_blank" class="btn btn-primary">Guide sur Collections</a>
                 </div>
             </div>
 
@@ -1508,7 +1541,7 @@
                     Créez un profil « École » et un profil « Personnel » dans Edge. Favoris, historique et extensions restent complètement séparés. Fini le mélange entre navigation pour le travail et personnelle.
                 </p>
                 <div class="card-actions">
-                    <a href="https://support.microsoft.com/fr-fr/microsoft-edge/se-connecter-et-cr%C3%A9er-plusieurs-profils-dans-microsoft-edge-df94e622-2061-49ae-ad1d-6f0e43ce6435" target="_blank" class="btn btn-primary">Guide profils Edge</a>
+                    <a href="https://support.microsoft.com/fr-fr/microsoft-edge/se-connecter-et-cr%C3%A9er-plusieurs-profils-dans-microsoft-edge-df94e622-2061-49ae-ad1d-6f0e43ce6435" target="_blank" class="btn btn-primary">Guide sur Profils</a>
                 </div>
             </div>
 
@@ -1523,13 +1556,13 @@
                     Groupez des onglets par projet et partagez un espace de travail avec des collègues. Tout le monde voit les mêmes onglets en temps réel. Idéal pour collaborer sur un dossier sans s'envoyer de liens.
                 </p>
                 <div class="card-actions">
-                    <a href="https://www.microsoft.com/fr-fr/edge/features/workspaces" target="_blank" class="btn btn-primary">Guide Espaces</a>
+                    <a href="https://www.microsoft.com/fr-fr/edge/features/workspaces" target="_blank" class="btn btn-primary">Guide sur Espaces de travail</a>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Microsoft_Edge_logo_%282019%29.svg" alt="Edge" style="width:2rem;height:2rem;"></div>
+                    <div class="card-icon">🗂️</div>
                     <div>
                         <h3>Onglets verticaux</h3>
                         <span class="shortcut-tag">Ctrl + MAJ + ,</span>
@@ -1667,7 +1700,7 @@
                     Contrairement aux outils IA grand public (ChatGPT, Gemini…), <strong>Microsoft 365 Copilot</strong> est lié à votre compte institutionnel. Vos données et vos documents ne servent <em>jamais</em> à entraîner les modèles d'IA de Microsoft. Les échanges restent dans l'environnement sécurisé du Cégep - même confidentialité que vos courriels Outlook.
                 </p>
                 <div class="card-actions">
-                    <a href="https://cgodin.qc.ca/m365" target="_blank" class="btn btn-primary" style="display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;"><img src="https://upload.wikimedia.org/wikipedia/fr/0/02/Microsoft_365_Copilot.svg" style="width:16px;height:16px;flex-shrink:0;"> Ouvrir M365 Copilot</a>
+                    <a href="https://m365.cloud.microsoft/chat/" target="_blank" class="btn btn-primary" style="display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;"><img src="https://upload.wikimedia.org/wikipedia/fr/0/02/Microsoft_365_Copilot.svg" style="width:16px;height:16px;flex-shrink:0;"> Ouvrir M365 Copilot</a>
                     <button class="btn btn-secondary" onclick="alert('Garanties de confidentialité M365 Copilot :\n\n✅ Vos données ne quittent pas l\'environnement Microsoft 365\n✅ Elles ne sont pas utilisées pour entraîner les modèles IA\n✅ Couvertes par les mêmes politiques que vos courriels et fichiers\n✅ Accès contrôlé par votre compte institutionnel\n\nEn pratique :\n• Vous pouvez demander à Copilot de résumer un document confidentiel\n• Les réponses ne sont pas partagées avec d\'autres organisations\n• Les administrateurs TI du Cégep conservent la gouvernance\n\nSource : Engagement de confidentialité Microsoft pour les organisations.')">Détails de confidentialité</button>
                 </div>
             </div>
@@ -1681,7 +1714,7 @@
                     </div>
                 </div>
                 <p class="card-description">
-                    Un bon mot de passe pour chaque site, sans jamais les mémoriser. Deux options gratuites et ouvertes recommandées : <strong>Bitwarden</strong> (idéal pour débuter, interfaces soignées) et <strong>Proton Pass</strong> (axé vie privée, de la même famille que ProtonMail). Les deux s'intègrent dans votre navigateur.
+                    Un mot de passe fort et unique pour chaque site, sans avoir à tous les retenir. Deux options solides : <strong>Bitwarden</strong> et <strong>Proton Pass</strong>. Bitwarden est très complet et multiplateforme; Proton Pass s'intègre bien à l'écosystème Proton et plusieurs personnes apprécient son interface. Les deux s'intègrent dans votre navigateur.
                 </p>
                 <div class="card-actions">
                     <a href="https://bitwarden.com/" target="_blank" class="btn btn-primary" style="background:#175ddc;display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Bitwarden_logo.svg" alt="Bitwarden" style="height:18px;filter:brightness(0) invert(1);"> Bitwarden</a>
@@ -1716,7 +1749,7 @@
                     Windows peut verrouiller automatiquement votre ordinateur quand vous vous en éloignez, grâce au Bluetooth de votre téléphone. Quand le signal s'affaiblit, l'écran se verrouille. Idéal pour ne plus jamais oublier de verrouiller avant de quitter votre bureau.
                 </p>
                 <div class="card-actions">
-                    <button class="btn btn-secondary" onclick="window.open('ms-settings:signinoptions-dynamiclock')">Activer le verrouillage dynamique</button>
+                    <button class="btn btn-primary" onclick="window.open('ms-settings:signinoptions-dynamiclock')">Activer le verrouillage dynamique</button>
                     <button class="btn btn-secondary" onclick="alert('Paramètres → Comptes → Options de connexion → Verrouillage dynamique\n\nCochez « Autoriser Windows à verrouiller automatiquement votre appareil lorsque vous êtes absent »\n\nAssurez-vous que votre téléphone est couplé en Bluetooth avec l\'ordinateur.')">Comment faire?</button>
                 </div>
             </div>
@@ -1762,7 +1795,7 @@
                     </div>
                 </div>
                 <p class="card-description">
-                    Windows Sandbox est un environnement isolé et temporaire intégré à Windows 11. Téléchargez et testez n'importe quel logiciel suspect dans ce bac à sable : quand vous fermez la fenêtre, tout disparaît. Votre système principal reste intact, quoi qu'il arrive.
+                    Windows Sandbox est un environnement isolé et temporaire intégré à Windows 11. Vous pouvez y tester des logiciels, ouvrir des fichiers ou visiter des liens suspects sans exposer votre poste principal : quand vous fermez la fenêtre, tout est effacé automatiquement. Votre système principal reste intact.
                 </p>
                 <div class="card-actions">
                     <button class="btn btn-secondary" onclick="window.location.href='softwarecenter:'">Centre logiciel</button>
@@ -1815,29 +1848,29 @@
             <div class="workflow-step">
                 <div class="step-number">1</div>
                 <div class="step-content">
-                    <h3>Arrivée au bureau</h3>
-                    <p>Activez le verrouillage Bluetooth (téléphone couplé), ouvrez votre liste To Do, vérifiez votre calendrier Outlook dans une fenêtre séparée.</p>
+                    <h3>Démarrer la journée avec les priorités</h3>
+                    <p>Ouvrez le calendrier Outlook et votre liste To Do, puis identifiez 3 priorités réalistes (administratif, pédagogique, suivis). Traitez d'abord les urgences réelles : absences, messages étudiants critiques et échéances du jour.</p>
                 </div>
             </div>
             <div class="workflow-step">
                 <div class="step-number">2</div>
                 <div class="step-content">
-                    <h3>Session de travail focalisé</h3>
-                    <p>Activez l'Assistant de concentration (Horloge → Concentration), mode Focus dans Word si vous rédigez, Ne pas déranger (Win + N). Gardez votre To Do visible avec PowerToys « Toujours visible ».</p>
+                    <h3>Bloquer un vrai temps de travail</h3>
+                    <p>Planifiez 1 à 2 blocs de Sessions de concentration, activez « Ne pas déranger » (Win + N) et coupez les notifications non essentielles. Pendant ce bloc, avancez un seul dossier à la fois (corrections, planification de cours, documents de service).</p>
                 </div>
             </div>
             <div class="workflow-step">
                 <div class="step-number">3</div>
                 <div class="step-content">
-                    <h3>Collaboration & courriels</h3>
-                    <p>Coéditez les documents directement sur SharePoint/OneDrive. Utilisez les commentaires Word (@mention) plutôt que les courriels avec pièces jointes. Répondez aux messages Teams groupés.</p>
+                    <h3>Collaborer sans surcharge de courriels</h3>
+                    <p>Travaillez dans Teams, OneDrive et SharePoint pour coéditer au même endroit. Utilisez @mentions et commentaires ciblés plutôt que des chaînes « Répondre à tous », et réservez « Tout le personnel » aux communications vraiment institutionnelles.</p>
                 </div>
             </div>
             <div class="workflow-step">
                 <div class="step-number">4</div>
                 <div class="step-content">
-                    <h3>Avant de partir</h3>
-                    <p>Win + L pour verrouiller l'écran, cochez les tâches complétées dans To Do, et assurez-vous que vos fichiers sont bien sur OneDrive (pas sur le bureau local).</p>
+                    <h3>Clore la journée proprement</h3>
+                    <p>Planifiez ou différez les envois non urgents, mettez vos fichiers à jour dans OneDrive/SharePoint, puis préparez vos 3 priorités de demain dans To Do. Avant de quitter : Win + L pour verrouiller votre poste.</p>
                 </div>
             </div>
         </div>
@@ -1921,14 +1954,8 @@
                 <div class="powertoys-tile">
                     <div style="font-size:1.75rem;margin-bottom:0.5rem;">🖼️</div>
                     <strong style="color:#3b2e14;">Redimensionneur d'images</strong>
-                    <p class="tile-desc" style="font-size:0.9rem;margin-top:0.5rem;color:#5c4520;">Clic droit sur plusieurs images → « Redimensionner les images ». Traitement en lot en quelques secondes.</p>
-                </div>
-
-                <div class="powertoys-tile">
-                    <div style="font-size:1.75rem;margin-bottom:0.5rem;">📏</div>
-                    <strong style="color:#3b2e14;">Règle d'écran</strong>
-                    <p class="tile-shortcut" style="font-size:0.9rem;color:#7a6030;margin-top:0.5rem;">Win + MAJ + M</p>
-                    <p class="tile-desc" style="font-size:0.9rem;margin-top:0.5rem;color:#5c4520;">Mesurez distances et angles à l'écran en pixels. Pratique pour vérifier des mises en page ou des proportions.</p>
+                    <p class="tile-shortcut" style="font-size:0.9rem;color:#7a6030;margin-top:0.5rem;">Clic droit sur plusieurs images</p>
+                    <p class="tile-desc" style="font-size:0.9rem;margin-top:0.5rem;color:#5c4520;">Puis sélectionnez « Redimensionner avec Image Resizer » pour réduire es dimensions et le poids de plusieurs images d'un seul coup (ex.: courriel, Moodle, page Web, etc.)</p>
                 </div>
 
                 <div class="powertoys-tile">
@@ -1938,61 +1965,13 @@
                     <p class="tile-desc" style="font-size:0.9rem;margin-top:0.5rem;color:#5c4520;">Renommez des centaines de fichiers en une seule opération avec recherche/remplacement, numérotation automatique et expressions régulières.</p>
                 </div>
 
-                <div class="powertoys-tile">
-                    <div style="font-size:1.75rem;margin-bottom:0.5rem;">🔤</div>
-                    <strong style="color:#3b2e14;">Text Extractor</strong>
-                    <p class="tile-shortcut" style="font-size:0.9rem;color:#7a6030;margin-top:0.5rem;">Win + MAJ + T</p>
-                    <p class="tile-desc" style="font-size:0.9rem;margin-top:0.5rem;color:#5c4520;">Extrayez du texte de n'importe quelle image ou zone de l'écran. Sélectionnez une région, le texte reconnu est copié dans le presse-papiers, collez-le où vous voulez.</p>
-                </div>
-
-                <div class="powertoys-tile">
-                    <div style="font-size:1.75rem;margin-bottom:0.5rem;">👁️</div>
-                    <strong style="color:#3b2e14;">Peek</strong>
-                    <p class="tile-shortcut" style="font-size:0.9rem;color:#7a6030;margin-top:0.5rem;">Ctrl + Espace</p>
-                    <p class="tile-desc" style="font-size:0.9rem;margin-top:0.5rem;color:#5c4520;">Prévisualisez n'importe quel fichier sans l'ouvrir : PDF, images, Office, code. Sélectionnez dans l'Explorateur et appuyez sur Ctrl + Espace.</p>
-                </div>
-
-                <div class="powertoys-tile">
-                    <div style="font-size:1.75rem;margin-bottom:0.5rem;">🎨</div>
-                    <strong style="color:#3b2e14;">Sélecteur de couleur</strong>
-                    <p class="tile-shortcut" style="font-size:0.9rem;color:#7a6030;margin-top:0.5rem;">Win + MAJ + C</p>
-                    <p class="tile-desc" style="font-size:0.9rem;margin-top:0.5rem;color:#5c4520;">Capturez instantanément le code de n'importe quelle couleur à l'écran (HEX, RGB, HSL…). Cliquez n'importe où — la valeur est copiée dans le presse-papiers.</p>
-                </div>
-
-                <div class="powertoys-tile">
-                    <div style="font-size:1.75rem;margin-bottom:0.5rem;">🖼️</div>
-                    <strong style="color:#3b2e14;">Image Resizer</strong>
-                    <p class="tile-shortcut" style="font-size:0.9rem;color:#7a6030;margin-top:0.5rem;">Clic droit → Redimensionner</p>
-                    <p class="tile-desc" style="font-size:0.9rem;margin-top:0.5rem;color:#5c4520;">Redimensionnez une ou des centaines d'images en un clic droit. Choisissez parmi des tailles prédéfinies ou personnalisées. Parfait pour préparer des visuels web sans ouvrir Photoshop.</p>
-                </div>
-
-                <div class="powertoys-tile">
-                    <div style="font-size:1.75rem;margin-bottom:0.5rem;">🔄</div>
-                    <strong style="color:#3b2e14;">Conversion d'images</strong>
-                    <p class="tile-shortcut" style="font-size:0.9rem;color:#7a6030;margin-top:0.5rem;">Clic droit → Convertir</p>
-                    <p class="tile-desc" style="font-size:0.9rem;margin-top:0.5rem;color:#5c4520;">Convertissez des images entre PNG, JPG, WebP, GIF, BMP, TIFF directement depuis l'Explorateur. En lot, sans logiciel supplémentaire.</p>
-                </div>
-
-                <div class="powertoys-tile">
-                    <div style="font-size:1.75rem;margin-bottom:0.5rem;">📐</div>
-                    <strong style="color:#3b2e14;">Règle d'écran</strong>
-                    <p class="tile-shortcut" style="font-size:0.9rem;color:#7a6030;margin-top:0.5rem;">Win + MAJ + M</p>
-                    <p class="tile-desc" style="font-size:0.9rem;margin-top:0.5rem;color:#5c4520;">Mesurez précisément des éléments visuels à l'écran en pixels. Utile pour vérifier des dimensions d'images, espacement ou mise en page avant d'exporter.</p>
-                </div>
-
-                <div class="powertoys-tile">
-                    <div style="font-size:1.75rem;margin-bottom:0.5rem;">🔍</div>
-                    <strong style="color:#3b2e14;">Loupe (Zoom)</strong>
-                    <p class="tile-shortcut" style="font-size:0.9rem;color:#7a6030;margin-top:0.5rem;">Win + + / Win + -</p>
-                    <p class="tile-desc" style="font-size:0.9rem;margin-top:0.5rem;color:#5c4520;">Zoomez sur n'importe quelle partie de l'écran pour vérifier les détails d'une image, l'alignement d'éléments visuels, ou lire un texte minuscule.</p>
-                </div>
-
 
                 <div class="powertoys-tile">
                     <div style="font-size:1.75rem;margin-bottom:0.5rem;">⌨️</div>
                     <strong style="color:#3b2e14;">Gestionnaire de clavier</strong>
                     <p class="tile-desc" style="font-size:0.9rem;margin-top:0.5rem;color:#5c4520;">Remappez des touches, créez des raccourcis personnalisés. Utile pour adapter le clavier à vos habitudes et automatiser des séquences répétitives.</p>
                 </div>
+
 
             </div>
         </div>
@@ -2018,45 +1997,87 @@
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;">
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">📰</div>
-                    <strong style="color:#065f46;">Digipage</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Créez une page web avec liens, vidéos et ressources en quelques minutes. Partageable par un simple lien.</p>
-                    <a href="https://ladigitale.dev/digipage/" target="_blank" style="font-size:0.85rem;color:#059669;font-weight:600;">Essayer →</a>
+                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🎙️</div>
+                    <strong style="color:#065f46;">DIGIRECORD</strong>
+                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digirecord permet d'enregistrer et de partager des fichiers audio.</p>
+                    <a href="https://ladigitale.dev/digirecord/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">✋</div>
-                    <strong style="color:#065f46;">Digistorm</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Mur de post-its collaboratifs en temps réel. Idéal pour les remue-méninges ou collectes de réponses.</p>
-                    <a href="https://ladigitale.dev/digistorm/" target="_blank" style="font-size:0.85rem;color:#059669;font-weight:600;">Essayer →</a>
+                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🗣️</div>
+                    <strong style="color:#065f46;">DIGISPEECH</strong>
+                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digispeech permet de générer un fichier audio à partir d'un texte.</p>
+                    <a href="https://ladigitale.dev/digispeech/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🗳️</div>
-                    <strong style="color:#065f46;">Digivote</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Sondages et votes en direct avec affichage des résultats. Parfait pour les réunions d'équipe.</p>
-                    <a href="https://ladigitale.dev/digivote/" target="_blank" style="font-size:0.85rem;color:#059669;font-weight:600;">Essayer →</a>
+                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">✂️</div>
+                    <strong style="color:#065f46;">DIGICUT</strong>
+                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digicut permet de découper un extrait d'un fichier audio ou d'une vidéo.</p>
+                    <a href="https://ladigitale.dev/digicut/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">⏱️</div>
-                    <strong style="color:#065f46;">Digiclock</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Minuteurs et compte à rebours visuels et personnalisables. Simple, efficace, sans installation.</p>
-                    <a href="https://ladigitale.dev/digiclock/" target="_blank" style="font-size:0.85rem;color:#059669;font-weight:600;">Essayer →</a>
+                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🔁</div>
+                    <strong style="color:#065f46;">DIGITRANSCODE</strong>
+                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digitranscode permet de convertir des fichiers audio et des vidéos.</p>
+                    <a href="https://ladigitale.dev/digitranscode/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🎯</div>
-                    <strong style="color:#065f46;">Digiwheel</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Roue de la fortune personnalisable pour tirer un nom au hasard ou choisir aléatoirement parmi des options.</p>
-                    <a href="https://ladigitale.dev/digiwheel/" target="_blank" style="font-size:0.85rem;color:#059669;font-weight:600;">Essayer →</a>
+                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🧩</div>
+                    <strong style="color:#065f46;">DIGIMERGE</strong>
+                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digimerge permet d'assembler des fichiers audio ou des vidéos.</p>
+                    <a href="https://ladigitale.dev/digimerge/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">📖</div>
-                    <strong style="color:#065f46;">Digiwords</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Nuage de mots collaboratif - les participant(e)s soumettent des mots qui apparaissent en temps réel.</p>
-                    <a href="https://ladigitale.dev/digiwords/" target="_blank" style="font-size:0.85rem;color:#059669;font-weight:600;">Essayer →</a>
+                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🔄</div>
+                    <strong style="color:#065f46;">DIGIFLIP</strong>
+                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digiflip permet de publier des fichiers PDF sous forme de flipbooks.</p>
+                    <a href="https://ladigitale.dev/digiflip/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                </div>
+
+                <div class="digitale-tile">
+                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">📄</div>
+                    <strong style="color:#065f46;">DIGIPDF</strong>
+                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">DigiPDF propose une série d'outils pour travailler avec les fichiers PDF.</p>
+                    <a href="https://digipdf.app/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                </div>
+
+                <div class="digitale-tile">
+                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🖼️</div>
+                    <strong style="color:#065f46;">DIGIREMOVEBG</strong>
+                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">DigiremoveBG permet de supprimer le fond d'une image ou d'une photo.</p>
+                    <a href="https://ladigitale.dev/digiremovebg/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                </div>
+
+                <div class="digitale-tile">
+                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🫥</div>
+                    <strong style="color:#065f46;">DIGIBLUR</strong>
+                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digiblur permet de masquer les visages sur une photo.</p>
+                    <a href="https://ladigitale.dev/digiblur/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                </div>
+
+                <div class="digitale-tile">
+                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🎨</div>
+                    <strong style="color:#065f46;">DIGIDESIGN</strong>
+                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digidesign permet de créer des compositions graphiques. Alternative à Canva.</p>
+                    <a href="https://ladigitale.dev/digidesign/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                </div>
+
+                <div class="digitale-tile">
+                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🧑‍💻</div>
+                    <strong style="color:#065f46;">DIGICODE</strong>
+                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digicode permet de créer des codes QR pour partager simplement des contenus sur mobiles.</p>
+                    <a href="https://ladigitale.dev/digicode/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                </div>
+
+                <div class="digitale-tile">
+                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🗂️</div>
+                    <strong style="color:#065f46;">DIGIPAD</strong>
+                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digipad permet de créer des murs multimédias collaboratifs.</p>
+                    <a href="https://digipad.app/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
                 </div>
 
             </div>
@@ -2117,6 +2138,7 @@
         <h3 class="tip-subhead" style="border-left:4px solid var(--primary);">📸 Captures & Enregistrement</h3>
         <div class="tip-item"><div class="tip-shortcut">Win + MAJ + S</div><div class="tip-description">Capture d'écran d'une zone ou d'une fenêtre - indispensable pour la documentation</div></div>
         <div class="tip-item"><div class="tip-shortcut">Win + MAJ + R</div><div class="tip-description">Enregistrement vidéo de l'écran - parfait pour créer un tutoriel</div></div>
+        <div class="tip-item"><div class="tip-shortcut">Win + MAJ + T</div><div class="tip-description">Text Extractor - extraire le texte d'une image ou zone d'écran</div></div>
         <div class="tip-item"><div class="tip-shortcut">Alt + Impr. écran</div><div class="tip-description">Capturer uniquement la fenêtre active dans le presse-papiers</div></div>
 
         <h3 class="tip-subhead" style="border-left:4px solid var(--primary);">📋 Productivité générale</h3>
@@ -2156,7 +2178,6 @@
         <div class="tip-item"><div class="tip-shortcut">Win + MAJ + C</div><div class="tip-description">Sélecteur de couleur</div></div>
         <div class="tip-item"><div class="tip-shortcut">Win + Ctrl + T</div><div class="tip-description">Fenêtre toujours au premier plan</div></div>
         <div class="tip-item"><div class="tip-shortcut">Win + MAJ + M</div><div class="tip-description">Règle d'écran - mesurer en pixels</div></div>
-        <div class="tip-item"><div class="tip-shortcut">Win + MAJ + T</div><div class="tip-description">Text Extractor - extraire le texte d'une image ou zone d'écran</div></div>
         <div class="tip-item"><div class="tip-shortcut">Ctrl + Espace</div><div class="tip-description">Peek - prévisualiser un fichier sans l'ouvrir (dans l'Explorateur)</div></div>
         <div class="back-to-toc" style="justify-content:center;"><a href="#toc">↑ Retour au menu</a></div>
     </div>
@@ -2172,7 +2193,7 @@
             <span style="font-family:'DM Sans',sans-serif;font-size:0.82rem;color:var(--text-light);margin-left:0.75rem;">ex : cgodin.qc.ca/<strong>teams</strong>, cgodin.qc.ca/<strong>motdepasse</strong>…</span>
         </div>
         <div class="links-grid">
-            <a class="link-chip" href="https://cgodin.qc.ca/m365" target="_blank">
+            <a class="link-chip" href="https://m365.cloud.microsoft/chat/" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/fr/0/02/Microsoft_365_Copilot.svg" alt="M365" style="width:15px;height:15px;flex-shrink:0;">
                 <span style="color:var(--text-light);font-size:0.78rem;margin-right:1px;">cgodin.qc.ca/</span><strong>m365</strong>
             </a>
@@ -2411,7 +2432,9 @@ window.addEventListener('DOMContentLoaded', () => {
         'Win + N':          ['Win_L','N'],
         'Win + MAJ + H':    ['Win_L','Shift_L','H'],
         'Ctrl + Ctrl':      ['Ctrl_L'],
+        'Ctrl + Ctrl (double)': ['Ctrl_L'],
         'Win + MAJ + C':    ['Win_L','Shift_L','C'],
+        'Win + MAJ + `':    ['Win_L','Shift_L',"'"],
         'Win + Ctrl + T':   ['Win_L','Ctrl_L','T'],
         'Win + MAJ + M':    ['Win_L','Shift_L','M'],
         'Win + MAJ + T':    ['Win_L','Shift_L','T'],
@@ -2509,9 +2532,9 @@ window.addEventListener('DOMContentLoaded', () => {
         tooltip.style.width = tw + 'px';
     }
 
-    // ── Attach to all .tip-shortcut AND .shortcut-tag elements ──
+    // ── Attach to all .tip-shortcut, .shortcut-tag and .tile-shortcut elements ──
     document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('.tip-shortcut, .shortcut-tag').forEach(el => {
+        document.querySelectorAll('.tip-shortcut, .shortcut-tag, .tile-shortcut').forEach(el => {
             const raw = el.textContent.trim();
             // Direct match first, then try common normalizations
             let keys = KBD_SHORTCUTS[raw];
@@ -2533,3 +2556,41 @@ window.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
