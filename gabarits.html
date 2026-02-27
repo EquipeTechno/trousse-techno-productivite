@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gabarits OneNote</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #18181f;
+  --ink-mid: #44445a;
+  --paper: #f9f7f3;
+  --paper-warm: #f2ede4;
+  --paper-alt: #eceae4;
+  --rule: #ddd9d0;
+  --rule-dark: #bab5aa;
+
+  --red: #b83232;     --red-bg: #faf0f0;   --red-mid: #e8c8c8;
+  --blue: #1e3d6e;    --blue-bg: #f0f4fa;  --blue-mid: #c4d4ea;
+  --green: #1e4d34;   --green-bg: #f0f7f3; --green-mid: #c0dccb;
+  --purple: #3e1e6e;  --purple-bg: #f4f0fa;--purple-mid: #d0c0e8;
+  --gold: #8a6c00;    --gold-bg: #faf6e8;  --gold-mid: #e0d090;
+  --teal: #1a4a52;    --teal-bg: #f0f6f7;  --teal-mid: #b8d8dc;
+  --orange: #7a3800;  --orange-bg: #faf3ec;--orange-mid: #e8c8a0;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--ink);
+  color: #fff;
+  padding: 72px 56px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:''; position:absolute; top:-80px; right:-80px;
+  width:420px; height:420px; border-radius:50%;
+  background: radial-gradient(circle, rgba(184,50,50,.15) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero::after {
+  content:''; position:absolute; bottom:0; left:0;
+  width:100%; height:3px;
+  background: linear-gradient(90deg, var(--red) 0%, var(--gold) 55%, transparent 100%);
+}
+.hero-inner { max-width:900px; margin:0 auto; position:relative; }
+.hero-eyebrow {
+  font-size:10.5px; font-weight:700; letter-spacing:.28em; text-transform:uppercase;
+  color: var(--red); margin-bottom:22px;
+  display:flex; align-items:center; gap:12px;
+}
+.hero-eyebrow::before { content:''; width:28px; height:1px; background:var(--red); }
+h1 {
+  font-family:'Libre Baskerville',serif;
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-weight:700; line-height:1.17; letter-spacing:-.02em;
+  margin-bottom:22px;
+}
+h1 em { font-style:italic; color:#c4a87a; }
+.hero-desc {
+  font-size:1rem; line-height:1.75; font-weight:300;
+  color:rgba(255,255,255,.65); max-width:560px; margin-bottom:36px;
+}
+.hero-pills { display:flex; gap:10px; flex-wrap:wrap; }
+.pill {
+  font-size:.72rem; font-weight:600; letter-spacing:.07em; text-transform:uppercase;
+  padding:5px 13px; border-radius:2px;
+  background:rgba(255,255,255,.08); color:rgba(255,255,255,.55);
+  border:1px solid rgba(255,255,255,.12);
+}
+
+/* ─── INSTRUCTIONS ─── */
+.instructions {
+  background: var(--gold-bg);
+  border-top:2px solid var(--gold-mid);
+  border-bottom:1px solid var(--rule);
+  padding:20px 56px;
+}
+.instructions-inner {
+  max-width:900px; margin:0 auto;
+  display:flex; align-items:flex-start; gap:14px;
+}
+.instr-icon { font-size:1.1rem; flex-shrink:0; margin-top:3px; }
+.instructions p { font-size:.88rem; line-height:1.65; color:#5a4800; }
+.instructions p strong { color:#3a3000; }
+.instructions kbd {
+  font-size:.75rem; background:#fff; color:var(--ink);
+  border:1px solid #ccc; border-radius:3px; padding:1px 5px;
+  font-family:monospace;
+}
+
+/* ─── MAIN ─── */
+.main { max-width:900px; margin:0 auto; padding:64px 56px 96px; }
+
+/* ─── SECTION HEADERS ─── */
+.section-header {
+  margin:0 0 40px;
+  display:flex; align-items:center; gap:20px;
+}
+.section-header-text { flex:0 0 auto; }
+.section-header-text h2 {
+  font-family:'Libre Baskerville',serif;
+  font-size:1.45rem; font-weight:700;
+  letter-spacing:-.01em; color:var(--ink);
+}
+.section-header-text p {
+  font-size:.83rem; color:var(--ink-mid); margin-top:3px;
+}
+.section-header-line { flex:1; height:1px; background:var(--rule); }
+.section-label {
+  font-size:9.5px; font-weight:700; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--rule-dark);
+}
+
+.section-gap { margin-bottom:72px; }
+
+/* ─── TEMPLATE CARD ─── */
+.card {
+  border:1px solid var(--rule);
+  border-radius:4px;
+  overflow:hidden;
+  margin-bottom:48px;
+  box-shadow:0 2px 14px rgba(0,0,0,.04);
+  transition:box-shadow .2s;
+}
+.card:hover { box-shadow:0 6px 28px rgba(0,0,0,.08); }
+
+.card-header {
+  padding:18px 26px;
+  display:flex; align-items:center; justify-content:space-between;
+  border-bottom:1px solid var(--rule);
+  background: var(--paper-warm);
+  gap:12px; flex-wrap:wrap;
+}
+.card-left { display:flex; align-items:center; gap:13px; }
+.card-icon { font-size:1.2rem; }
+.card-title {
+  font-family:'Libre Baskerville',serif;
+  font-size:1rem; font-weight:700; color:var(--ink);
+}
+.card-subtitle {
+  font-size:.75rem; color:var(--ink-mid); margin-top:1px;
+}
+.card-right { display:flex; align-items:center; gap:10px; }
+.badge {
+  font-size:.67rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  padding:3px 9px; border-radius:2px;
+}
+.badge-red    { background:var(--red-bg);    color:var(--red);    border:1px solid var(--red-mid); }
+.badge-blue   { background:var(--blue-bg);   color:var(--blue);   border:1px solid var(--blue-mid); }
+.badge-green  { background:var(--green-bg);  color:var(--green);  border:1px solid var(--green-mid); }
+.badge-purple { background:var(--purple-bg); color:var(--purple); border:1px solid var(--purple-mid); }
+.badge-gold   { background:var(--gold-bg);   color:var(--gold);   border:1px solid var(--gold-mid); }
+.badge-teal   { background:var(--teal-bg);   color:var(--teal);   border:1px solid var(--teal-mid); }
+.badge-orange { background:var(--orange-bg); color:var(--orange); border:1px solid var(--orange-mid); }
+
+.copy-btn {
+  font-family:'DM Sans',sans-serif;
+  font-size:.75rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+  padding:7px 18px; background:var(--ink); color:#fff;
+  border:none; border-radius:2px; cursor:pointer;
+  transition:background .18s, transform .1s;
+  white-space:nowrap;
+}
+.copy-btn:hover { background:var(--red); }
+.copy-btn:active { transform:scale(.97); }
+.copy-btn.copied { background:var(--green); }
+
+/* ─── PREVIEW ─── */
+.preview {
+  padding:32px 36px;
+  background:#fff;
+  font-family:'DM Sans',sans-serif;
+  font-size:.84rem;
+  color:var(--ink-mid);
+  line-height:1.7;
+}
+
+/* Preview sub-elements */
+.prev-title {
+  font-family:'Libre Baskerville',serif;
+  font-size:1.35rem; font-weight:700; color:var(--ink);
+  margin-bottom:6px;
+}
+.prev-meta {
+  display:grid; gap:0;
+  border:1px solid var(--rule);
+  border-radius:3px; overflow:hidden;
+  margin-bottom:24px;
+  font-size:.8rem;
+}
+.prev-meta-row {
+  display:flex; border-bottom:1px solid var(--rule);
+}
+.prev-meta-row:last-child { border-bottom:none; }
+.prev-meta-cell {
+  padding:7px 14px; flex:1;
+  border-right:1px solid var(--rule);
+  display:flex; gap:7px; align-items:center;
+}
+.prev-meta-cell:last-child { border-right:none; }
+.prev-meta-label { font-weight:600; color:var(--ink); white-space:nowrap; }
+.prev-meta-value { color:#bbb; font-style:italic; }
+
+.prev-section { margin:20px 0 6px; }
+.prev-section-title {
+  font-size:.7rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
+  display:flex; align-items:center; gap:10px; margin-bottom:10px;
+}
+.prev-section-title span:first-child { white-space:nowrap; }
+.prev-section-title::after { content:''; flex:1; height:1px; }
+
+/* Color theming per section */
+.theme-red  .prev-section-title { color:var(--red); }
+.theme-red  .prev-section-title::after { background:var(--red-mid); }
+.theme-blue .prev-section-title { color:var(--blue); }
+.theme-blue .prev-section-title::after { background:var(--blue-mid); }
+.theme-green .prev-section-title { color:var(--green); }
+.theme-green .prev-section-title::after { background:var(--green-mid); }
+.theme-purple .prev-section-title { color:var(--purple); }
+.theme-purple .prev-section-title::after { background:var(--purple-mid); }
+.theme-gold .prev-section-title { color:var(--gold); }
+.theme-gold .prev-section-title::after { background:var(--gold-mid); }
+.theme-teal .prev-section-title { color:var(--teal); }
+.theme-teal .prev-section-title::after { background:var(--teal-mid); }
+.theme-orange .prev-section-title { color:var(--orange); }
+.theme-orange .prev-section-title::after { background:var(--orange-mid); }
+
+.prev-field {
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+  color:#bbb; font-style:italic;
+  font-size:.82rem;
+}
+.prev-field-lbl {
+  font-weight:600; color:var(--ink-mid);
+  font-style:normal; margin-right:8px;
+}
+
+.prev-table { width:100%; border-collapse:collapse; font-size:.8rem; margin:8px 0; }
+.prev-table th {
+  padding:7px 12px; border:1px solid var(--rule);
+  text-align:left; font-size:.7rem; font-weight:700;
+  letter-spacing:.07em; text-transform:uppercase;
+  background:var(--paper-warm); color:var(--ink);
+}
+.prev-table td {
+  padding:6px 12px; border:1px solid var(--rule);
+  color:#bbb; font-style:italic;
+}
+.prev-table tr:nth-child(even) td { background:var(--paper); }
+
+.prev-check {
+  display:flex; align-items:flex-start; gap:9px;
+  padding:5px 0; border-bottom:1px dotted var(--rule);
+  color:#bbb; font-style:italic; font-size:.82rem;
+}
+.prev-check-box {
+  width:14px; height:14px; border:1.5px solid var(--rule-dark);
+  border-radius:2px; flex-shrink:0; margin-top:3px;
+}
+
+/* Notebook lines - fixed alignment */
+.preview-lined {
+  background-image: repeating-linear-gradient(
+    to bottom, transparent 0px, transparent 29px,
+    #e0dcd6 29px, #e0dcd6 30px
+  );
+  background-position: 0 0;
+  line-height: 30px;
+}
+
+/* ─── HIDDEN COPY DIV ─── */
+.copy-src { display:none; }
+
+/* ─── TOAST ─── */
+.toast {
+  position:fixed; bottom:28px; right:28px;
+  background:var(--green); color:#fff;
+  padding:11px 22px; border-radius:3px;
+  font-size:.83rem; font-weight:600;
+  opacity:0; transform:translateY(8px);
+  transition:opacity .28s, transform .28s;
+  pointer-events:none; z-index:999;
+  box-shadow:0 4px 20px rgba(0,0,0,.18);
+}
+.toast.show { opacity:1; transform:translateY(0); }
+
+/* ─── FOOTER ─── */
+footer {
+  background:var(--ink); color:rgba(255,255,255,.35);
+  text-align:center; padding:28px;
+  font-size:.76rem; letter-spacing:.04em;
+}
+
+@media(max-width:640px){
+  .hero, .instructions, .main { padding-left:24px; padding-right:24px; }
+  .prev-meta-row { flex-direction:column; }
+  .prev-meta-cell { border-right:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">OneNote · Gabarits de pages</div>
+    <h1>Des notes <em>structurées,</em><br>une équipe alignée.</h1>
+    <p class="hero-desc">Choisissez un gabarit, cliquez <strong style="color:#fff;">Copier</strong>, collez dans OneNote. Mise en forme, tableaux et styles appliqués automatiquement.</p>
+    <div class="hero-pills">
+      <span class="pill">Soutien administratif</span>
+      <span class="pill">Professionnels</span>
+      <span class="pill">Cadres</span>
+      <span class="pill">Enseignants</span>
+      <span class="pill">Étudiants</span>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ INSTRUCTIONS ═══ -->
+<div class="instructions">
+  <div class="instructions-inner">
+    <div class="instr-icon">📋</div>
+    <p><strong>Comment utiliser :</strong> Cliquez sur <strong>Copier</strong> → ouvrez OneNote → nouvelle page → <kbd>Ctrl+V</kbd>. Le gabarit apparaît avec ses titres stylés, tableaux et cases à cocher natifs. Remplissez simplement les zones en italique.</p>
+  </div>
+</div>
+
+<!-- ═══ MAIN ═══ -->
+<main class="main">
+
+<!-- ════════════════════════════════════════════════
+     SECTION 1 : GABARITS OPÉRATIONNELS
+     ════════════════════════════════════════════════ -->
+<div class="section-header section-gap">
+  <div class="section-header-text">
+    <div class="section-label">Section 01</div>
+    <h2>Gabarits opérationnels</h2>
+    <p>Comptes rendus, bilans, processus, projets</p>
+  </div>
+  <div class="section-header-line"></div>
+</div>
+
+
+<!-- ══ GABARIT 1 : COMPTE RENDU ══ -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-left">
+      <span class="card-icon">📝</span>
+      <div>
+        <div class="card-title">Compte rendu de réunion</div>
+        <div class="card-subtitle">Ordre du jour · Décisions · Actions</div>
+      </div>
+    </div>
+    <div class="card-right">
+      <span class="badge badge-red">Tous les rôles</span>
+      <button class="copy-btn" onclick="copyTemplate('tpl-cr',this)">Copier</button>
+    </div>
+  </div>
+  <div class="preview theme-red">
+    <div class="prev-title">Compte rendu de réunion</div>
+    <div class="prev-meta">
+      <div class="prev-meta-row">
+        <div class="prev-meta-cell"><span class="prev-meta-label">📅 Date</span><span class="prev-meta-value">jj/mm/aaaa</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">🕐 Heure</span><span class="prev-meta-value">hh:mm</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">📍 Lieu / Lien</span><span class="prev-meta-value">Salle ou URL</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">✍️ Rédacteur</span><span class="prev-meta-value">Nom</span></div>
+      </div>
+    </div>
+    <div class="prev-section">
+      <div class="prev-section-title"><span>Participants</span></div>
+      <table class="prev-table">
+        <tr><th>Nom</th><th>Titre / Rôle</th><th>Présent</th></tr>
+        <tr><td style="font-style:italic;color:#bbb"></td><td></td><td>✅</td></tr>
+        <tr><td style="font-style:italic;color:#bbb"></td><td></td><td>🔴 Absent excusé</td></tr>
+      </table>
+    </div>
+    <div class="prev-section">
+      <div class="prev-section-title"><span>Ordre du jour</span></div>
+      <div class="prev-field">1. </div>
+      <div class="prev-field">2. </div>
+      <div class="prev-field">3. </div>
+    </div>
+    <div class="prev-section">
+      <div class="prev-section-title"><span>Actions à prendre</span></div>
+      <table class="prev-table">
+        <tr><th>Action</th><th>Responsable</th><th>Échéance</th><th>Statut</th></tr>
+        <tr><td></td><td></td><td></td><td>⏳ À faire</td></tr>
+        <tr><td></td><td></td><td></td><td>⏳ À faire</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="copy-src" id="tpl-cr">
+<h1>Compte rendu de réunion</h1>
+<table style="width:100%;border-collapse:collapse;">
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📅 Date</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>🕐 Heure</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📍 Lieu / Lien</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>✍️ Rédacteur</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📁 Dossier</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+</table>
+
+<h2>👥 Participants</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Nom</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Titre / Rôle</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Présence</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">✅ Présent</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">✅ Présent</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">🔴 Absent excusé</td></tr>
+</table>
+
+<h2>📋 Ordre du jour</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;"><th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">#</th><th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Sujet</th><th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Durée</th><th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Présenté par</th></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">1</td><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">2</td><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">3</td><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+</table>
+
+<h2>💬 Discussion et décisions</h2>
+<p><strong>Point 1 —</strong></p>
+<p><br></p>
+<p><em>Décision :</em></p>
+<p><br></p>
+<p><strong>Point 2 —</strong></p>
+<p><br></p>
+<p><em>Décision :</em></p>
+<p><br></p>
+
+<h2>⚡ Actions à prendre</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Action</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Responsable</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Échéance</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Statut</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">⏳ À faire</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">⏳ À faire</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">⏳ À faire</td></tr>
+</table>
+
+<h2>🔜 Prochaine réunion</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📅 Date et heure</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📋 Ordre du jour prévu</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3"></td>
+  </tr>
+</table>
+  </div>
+</div>
+
+
+<!-- ══ GABARIT 2 : BILAN HEBDOMADAIRE ══ -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-left">
+      <span class="card-icon">📊</span>
+      <div>
+        <div class="card-title">Bilan hebdomadaire</div>
+        <div class="card-subtitle">Accomplissements · En cours · Priorités</div>
+      </div>
+    </div>
+    <div class="card-right">
+      <span class="badge badge-blue">Professionnels · Cadres</span>
+      <button class="copy-btn" onclick="copyTemplate('tpl-bh',this)">Copier</button>
+    </div>
+  </div>
+  <div class="preview theme-blue">
+    <div class="prev-title">Bilan de la semaine</div>
+    <div class="prev-meta">
+      <div class="prev-meta-row">
+        <div class="prev-meta-cell"><span class="prev-meta-label">📅 Semaine</span><span class="prev-meta-value">du jj/mm au jj/mm/aaaa</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">👤 Nom</span><span class="prev-meta-value"></span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">🏢 Équipe</span><span class="prev-meta-value"></span></div>
+      </div>
+    </div>
+    <div class="prev-section">
+      <div class="prev-section-title"><span>Accomplissements</span></div>
+      <div class="prev-check"><div class="prev-check-box"></div>Tâche complétée</div>
+      <div class="prev-check"><div class="prev-check-box"></div>Tâche complétée</div>
+    </div>
+    <div class="prev-section">
+      <div class="prev-section-title"><span>Priorités — Semaine prochaine</span></div>
+      <table class="prev-table">
+        <tr><th>#</th><th>Priorité</th><th>Contexte / objectif</th></tr>
+        <tr><td>1</td><td></td><td></td></tr>
+        <tr><td>2</td><td></td><td></td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="copy-src" id="tpl-bh">
+<h1>Bilan hebdomadaire</h1>
+<table style="width:100%;border-collapse:collapse;">
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:20%;"><strong>📅 Semaine</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;">Du &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; au</td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:20%;"><strong>👤 Nom</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🏢 Équipe / Service</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📋 Poste</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+</table>
+
+<h2>✅ Accomplissements de la semaine</h2>
+<p><input type="checkbox"> &nbsp;</p>
+<p><input type="checkbox"> &nbsp;</p>
+<p><input type="checkbox"> &nbsp;</p>
+<p><input type="checkbox"> &nbsp;</p>
+<p><input type="checkbox"> &nbsp;</p>
+
+<h2>🔄 En cours</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Dossier / Projet</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">État d'avancement</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Prochaine étape</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+</table>
+
+<h2>🚧 Obstacles et enjeux</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Obstacle</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Impact</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Soutien requis</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+</table>
+
+<h2>🎯 Priorités — Semaine prochaine</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">#</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Priorité</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Contexte / objectif</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">1</td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">2</td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">3</td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+</table>
+
+<h2>📈 Indicateurs</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Indicateur</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Cible</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Résultat</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Tendance</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">→</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">→</td></tr>
+</table>
+  </div>
+</div>
+
+
+<!-- ══ GABARIT 3 : DOCUMENTATION DE PROCESSUS ══ -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-left">
+      <span class="card-icon">⚙️</span>
+      <div>
+        <div class="card-title">Documentation de processus</div>
+        <div class="card-subtitle">Étapes · Responsables · Exceptions</div>
+      </div>
+    </div>
+    <div class="card-right">
+      <span class="badge badge-purple">Soutien · Professionnels</span>
+      <button class="copy-btn" onclick="copyTemplate('tpl-proc',this)">Copier</button>
+    </div>
+  </div>
+  <div class="preview theme-purple">
+    <div class="prev-title">Processus : <span style="color:#bbb;font-style:italic;font-weight:normal"></span></div>
+    <div class="prev-meta">
+      <div class="prev-meta-row">
+        <div class="prev-meta-cell"><span class="prev-meta-label">Version</span><span class="prev-meta-value">1.0</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">📅 Révision</span><span class="prev-meta-value">jj/mm/aaaa</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">Responsable</span><span class="prev-meta-value"></span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">🏢 Unité</span><span class="prev-meta-value"></span></div>
+      </div>
+    </div>
+    <div class="prev-section">
+      <div class="prev-section-title"><span>Étapes</span></div>
+      <table class="prev-table">
+        <tr><th>Étape</th><th>Description</th><th>Responsable</th><th>Outils</th></tr>
+        <tr><td>1</td><td></td><td></td><td></td></tr>
+        <tr><td>2</td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="copy-src" id="tpl-proc">
+<h1>Documentation de processus</h1>
+<table style="width:100%;border-collapse:collapse;">
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📌 Processus</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🔖 Version</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;">1.0</td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📅 Dernière révision</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>✍️ Responsable</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🏢 Unité / Service</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+</table>
+
+<h2>🎯 Objectif du processus</h2>
+<p><br></p>
+<p><br></p>
+
+<h2>🗂 Champ d'application</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;"><strong>✅ S'applique à</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🚫 Exclut</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🔗 Processus liés</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+</table>
+
+<h2>🛠 Outils et accès nécessaires</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Outil / Système</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Droits requis</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Remarque</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+</table>
+
+<h2>📋 Étapes détaillées</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:5%;">#</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:40%;">Description</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:20%;">Responsable</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:20%;">Outils</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:15%;">Durée approx.</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">1</td><td style="padding:8px 14px;border:1px solid #ccc;height:32px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">2</td><td style="padding:8px 14px;border:1px solid #ccc;height:32px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">3</td><td style="padding:8px 14px;border:1px solid #ccc;height:32px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">4</td><td style="padding:8px 14px;border:1px solid #ccc;height:32px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">5</td><td style="padding:8px 14px;border:1px solid #ccc;height:32px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+</table>
+
+<h2>⚠️ Exceptions et cas particuliers</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Cas particulier</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Marche à suivre</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+</table>
+
+<h2>📂 Documents liés</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Document</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Type</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Lien / Référence</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+</table>
+
+<h2>🕓 Historique des révisions</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Date</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Modifications</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Par</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;">Création initiale</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+</table>
+  </div>
+</div>
+
+
+<!-- ══ GABARIT 4 : TABLEAU DE BORD PROJET ══ -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-left">
+      <span class="card-icon">🗂️</span>
+      <div>
+        <div class="card-title">Tableau de bord de projet</div>
+        <div class="card-subtitle">KPI · Jalons · Risques · Décisions</div>
+      </div>
+    </div>
+    <div class="card-right">
+      <span class="badge badge-gold">Cadres · Chefs de projet</span>
+      <button class="copy-btn" onclick="copyTemplate('tpl-proj',this)">Copier</button>
+    </div>
+  </div>
+  <div class="preview theme-gold">
+    <div class="prev-title">Projet : <span style="color:#bbb;font-style:italic;font-weight:normal"></span></div>
+    <div class="prev-meta">
+      <div class="prev-meta-row">
+        <div class="prev-meta-cell"><span class="prev-meta-label">📅 Début</span><span class="prev-meta-value">jj/mm</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">🏁 Fin prévue</span><span class="prev-meta-value">jj/mm/aaaa</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">Responsable</span><span class="prev-meta-value"></span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">Statut</span><span style="color:var(--blue);font-weight:600;">En cours</span></div>
+      </div>
+    </div>
+    <div class="prev-section">
+      <div class="prev-section-title"><span>Jalons</span></div>
+      <table class="prev-table">
+        <tr><th>Jalon</th><th>Date prévue</th><th>Date réelle</th><th>Statut</th></tr>
+        <tr><td>Lancement</td><td></td><td></td><td>✅ Complété</td></tr>
+        <tr><td>Phase 1</td><td></td><td></td><td>🔄 En cours</td></tr>
+        <tr><td>Livraison finale</td><td></td><td></td><td>⏳ À venir</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="copy-src" id="tpl-proj">
+<h1>Tableau de bord de projet</h1>
+<table style="width:100%;border-collapse:collapse;">
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📌 Projet</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📅 Début</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>🏁 Fin prévue</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>👤 Responsable</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🔵 Statut</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">En cours</td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🏢 Unité</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>💰 Budget</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+</table>
+
+<h2>📋 Résumé exécutif</h2>
+<p><br></p>
+<p><br></p>
+
+<h2>📈 Indicateurs clés (KPI)</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Indicateur</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Cible</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Actuel</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Tendance</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">→</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">→</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">→</td></tr>
+</table>
+
+<h2>🏁 Jalons</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Jalon</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Date prévue</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Date réelle</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Statut</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Remarque</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Lancement</td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">⏳ À venir</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Phase 1</td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">⏳ À venir</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Phase 2</td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">⏳ À venir</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Livraison finale</td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;">⏳ À venir</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+</table>
+
+<h2>⚠️ Risques et enjeux</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Risque</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Probabilité</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Impact</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Mitigation</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;">Moyen</td><td style="padding:8px 14px;border:1px solid #ccc;">Élevé</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;">Faible</td><td style="padding:8px 14px;border:1px solid #ccc;">Moyen</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+</table>
+
+<h2>🔔 Décisions requises</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Décision à prendre</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Par qui</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Avant le</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+</table>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════
+     SECTION 2 : ENSEIGNEMENT & APPRENTISSAGE
+     ════════════════════════════════════════════════ -->
+<div class="section-header section-gap">
+  <div class="section-header-text">
+    <div class="section-label">Section 02</div>
+    <h2>Enseignement &amp; apprentissage</h2>
+    <p>Notes de cours, formations, préparation pédagogique</p>
+  </div>
+  <div class="section-header-line"></div>
+</div>
+
+
+<!-- ══ GABARIT 5 : NOTES DE COURS (ENSEIGNANT) ══ -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-left">
+      <span class="card-icon">📚</span>
+      <div>
+        <div class="card-title">Préparation de cours — Enseignant</div>
+        <div class="card-subtitle">Plan de séance · Objectifs · Matériel</div>
+      </div>
+    </div>
+    <div class="card-right">
+      <span class="badge badge-teal">Enseignants</span>
+      <button class="copy-btn" onclick="copyTemplate('tpl-ens',this)">Copier</button>
+    </div>
+  </div>
+  <div class="preview theme-teal">
+    <div class="prev-title">Plan de séance</div>
+    <div class="prev-meta">
+      <div class="prev-meta-row">
+        <div class="prev-meta-cell"><span class="prev-meta-label">📚 Cours</span><span class="prev-meta-value"></span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">📅 Date</span><span class="prev-meta-value">jj/mm/aaaa</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">🕐 Durée</span><span class="prev-meta-value">__ h</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">Groupe</span><span class="prev-meta-value"></span></div>
+      </div>
+    </div>
+    <div class="prev-section">
+      <div class="prev-section-title"><span>Déroulement de la séance</span></div>
+      <table class="prev-table">
+        <tr><th>Durée</th><th>Activité</th><th>Modalité</th><th>Matériel</th></tr>
+        <tr><td>10 min</td><td>Mise en contexte</td><td>Magistral</td><td></td></tr>
+        <tr><td>30 min</td><td>Contenu principal</td><td>Interactif</td><td></td></tr>
+        <tr><td>20 min</td><td>Exercice pratique</td><td>Individuel</td><td></td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="copy-src" id="tpl-ens">
+<h1>Plan de séance</h1>
+<table style="width:100%;border-collapse:collapse;">
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📚 Cours</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📅 Date</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>🕐 Durée totale</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>👥 Groupe</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📍 Local</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📖 Thème / Séance</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3"></td>
+  </tr>
+</table>
+
+<h2>🎯 Objectifs d'apprentissage</h2>
+<p>À la fin de cette séance, l'étudiant sera capable de :</p>
+<p><input type="checkbox"> &nbsp;</p>
+<p><input type="checkbox"> &nbsp;</p>
+<p><input type="checkbox"> &nbsp;</p>
+
+<h2>🗓 Déroulement de la séance</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Durée</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Activité</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Modalité</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Matériel requis</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">10 min</td><td style="padding:8px 14px;border:1px solid #ccc;">Mise en contexte / retour semaine précédente</td><td style="padding:8px 14px;border:1px solid #ccc;">Magistral</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">___ min</td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">___ min</td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">___ min</td><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">10 min</td><td style="padding:8px 14px;border:1px solid #ccc;">Synthèse et questions</td><td style="padding:8px 14px;border:1px solid #ccc;">Discussion</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+</table>
+
+<h2>📝 Notes pédagogiques</h2>
+<p><strong>Points à insister :</strong></p>
+<p><br></p>
+<p><strong>Difficultés anticipées :</strong></p>
+<p><br></p>
+<p><strong>Liens avec autres séances :</strong></p>
+<p><br></p>
+
+<h2>📋 Évaluation / Rétroaction</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;"><strong>Type d'évaluation</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Critères de réussite</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Prochain cours — Sujet</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+</table>
+  </div>
+</div>
+
+
+<!-- ══ GABARIT 6 : NOTES DE COURS (ÉTUDIANT) ══ -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-left">
+      <span class="card-icon">✏️</span>
+      <div>
+        <div class="card-title">Notes de cours — Étudiant</div>
+        <div class="card-subtitle">Notions · Questions · Synthèse personnelle</div>
+      </div>
+    </div>
+    <div class="card-right">
+      <span class="badge badge-orange">Étudiants</span>
+      <button class="copy-btn" onclick="copyTemplate('tpl-etu',this)">Copier</button>
+    </div>
+  </div>
+  <div class="preview theme-orange">
+    <div class="prev-title">Notes de cours</div>
+    <div class="prev-meta">
+      <div class="prev-meta-row">
+        <div class="prev-meta-cell"><span class="prev-meta-label">📚 Cours</span><span class="prev-meta-value"></span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">📅 Date</span><span class="prev-meta-value">jj/mm/aaaa</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">Séance</span><span class="prev-meta-value">#__</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">Enseignant</span><span class="prev-meta-value"></span></div>
+      </div>
+    </div>
+    <div class="prev-section">
+      <div class="prev-section-title"><span>Objectifs du cours (selon l'enseignant)</span></div>
+      <div class="prev-check"><div class="prev-check-box"></div>Objectif 1</div>
+      <div class="prev-check"><div class="prev-check-box"></div>Objectif 2</div>
+    </div>
+    <div class="prev-section">
+      <div class="prev-section-title"><span>Questions à poser / À clarifier</span></div>
+      <div class="prev-field">❓ </div>
+      <div class="prev-field">❓ </div>
+    </div>
+  </div>
+  <div class="copy-src" id="tpl-etu">
+<h1>Notes de cours</h1>
+<table style="width:100%;border-collapse:collapse;">
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📚 Cours</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📅 Date</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>Séance #</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Enseignant</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Thème</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+  </tr>
+</table>
+
+<h2>🎯 Objectifs annoncés</h2>
+<p><input type="checkbox"> &nbsp;</p>
+<p><input type="checkbox"> &nbsp;</p>
+<p><input type="checkbox"> &nbsp;</p>
+
+<h2>📖 Notions clés</h2>
+<h3>Concept 1 :</h3>
+<p><br></p>
+<p><br></p>
+<h3>Concept 2 :</h3>
+<p><br></p>
+<p><br></p>
+<h3>Concept 3 :</h3>
+<p><br></p>
+<p><br></p>
+
+<h2>💡 Exemples et illustrations</h2>
+<p><br></p>
+<p><br></p>
+
+<h2>❓ Questions à poser / Points à clarifier</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Question / Doute</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Réponse obtenue</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:30px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+</table>
+
+<h2>🔗 Liens avec d'autres matières ou séances</h2>
+<p><br></p>
+
+<h2>✏️ Ma synthèse personnelle</h2>
+<p><em>Ce que je retiens de cette séance — dans mes propres mots :</em></p>
+<p><br></p>
+<p><br></p>
+
+<h2>📚 À revoir / À approfondir</h2>
+<p><input type="checkbox"> &nbsp;</p>
+<p><input type="checkbox"> &nbsp;</p>
+<p><input type="checkbox"> &nbsp;</p>
+
+<h2>📋 Travaux et évaluations à venir</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Travail / Évaluation</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Échéance</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Détails importants</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;height:28px;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+</table>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════
+     SECTION 3 : EXEMPLES DE DOCUMENTATION
+     ════════════════════════════════════════════════ -->
+<div class="section-header section-gap">
+  <div class="section-header-text">
+    <div class="section-label">Section 03</div>
+    <h2>Exemples de documentation</h2>
+    <p>Trois niveaux — Simple · Intermédiaire · Avancée</p>
+  </div>
+  <div class="section-header-line"></div>
+</div>
+
+<p style="font-size:.88rem;color:var(--ink-mid);line-height:1.75;margin-bottom:40px;max-width:680px;">Ces exemples sont prêts à utiliser — ils illustrent comment documenter un processus réel dans votre service. Copiez l'exemple qui correspond à votre niveau de complexité, puis adaptez le contenu.</p>
+
+
+<!-- ══ EXEMPLE A : DOCUMENTATION SIMPLE ══ -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-left">
+      <span class="card-icon">📄</span>
+      <div>
+        <div class="card-title">Exemple A — Documentation simple</div>
+        <div class="card-subtitle">Procédure en quelques étapes claires · Idéal pour débuter</div>
+      </div>
+    </div>
+    <div class="card-right">
+      <span class="badge badge-green">Niveau 1</span>
+      <button class="copy-btn" onclick="copyTemplate('tpl-docA',this)">Copier</button>
+    </div>
+  </div>
+  <div class="preview theme-green">
+    <div class="prev-title">Comment effectuer une demande d'absence</div>
+    <div class="prev-meta">
+      <div class="prev-meta-row">
+        <div class="prev-meta-cell"><span class="prev-meta-label">Version</span><span class="prev-meta-value">1.0</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">Rédigé par</span><span class="prev-meta-value">RH</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">📅 Date</span><span class="prev-meta-value">févr. 2025</span></div>
+      </div>
+    </div>
+    <div class="prev-section">
+      <div class="prev-section-title"><span>Étapes</span></div>
+      <table class="prev-table">
+        <tr><th>Étape</th><th>Action</th><th>Outil</th></tr>
+        <tr><td>1</td><td>Remplir le formulaire de demande</td><td>Formulaire RH</td></tr>
+        <tr><td>2</td><td>Envoyer au gestionnaire</td><td>Courriel</td></tr>
+        <tr><td>3</td><td>Attendre la confirmation</td><td>—</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="copy-src" id="tpl-docA">
+<h1>Comment effectuer une demande d'absence</h1>
+<table style="width:100%;border-collapse:collapse;">
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>🔖 Version</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;">1.0</td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📅 Révisé le</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"></td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>✍️ Rédigé par</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">Ressources humaines</td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🏢 Service</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">Tous les services</td>
+  </tr>
+</table>
+
+<h2>🎯 Objectif</h2>
+<p>Expliquer à tous les employés comment soumettre une demande d'absence de manière correcte et efficace.</p>
+
+<h2>✅ Conditions préalables</h2>
+<p><input type="checkbox"> Avoir accès au portail RH</p>
+<p><input type="checkbox"> Connaître le nom de son gestionnaire immédiat</p>
+<p><input type="checkbox"> Avoir le solde de ses congés disponibles</p>
+
+<h2>📋 Étapes à suivre</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:5%;">#</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:45%;">Action</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:25%;">Outil</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:25%;">Délai</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">1</td><td style="padding:8px 14px;border:1px solid #ccc;">Se connecter au portail RH</td><td style="padding:8px 14px;border:1px solid #ccc;">Portail intranet</td><td style="padding:8px 14px;border:1px solid #ccc;">—</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">2</td><td style="padding:8px 14px;border:1px solid #ccc;">Remplir le formulaire de demande d'absence</td><td style="padding:8px 14px;border:1px solid #ccc;">Formulaire F-12</td><td style="padding:8px 14px;border:1px solid #ccc;">5 minutes</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">3</td><td style="padding:8px 14px;border:1px solid #ccc;">Envoyer la demande à son gestionnaire immédiat</td><td style="padding:8px 14px;border:1px solid #ccc;">Courriel</td><td style="padding:8px 14px;border:1px solid #ccc;">48h avant</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">4</td><td style="padding:8px 14px;border:1px solid #ccc;">Attendre la confirmation écrite du gestionnaire</td><td style="padding:8px 14px;border:1px solid #ccc;">—</td><td style="padding:8px 14px;border:1px solid #ccc;">2 jours ouvrables</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">5</td><td style="padding:8px 14px;border:1px solid #ccc;">Mettre à jour son agenda partagé</td><td style="padding:8px 14px;border:1px solid #ccc;">Outlook</td><td style="padding:8px 14px;border:1px solid #ccc;">Une fois approuvé</td></tr>
+</table>
+
+<h2>💡 À savoir</h2>
+<p>• Les demandes doivent être soumises au moins <strong>48 heures à l'avance</strong>, sauf urgence.</p>
+<p>• En cas d'absence d'urgence, communiquer directement avec son gestionnaire par téléphone.</p>
+<p>• Le solde de congés est consultable dans le portail RH, onglet <em>Mon dossier</em>.</p>
+
+<h2>📞 Contact en cas de question</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;"><strong>Service des RH</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">rh@organisation.qc.ca &nbsp;|&nbsp; poste 2210</td>
+  </tr>
+</table>
+  </div>
+</div>
+
+
+<!-- ══ EXEMPLE B : DOCUMENTATION INTERMÉDIAIRE ══ -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-left">
+      <span class="card-icon">📑</span>
+      <div>
+        <div class="card-title">Exemple B — Documentation intermédiaire</div>
+        <div class="card-subtitle">Procédure avec plusieurs acteurs et outils · Idéal pour services partagés</div>
+      </div>
+    </div>
+    <div class="card-right">
+      <span class="badge badge-blue">Niveau 2</span>
+      <button class="copy-btn" onclick="copyTemplate('tpl-docB',this)">Copier</button>
+    </div>
+  </div>
+  <div class="preview theme-blue">
+    <div class="prev-title">Gestion des accès aux systèmes — Nouvel employé</div>
+    <div class="prev-meta">
+      <div class="prev-meta-row">
+        <div class="prev-meta-cell"><span class="prev-meta-label">Version</span><span class="prev-meta-value">2.1</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">Service TI</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">📅 Révision</span><span class="prev-meta-value">janv. 2025</span></div>
+      </div>
+    </div>
+    <div class="prev-section">
+      <div class="prev-section-title"><span>Étapes par acteur</span></div>
+      <table class="prev-table">
+        <tr><th>Acteur</th><th>Action</th><th>Système</th><th>Délai</th></tr>
+        <tr><td>RH</td><td>Créer la fiche employé</td><td>SIRH</td><td>J-5</td></tr>
+        <tr><td>Gestionnaire</td><td>Préciser les accès requis</td><td>Formulaire TI</td><td>J-3</td></tr>
+        <tr><td>TI</td><td>Créer les comptes</td><td>Active Directory</td><td>J-1</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="copy-src" id="tpl-docB">
+<h1>Gestion des accès aux systèmes — Nouvel employé</h1>
+<table style="width:100%;border-collapse:collapse;">
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📌 Processus</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3">Création des accès pour un nouvel employé</td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🔖 Version</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">2.1</td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📅 Révisé le</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">Janvier 2025</td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>✍️ Responsable</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">Service des technologies de l'information</td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Acteurs impliqués</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">RH, Gestionnaire, TI</td>
+  </tr>
+</table>
+
+<h2>🎯 Objectif</h2>
+<p>S'assurer que tout nouvel employé dispose de tous les accès informatiques nécessaires dès son premier jour de travail, de façon sécurisée et traçable.</p>
+
+<h2>🛠 Systèmes concernés</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Système</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Description</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Accès standard</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Active Directory</td><td style="padding:8px 14px;border:1px solid #ccc;">Compte Windows et courriel</td><td style="padding:8px 14px;border:1px solid #ccc;">Tous les employés</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Office 365</td><td style="padding:8px 14px;border:1px solid #ccc;">Suite bureautique et Teams</td><td style="padding:8px 14px;border:1px solid #ccc;">Tous les employés</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">SIRH</td><td style="padding:8px 14px;border:1px solid #ccc;">Gestion RH (paie, congés)</td><td style="padding:8px 14px;border:1px solid #ccc;">Selon le poste</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Autres systèmes</td><td style="padding:8px 14px;border:1px solid #ccc;">Selon le service</td><td style="padding:8px 14px;border:1px solid #ccc;">Sur demande du gestionnaire</td></tr>
+</table>
+
+<h2>📋 Étapes par acteur</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Acteur</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Action</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Outil / Système</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Délai</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><strong>RH</strong></td><td style="padding:8px 14px;border:1px solid #ccc;">Créer la fiche de l'employé et envoyer l'avis d'embauche au TI</td><td style="padding:8px 14px;border:1px solid #ccc;">SIRH + courriel</td><td style="padding:8px 14px;border:1px solid #ccc;">J − 5 jours</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><strong>Gestionnaire</strong></td><td style="padding:8px 14px;border:1px solid #ccc;">Préciser les accès requis via le formulaire de demande TI</td><td style="padding:8px 14px;border:1px solid #ccc;">Formulaire TI-03</td><td style="padding:8px 14px;border:1px solid #ccc;">J − 3 jours</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><strong>TI</strong></td><td style="padding:8px 14px;border:1px solid #ccc;">Créer le compte Windows et courriel</td><td style="padding:8px 14px;border:1px solid #ccc;">Active Directory</td><td style="padding:8px 14px;border:1px solid #ccc;">J − 1 jour</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><strong>TI</strong></td><td style="padding:8px 14px;border:1px solid #ccc;">Configurer les accès aux autres systèmes demandés</td><td style="padding:8px 14px;border:1px solid #ccc;">Selon système</td><td style="padding:8px 14px;border:1px solid #ccc;">J − 1 jour</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><strong>TI</strong></td><td style="padding:8px 14px;border:1px solid #ccc;">Remettre les informations de connexion à l'employé (ou gestionnaire)</td><td style="padding:8px 14px;border:1px solid #ccc;">En personne / courriel sécurisé</td><td style="padding:8px 14px;border:1px solid #ccc;">Jour J</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><strong>Employé</strong></td><td style="padding:8px 14px;border:1px solid #ccc;">Changer son mot de passe et activer l'authentification multifacteur</td><td style="padding:8px 14px;border:1px solid #ccc;">Portail Microsoft</td><td style="padding:8px 14px;border:1px solid #ccc;">Jour J</td></tr>
+</table>
+
+<h2>⚠️ Cas particuliers</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Situation</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Marche à suivre</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Embauche de dernière minute</td><td style="padding:8px 14px;border:1px solid #ccc;">Contacter directement le technicien de garde TI au poste 3300</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Accès à des systèmes sensibles</td><td style="padding:8px 14px;border:1px solid #ccc;">Requiert l'approbation du directeur du service + formulaire F-07</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Employé temporaire ou contractuel</td><td style="padding:8px 14px;border:1px solid #ccc;">Compte créé avec date d'expiration — préciser la durée dans le formulaire</td></tr>
+</table>
+
+<h2>📞 Contacts</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;"><strong>Service TI</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">ti@organisation.qc.ca &nbsp;|&nbsp; poste 3300</td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Ressources humaines</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">rh@organisation.qc.ca &nbsp;|&nbsp; poste 2210</td>
+  </tr>
+</table>
+  </div>
+</div>
+
+
+<!-- ══ EXEMPLE C : DOCUMENTATION AVANCÉE ══ -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-left">
+      <span class="card-icon">📘</span>
+      <div>
+        <div class="card-title">Exemple C — Documentation avancée</div>
+        <div class="card-subtitle">Procédure complexe avec erreurs, références et historique · Services spécialisés</div>
+      </div>
+    </div>
+    <div class="card-right">
+      <span class="badge badge-purple">Niveau 3</span>
+      <button class="copy-btn" onclick="copyTemplate('tpl-docC',this)">Copier</button>
+    </div>
+  </div>
+  <div class="preview theme-purple">
+    <div class="prev-title">Paramétrage des droits d'accès — Bibliothèque</div>
+    <div class="prev-meta">
+      <div class="prev-meta-row">
+        <div class="prev-meta-cell"><span class="prev-meta-label">Version</span><span class="prev-meta-value">3.2</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">Bibliothèque</span></div>
+        <div class="prev-meta-cell"><span class="prev-meta-label">📅 Révision</span><span class="prev-meta-value">janv. 2025</span></div>
+      </div>
+    </div>
+    <div class="prev-section">
+      <div class="prev-section-title"><span>Erreurs connues et solutions</span></div>
+      <table class="prev-table">
+        <tr><th>Erreur</th><th>Cause probable</th><th>Solution</th></tr>
+        <tr><td>Accès refusé</td><td>Groupe non assigné</td><td>Vérifier les groupes Koha</td></tr>
+        <tr><td>Fiche introuvable</td><td>Numéro erroné</td><td>Recherche par nom</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="copy-src" id="tpl-docC">
+<h1>Paramétrage des droits d'accès — Bibliothèque</h1>
+<table style="width:100%;border-collapse:collapse;">
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:25%;"><strong>📌 Sujet</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3">Paramétrage des droits des usagers dans Koha</td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🔖 Version</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">3.2</td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>📅 Révisé le</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">Janvier 2025</td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>✍️ Rédigé par</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>🏛 Service</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">Bibliothèque</td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Utilisateurs visés</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;" colspan="3">Techniciennes en documentation, bibliothécaires</td>
+  </tr>
+</table>
+
+<h2>🎯 Contexte et objectifs</h2>
+<p>Cette documentation décrit la procédure pour configurer et modifier les droits d'accès des usagers (étudiants, personnel, enseignants) dans le système intégré de gestion de bibliothèque Koha.</p>
+<p><strong>Problème résolu :</strong> Éviter les erreurs d'accès lors des périodes d'inscription et s'assurer que les quotas de prêt sont correctement attribués selon le type d'usager.</p>
+
+<h2>🛠 Outils et accès nécessaires</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Outil / Système</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Droits requis</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Remarque</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Koha (SIGB)</td><td style="padding:8px 14px;border:1px solid #ccc;">Accès superutilisateur ou bibliothécaire</td><td style="padding:8px 14px;border:1px solid #ccc;">Demander au TI si accès manquant</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Fichier de référence des catégories</td><td style="padding:8px 14px;border:1px solid #ccc;">Lecture</td><td style="padding:8px 14px;border:1px solid #ccc;">Disponible sur le serveur partagé</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Liste des types d'usagers à jour</td><td style="padding:8px 14px;border:1px solid #ccc;">Fournie par les RH</td><td style="padding:8px 14px;border:1px solid #ccc;">Mise à jour à chaque session</td></tr>
+</table>
+
+<h2>📋 Procédure détaillée</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:5%;">#</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:40%;">Étape</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:30%;">Instructions précises</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;width:25%;">Remarques importantes</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">1</td><td style="padding:8px 14px;border:1px solid #ccc;">Se connecter à Koha avec un compte bibliothécaire</td><td style="padding:8px 14px;border:1px solid #ccc;">Aller à <em>Administration → Catégories d'usagers</em></td><td style="padding:8px 14px;border:1px solid #ccc;">Ne pas utiliser le compte administrateur général</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">2</td><td style="padding:8px 14px;border:1px solid #ccc;">Identifier la catégorie d'usager à modifier</td><td style="padding:8px 14px;border:1px solid #ccc;">Ex. : ETU01 = Étudiant temps plein</td><td style="padding:8px 14px;border:1px solid #ccc;">Référer au fichier de référence des catégories</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">3</td><td style="padding:8px 14px;border:1px solid #ccc;">Modifier les limites de prêt selon le tableau des quotas</td><td style="padding:8px 14px;border:1px solid #ccc;">Champ <em>Nombre maximal de prêts</em></td><td style="padding:8px 14px;border:1px solid #ccc;">Vérifier les quotas approuvés par le comité bibliothèque</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">4</td><td style="padding:8px 14px;border:1px solid #ccc;">Configurer la période de prêt par défaut</td><td style="padding:8px 14px;border:1px solid #ccc;">Champ <em>Durée de prêt par défaut (jours)</em></td><td style="padding:8px 14px;border:1px solid #ccc;">Respecter les durées de la politique de prêt</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">5</td><td style="padding:8px 14px;border:1px solid #ccc;">Activer ou désactiver les fonctionnalités (réservations, renouvellements)</td><td style="padding:8px 14px;border:1px solid #ccc;">Cocher/décocher les cases correspondantes</td><td style="padding:8px 14px;border:1px solid #ccc;">Les enseignants ont droit aux renouvellements illimités</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">6</td><td style="padding:8px 14px;border:1px solid #ccc;">Sauvegarder les modifications</td><td style="padding:8px 14px;border:1px solid #ccc;">Bouton <em>Enregistrer</em> en bas de page</td><td style="padding:8px 14px;border:1px solid #ccc;">Prendre une capture d'écran pour consigner la modification</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">7</td><td style="padding:8px 14px;border:1px solid #ccc;">Tester sur un compte usager de test</td><td style="padding:8px 14px;border:1px solid #ccc;">Utiliser le compte <em>TEST_ETU01</em></td><td style="padding:8px 14px;border:1px solid #ccc;">Toujours tester avant de déployer en production</td></tr>
+</table>
+
+<h2>💡 Bonnes pratiques</h2>
+<p><input type="checkbox"> Toujours tester les modifications sur un compte de test avant de les appliquer en production.</p>
+<p><input type="checkbox"> Documenter chaque modification dans le journal des changements (onglet ci-dessous).</p>
+<p><input type="checkbox"> Vérifier que les notices bibliographiques liées sont complètes avant validation.</p>
+<p><input type="checkbox"> Prévenir l'équipe par courriel lors de modifications affectant tous les usagers.</p>
+
+<h2>🔍 Erreurs courantes et solutions</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Message d'erreur / Problème</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Cause probable</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Solution</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><em>Accès refusé</em></td><td style="padding:8px 14px;border:1px solid #ccc;">L'usager n'appartient pas au bon groupe Koha</td><td style="padding:8px 14px;border:1px solid #ccc;">Vérifier et corriger l'appartenance au groupe dans la fiche usager</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><em>Limite de prêt atteinte</em></td><td style="padding:8px 14px;border:1px solid #ccc;">Quota mal configuré ou fiche non mise à jour</td><td style="padding:8px 14px;border:1px solid #ccc;">Vérifier le quota de la catégorie + vérifier les prêts en cours de l'usager</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><em>Catégorie introuvable</em></td><td style="padding:8px 14px;border:1px solid #ccc;">Catégorie supprimée ou renommée</td><td style="padding:8px 14px;border:1px solid #ccc;">Consulter le fichier de référence des catégories mis à jour</td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;"><em>Modifications non sauvegardées</em></td><td style="padding:8px 14px;border:1px solid #ccc;">Session expirée ou bouton ignoré</td><td style="padding:8px 14px;border:1px solid #ccc;">Se reconnecter et recommencer depuis l'étape 3</td></tr>
+</table>
+
+<h2>📖 Références et ressources</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;width:30%;"><strong>Documentation Koha officielle</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">https://koha-community.org/documentation/</td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Tableau des quotas approuvés</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">Serveur partagé → Bibliothèque → Politiques → Quotas_2025.xlsx</td>
+  </tr>
+  <tr>
+    <td style="padding:8px 14px;border:1px solid #ccc;"><strong>Contact support Koha interne</strong></td>
+    <td style="padding:8px 14px;border:1px solid #ccc;">bibliotheque@organisation.qc.ca &nbsp;|&nbsp; poste 4410</td>
+  </tr>
+</table>
+
+<h2>🕓 Historique des révisions</h2>
+<table style="width:100%;border-collapse:collapse;">
+  <tr style="background:#f0f0f0;">
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Date</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Modifications apportées</th>
+    <th style="padding:8px 14px;border:1px solid #ccc;text-align:left;">Par</th>
+  </tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Janvier 2025</td><td style="padding:8px 14px;border:1px solid #ccc;">Ajout section erreurs courantes + mise à jour quotas 2025</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Août 2024</td><td style="padding:8px 14px;border:1px solid #ccc;">Migration vers Koha v23.11 — mise à jour des chemins de menu</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+  <tr><td style="padding:8px 14px;border:1px solid #ccc;">Septembre 2023</td><td style="padding:8px 14px;border:1px solid #ccc;">Création initiale de la documentation</td><td style="padding:8px 14px;border:1px solid #ccc;"></td></tr>
+</table>
+  </div>
+</div>
+
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  Gabarits OneNote · Service des technologies de l'information &nbsp;·&nbsp; Librement adaptables à votre contexte.
+</footer>
+
+<div class="toast" id="toast">✓ Gabarit copié — collez dans OneNote avec Ctrl+V</div>
+
+<script>
+function copyTemplate(id, btn) {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  // Wrap in a clean HTML document fragment for best OneNote compatibility
+  const htmlContent = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: Calibri, sans-serif; font-size: 11pt; line-height: 1.5; margin: 0; padding: 0; }
+    h1 { font-size: 20pt; }
+    h2 { font-size: 14pt; }
+    h3 { font-size: 12pt; }
+    table { border-collapse: collapse; width: 100%; margin: 8px 0; }
+    td, th { padding: 7px 12px; border: 1px solid #cccccc; }
+    th { background: #f0f0f0; font-weight: bold; text-align: left; }
+    p { margin: 6px 0; }
+    ul, ol { margin: 4px 0 4px 20px; }
+    li { margin: 3px 0; }
+  </style>
+</head>
+<body>
+${el.innerHTML}
+</body>
+</html>`;
+
+  const htmlBlob = new Blob([htmlContent], { type: 'text/html' });
+  const textBlob = new Blob([el.innerText || el.textContent || ''], { type: 'text/plain' });
+
+  if (window.ClipboardItem) {
+    const item = new ClipboardItem({ 'text/html': htmlBlob, 'text/plain': textBlob });
+    navigator.clipboard.write([item])
+      .then(() => showSuccess(btn))
+      .catch(() => fallbackCopy(el, btn));
+  } else {
+    fallbackCopy(el, btn);
+  }
+}
+
+function fallbackCopy(el, btn) {
+  // Create a temporary container, select it, and execCommand copy
+  const tmp = document.createElement('div');
+  tmp.innerHTML = el.innerHTML;
+  tmp.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;overflow:hidden;opacity:0.01;';
+  document.body.appendChild(tmp);
+  const sel = window.getSelection();
+  const range = document.createRange();
+  range.selectNodeContents(tmp);
+  sel.removeAllRanges();
+  sel.addRange(range);
+  try {
+    document.execCommand('copy');
+    showSuccess(btn);
+  } catch(e) {
+    btn.textContent = '✗ Erreur';
+    setTimeout(() => { btn.textContent = 'Copier'; }, 2000);
+  }
+  sel.removeAllRanges();
+  document.body.removeChild(tmp);
+}
+
+function showSuccess(btn) {
+  const orig = btn.textContent;
+  btn.textContent = '✓ Copié';
+  btn.classList.add('copied');
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(() => {
+    btn.textContent = orig;
+    btn.classList.remove('copied');
+    toast.classList.remove('show');
+  }, 2400);
+}
+</script>
+</body>
+</html>
