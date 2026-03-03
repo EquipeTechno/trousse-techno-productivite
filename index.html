@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trousse techno - Productivité au bureau</title>
+    <title>Trousse techno - Productivité</title>
     <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/fr/7/73/Logo-C%C3%A9gep_G%C3%A9rald-Godin.svg">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -389,7 +389,24 @@
             background: #0b5f59 !important;
             transform: none !important;
         }
-
+        .digitale-open-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.1rem;
+            line-height: 1;
+            padding: 0.35rem 0.5rem;
+            border-radius: 999px;
+            background: #dcfce7;
+            border: 1px solid #86efac;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+        }
+        .digitale-open-btn:hover {
+            transform: translateY(-1px) scale(1.06);
+            box-shadow: 0 5px 12px rgba(16,185,129,0.25);
+            background: #bbf7d0;
+        }
         /* ---- QUICK LINKS ---- */
         .links-block {
             background: var(--bg-card); border: 1px solid var(--border);
@@ -408,16 +425,93 @@
             white-space: nowrap;
         }
         .link-chip:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
-
         /* ---- FEEDBACK ---- */
         .feedback-section {
             background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-            border-radius: 16px; padding: 2.5rem; margin-top: 3rem; margin-bottom: 2rem;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
             border: 2px solid #86efac;
         }
-        body.dark-mode .feedback-section { background: linear-gradient(135deg, #052e16 0%, #064e3b 100%) !important; border-color: #065f46 !important; }
-        body.dark-mode .feedback-section h2 { color: #6ee7b7 !important; }
-        body.dark-mode .feedback-section p { color: #a7f3d0 !important; }
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+            gap: 1.25rem;
+        }
+        .feedback-card {
+            text-align: center;
+            background: rgba(255,255,255,0.55);
+            border: 1px solid rgba(34,197,94,0.25);
+            border-radius: 14px;
+            padding: 1.5rem;
+        }
+        .feedback-title {
+            font-family:'Crimson Pro',serif;
+            font-size:2rem;
+            color:#166534;
+            margin-bottom:1rem;
+        }
+        .feedback-text {
+            color:#15803d;
+            font-size:1.1rem;
+            line-height:1.7;
+            max-width:700px;
+            margin:0 auto 1.5rem;
+        }
+        .feedback-text-small {
+            color:#15803d;
+            font-size:1rem;
+            line-height:1.7;
+            max-width:700px;
+            margin:0 auto 1.5rem;
+        }
+        .feedback-btn {
+            background: linear-gradient(135deg,#22c55e 0%,#16a34a 100%);
+            border: none;
+            font-size: 1.1rem;
+            padding: 1rem 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 4px 12px rgba(34,197,94,0.3);
+            cursor: pointer;
+            text-decoration: none;
+            color: #ffffff;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+        }
+        .feedback-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 18px rgba(34,197,94,0.35);
+            filter: brightness(1.03);
+            background: linear-gradient(135deg,#22c55e 0%,#16a34a 100%) !important;
+            color: #ffffff !important;
+            border: none !important;
+        }
+        body.dark-mode .feedback-section {
+            background: linear-gradient(135deg, #162125 0%, #1f2c31 100%) !important;
+            border-color: #3a4b54 !important;
+        }
+        body.dark-mode .feedback-card {
+            background: rgba(10,17,22,0.62) !important;
+            border-color: rgba(110,231,183,0.2) !important;
+        }
+        body.dark-mode .feedback-title { color: #d1fae5 !important; }
+        body.dark-mode .feedback-text,
+        body.dark-mode .feedback-text-small { color: #a7f3d0 !important; }
+        body.dark-mode .feedback-btn {
+            background: linear-gradient(135deg,#2f8f7a 0%,#2a7f6d 100%) !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.25) !important;
+            color: #eafaf4 !important;
+        }
+        body.dark-mode .feedback-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+            filter: none;
+            background: linear-gradient(135deg,#358f7d 0%,#2f7f70 100%) !important;
+            color: #f3fffa !important;
+        }
+
 
         /* ---- RESPONSIVE ---- */
         @media (max-width: 768px) {
@@ -1839,44 +1933,6 @@
 
     </section>
 
-    <!-- ==============================
-         WORKFLOW - Ma journée type plus efficace
-    =============================== -->
-    <div class="workflow">
-        <h2>⚡ Ma journée de bureau plus efficace</h2>
-        <div class="workflow-steps">
-            <div class="workflow-step">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                    <h3>Démarrer la journée avec les priorités</h3>
-                    <p>Ouvrez le calendrier Outlook et votre liste To Do, puis identifiez 3 priorités réalistes (administratif, pédagogique, suivis). Traitez d'abord les urgences réelles : absences, messages étudiants critiques et échéances du jour.</p>
-                </div>
-            </div>
-            <div class="workflow-step">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                    <h3>Bloquer un vrai temps de travail</h3>
-                    <p>Planifiez 1 à 2 blocs de Sessions de concentration, activez « Ne pas déranger » (Win + N) et coupez les notifications non essentielles. Pendant ce bloc, avancez un seul dossier à la fois (corrections, planification de cours, documents de service).</p>
-                </div>
-            </div>
-            <div class="workflow-step">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                    <h3>Collaborer sans surcharge de courriels</h3>
-                    <p>Travaillez dans Teams, OneDrive et SharePoint pour coéditer au même endroit. Utilisez @mentions et commentaires ciblés plutôt que des chaînes « Répondre à tous », et réservez « Tout le personnel » aux communications vraiment institutionnelles.</p>
-                </div>
-            </div>
-            <div class="workflow-step">
-                <div class="step-number">4</div>
-                <div class="step-content">
-                    <h3>Clore la journée proprement</h3>
-                    <p>Planifiez ou différez les envois non urgents, mettez vos fichiers à jour dans OneDrive/SharePoint, puis préparez vos 3 priorités de demain dans To Do. Avant de quitter : Win + L pour verrouiller votre poste.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
     <div style="margin-top:2.5rem;"></div>
 
     <!-- ==============================
@@ -1997,87 +2053,51 @@
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;">
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🎙️</div>
-                    <strong style="color:#065f46;">DIGIRECORD</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digirecord permet d'enregistrer et de partager des fichiers audio.</p>
-                    <a href="https://ladigitale.dev/digirecord/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🎙️</span><span>Digirecord</span></strong><a href="https://ladigitale.dev/digirecord/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet d'enregistrer et de partager des fichiers audio.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🗣️</div>
-                    <strong style="color:#065f46;">DIGISPEECH</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digispeech permet de générer un fichier audio à partir d'un texte.</p>
-                    <a href="https://ladigitale.dev/digispeech/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🗣️</span><span>Digispeech</span></strong><a href="https://ladigitale.dev/digispeech/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de générer un fichier audio à partir d'un texte.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">✂️</div>
-                    <strong style="color:#065f46;">DIGICUT</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digicut permet de découper un extrait d'un fichier audio ou d'une vidéo.</p>
-                    <a href="https://ladigitale.dev/digicut/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">✂️</span><span>Digicut</span></strong><a href="https://ladigitale.dev/digicut/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de découper un extrait d'un fichier audio ou d'une vidéo.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🔁</div>
-                    <strong style="color:#065f46;">DIGITRANSCODE</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digitranscode permet de convertir des fichiers audio et des vidéos.</p>
-                    <a href="https://ladigitale.dev/digitranscode/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🔁</span><span>Digitranscode</span></strong><a href="https://ladigitale.dev/digitranscode/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de convertir des fichiers audio et des vidéos.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🧩</div>
-                    <strong style="color:#065f46;">DIGIMERGE</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digimerge permet d'assembler des fichiers audio ou des vidéos.</p>
-                    <a href="https://ladigitale.dev/digimerge/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🧩</span><span>Digimerge</span></strong><a href="https://ladigitale.dev/digimerge/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet d'assembler des fichiers audio ou des vidéos.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🔄</div>
-                    <strong style="color:#065f46;">DIGIFLIP</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digiflip permet de publier des fichiers PDF sous forme de flipbooks.</p>
-                    <a href="https://ladigitale.dev/digiflip/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🔄</span><span>Digiflip</span></strong><a href="https://ladigitale.dev/digiflip/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de publier des fichiers PDF sous forme de flipbooks.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">📄</div>
-                    <strong style="color:#065f46;">DIGIPDF</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">DigiPDF propose une série d'outils pour travailler avec les fichiers PDF.</p>
-                    <a href="https://digipdf.app/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">📄</span><span>DigiPDF</span></strong><a href="https://digipdf.app/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Propose une série d'outils pour travailler avec les fichiers PDF.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🖼️</div>
-                    <strong style="color:#065f46;">DIGIREMOVEBG</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">DigiremoveBG permet de supprimer le fond d'une image ou d'une photo.</p>
-                    <a href="https://ladigitale.dev/digiremovebg/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🖼️</span><span>DigiremoveBG</span></strong><a href="https://ladigitale.dev/digiremovebg/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de supprimer le fond d'une image ou d'une photo.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🫥</div>
-                    <strong style="color:#065f46;">DIGIBLUR</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digiblur permet de masquer les visages sur une photo.</p>
-                    <a href="https://ladigitale.dev/digiblur/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🫥</span><span>Digiblur</span></strong><a href="https://ladigitale.dev/digiblur/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de masquer les visages sur une photo.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🎨</div>
-                    <strong style="color:#065f46;">DIGIDESIGN</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digidesign permet de créer des compositions graphiques. Alternative à Canva.</p>
-                    <a href="https://ladigitale.dev/digidesign/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🎨</span><span>Digidesign</span></strong><a href="https://ladigitale.dev/digidesign/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de créer des compositions graphiques. Alternative à Canva.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🧑‍💻</div>
-                    <strong style="color:#065f46;">DIGICODE</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digicode permet de créer des codes QR pour partager simplement des contenus sur mobiles.</p>
-                    <a href="https://ladigitale.dev/digicode/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🧑‍💻</span><span>Digicode</span></strong><a href="https://ladigitale.dev/digicode/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de créer des codes QR pour partager simplement des contenus sur mobiles.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="font-size:1.5rem;margin-bottom:0.4rem;">🗂️</div>
-                    <strong style="color:#065f46;">DIGIPAD</strong>
-                    <p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Digipad permet de créer des murs multimédias collaboratifs.</p>
-                    <a href="https://digipad.app/" target="_blank" class="btn btn-primary digitale-cta" style="margin-top:0.6rem;display:inline-block;">Essayer l'outil</a>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🗂️</span><span>Digipad</span></strong><a href="https://digipad.app/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de créer des murs multimédias collaboratifs.</p>
                 </div>
 
             </div>
@@ -2265,22 +2285,69 @@
         <div class="back-to-toc" style="justify-content:center;"><a href="#toc">↑ Retour au menu</a></div>
     </div>
 
+    <!-- ==============================
+         WORKFLOW - Ma journée type plus efficace
+    =============================== -->
+    <div class="workflow">
+        <h2>⚡ Ma journée de bureau plus efficace</h2>
+        <div class="workflow-steps">
+            <div class="workflow-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Démarrer la journée avec les priorités</h3>
+                    <p>Ouvrez le calendrier Outlook et votre liste To Do, puis identifiez 3 priorités réalistes (administratif, pédagogique, suivis). Traitez d'abord les urgences réelles : absences, messages étudiants critiques et échéances du jour.</p>
+                </div>
+            </div>
+            <div class="workflow-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Bloquer un vrai temps de travail</h3>
+                    <p>Planifiez 1 à 2 blocs de Sessions de concentration, activez « Ne pas déranger » (Win + N) et coupez les notifications non essentielles. Pendant ce bloc, avancez un seul dossier à la fois (corrections, planification de cours, documents de service).</p>
+                </div>
+            </div>
+            <div class="workflow-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Collaborer sans surcharge de courriels</h3>
+                    <p>Travaillez dans Teams, OneDrive et SharePoint pour coéditer au même endroit. Utilisez @mentions et commentaires ciblés plutôt que des chaînes « Répondre à tous », et réservez « Tout le personnel » aux communications vraiment institutionnelles.</p>
+                </div>
+            </div>
+            <div class="workflow-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Clore la journée proprement</h3>
+                    <p>Planifiez ou différez les envois non urgents, mettez vos fichiers à jour dans OneDrive/SharePoint, puis préparez vos 3 priorités de demain dans To Do. Avant de quitter : Win + L pour verrouiller votre poste.</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- FEEDBACK -->
     <div class="feedback-section">
-        <div style="text-align:center;margin-bottom:2rem;">
-            <div style="font-size:3rem;margin-bottom:1rem;">💬</div>
-            <h2 style="font-family:'Crimson Pro',serif;font-size:2rem;color:#166534;margin-bottom:1rem;">Commentaires et suggestions</h2>
-            <p style="color:#15803d;font-size:1.1rem;line-height:1.7;max-width:700px;margin:0 auto;">
-                Vous avez un truc pratique qui n'est pas dans cette trousse? Une correction à suggérer? Vos retours nous aident à l'améliorer pour tout le monde.
-            </p>
-        </div>
-        <div style="text-align:center;">
-            <button class="btn btn-secondary"
-                style="background:linear-gradient(135deg,#22c55e 0%,#16a34a 100%);border:none;font-size:1.1rem;padding:1rem 2rem;display:inline-flex;align-items:center;gap:0.75rem;box-shadow:0 4px 12px rgba(34,197,94,0.3);cursor:pointer;"
-                onclick="sendFeedback()">
-                <span style="font-size:1.3rem;">📧</span>
-                Partager mon avis
-            </button>
+        <div class="feedback-grid">
+            <div class="feedback-card">
+                <div style="font-size:3rem;margin-bottom:1rem;">💬</div>
+                <h2 class="feedback-title">Commentaires et suggestions</h2>
+                <p class="feedback-text">
+                    Vous avez un truc pratique qui n'est pas dans cette trousse? Une correction à suggérer? Vos retours nous aident à l'améliorer pour tout le monde.
+                </p>
+                <button class="btn btn-secondary feedback-btn" onclick="sendFeedback()">
+                    <span style="font-size:1.3rem;">📧</span>
+                    Partager mon avis
+                </button>
+            </div>
+            <div class="feedback-card">
+                <div style="font-size:3rem;margin-bottom:1rem;">🏫</div>
+                <h2 class="feedback-title" style="margin-bottom:0.75rem;">Trousse techno en classe</h2>
+                <p class="feedback-text">
+                    Bonnes pratiques et outils pour enseigner efficacement en classe
+                </p>
+                <p class="feedback-text-small">
+                    Cette trousse rassemble des trucs et astuces pratiques pour configurer l'ordinateur en mode présentation. Explorez les outils disponibles, apprenez les raccourcis essentiels, et découvrez comment protéger votre vie privée tout en offrant une expérience optimale en classe.
+                </p>
+                <a class="btn btn-secondary feedback-btn" href="..\Trousse techno en classe\index.html">
+                    Ouvrir la trousse en classe
+                </a>
+            </div>
         </div>
     </div>
 
@@ -2297,7 +2364,7 @@ function sendFeedback() {
         "Merci de contribuer à l'amélioration de nos outils!"
     ];
     var body = encodeURIComponent(lines.join("\n"));
-    window.location.href = "mailto:aidetechno@cgodin.qc.ca?cc=cptic@cgodin.qc.ca&subject=" + subject + "&body=" + body;
+    window.location.href = "mailto:aidetechno@cgodin.qc.ca?subject=" + subject + "&body=" + body;
 }
 
 function toggleTheme() {
@@ -2556,6 +2623,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
