@@ -68,14 +68,17 @@
         body.dark-mode .powertoys-tile .tile-shortcut { color: #7a6535 !important; }
         body.dark-mode .powertoys-tile .tile-desc { color: #8a7355 !important; }
         body.dark-mode .digitale-block {
-            background: linear-gradient(135deg, #1a2e1a 0%, #1e3520 100%) !important;
-            border-color: #2d5a2d !important;
+            background: linear-gradient(135deg, #0b2f33 0%, #103a3f 100%) !important;
+            border-color: #1f6d73 !important;
         }
-        body.dark-mode .digitale-block h2 { color: #6ee7b7 !important; }
-        body.dark-mode .digitale-block > div > p { color: #a7f3d0 !important; }
+        body.dark-mode .digitale-block h2 { color: #67e8f9 !important; }
+        body.dark-mode .digitale-block p { color: #a5f3fc !important; }
+        body.dark-mode .digitale-block a { color: #67e8f9 !important; }
         body.dark-mode .digitale-tile { background: rgba(0,0,0,0.2) !important; border-color: rgba(255,255,255,0.07) !important; }
-        body.dark-mode .digitale-tile strong { color: #6ee7b7 !important; }
-        body.dark-mode .digitale-tile p { color: #a7f3d0 !important; }
+        body.dark-mode .digitale-tile strong { color: #67e8f9 !important; }
+        body.dark-mode .digitale-tile p { color: #a5f3fc !important; }
+        body.dark-mode .digitale-block a.digitale-open-btn { color: #0f5e66 !important; }
+        body.dark-mode .digitale-block a.digitale-open-btn:hover { color: #0a4f56 !important; }
         body.dark-mode .links-block { background: #2a2a2a !important; border-color: #404040 !important; }
         body.dark-mode .link-chip { background: #1a1a1a !important; border-color: #404040 !important; color: #f5f5f5 !important; }
         body.dark-mode .link-chip:hover { border-color: var(--primary) !important; }
@@ -367,26 +370,26 @@
 
         /* ---- LA DIGITALE BLOCK ---- */
         .digitale-block {
-            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
             border-radius: 16px; padding: 2.5rem; margin-top: 3rem; margin-bottom: 3rem;
-            border: 1px solid #6ee7b7;
-            box-shadow: 0 8px 24px rgba(16,185,129,0.12);
+            border: 1px solid #67e8f9;
+            box-shadow: 0 8px 24px rgba(0,206,209,0.2);
         }
         .digitale-tile {
             background: rgba(255,255,255,0.55); padding: 1.25rem;
-            border-radius: 10px; border: 1px solid rgba(16,185,129,0.2);
+            border-radius: 10px; border: 1px solid rgba(0,206,209,0.28);
         }
         .digitale-cta {
             font-size: 0.82rem;
             padding: 0.45rem 0.75rem;
             border-radius: 6px;
-            background: #0f766e !important;
+            background: #0e7490 !important;
             color: #fff;
             font-weight: 600;
             line-height: 1.2;
         }
         .digitale-cta:hover {
-            background: #0b5f59 !important;
+            background: #0b5d73 !important;
             transform: none !important;
         }
         .digitale-open-btn {
@@ -398,14 +401,20 @@
             line-height: 1;
             padding: 0.35rem 0.5rem;
             border-radius: 999px;
-            background: #dcfce7;
-            border: 1px solid #86efac;
+            background: #cffafe;
+            border: 1px solid #67e8f9;
             transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
         }
         .digitale-open-btn:hover {
             transform: translateY(-1px) scale(1.06);
-            box-shadow: 0 5px 12px rgba(16,185,129,0.25);
-            background: #bbf7d0;
+            box-shadow: 0 5px 12px rgba(0,206,209,0.35);
+            background: #a5f3fc;
+        }
+        .digitale-name-link,
+        .digitale-name-link:hover,
+        .digitale-name-link:focus {
+            text-decoration: none !important;
+            color: inherit;
         }
         /* ---- QUICK LINKS ---- */
         .links-block {
@@ -578,7 +587,7 @@
             <a class="toc-item" href="#automate"><span class="toc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Microsoft_Power_Automate.svg" alt="Power Automate" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;"></span>Power Automate</a>
             <a class="toc-item" href="#security"><span class="toc-icon">🔒</span>Sécurité</a>
             <a class="toc-item" href="#powertoys-section"><span class="toc-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/2020_PowerToys_Icon.svg" alt="PowerToys" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;"></span>PowerToys</a>
-            <a class="toc-item" href="#digitale"><span class="toc-icon">🎲</span>La Digitale</a>
+            <a class="toc-item" href="#digitale"><span class="toc-icon"><img src="https://ladigitale.dev/blog/bl-themes/mediumish/img/logo.png" alt="La Digitale" style="width:18px;height:18px;vertical-align:middle;margin-right:5px;"></span>La Digitale</a>
             <a class="toc-item" href="#shortcuts"><span class="toc-icon">⌨</span>️ Raccourcis essentiels</a>
             <a class="toc-item" href="#quicklinks"><span class="toc-icon">🔗</span>Liens rapides GG</a>
         </div>
@@ -2041,11 +2050,11 @@
     <section id="digitale" class="section-block" style="scroll-margin-top:80px;">
         <div class="digitale-block">
             <div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap;">
-                <div style="font-size:3rem;">🎲</div>
+                <div><img src="https://ladigitale.dev/blog/bl-themes/mediumish/img/logo.png" alt="La Digitale" style="width:3rem;height:3rem;"></div>
                 <div>
-                    <h2 style="font-family:'Crimson Pro',serif;font-size:2.25rem;color:#065f46;margin-bottom:0.25rem;">La Digitale - outils pédagogiques libres</h2>
-                    <p style="color:#047857;font-size:1.05rem;">
-                        <a href="https://ladigitale.dev/" target="_blank" style="color:#047857;font-weight:600;text-decoration:underline;">ladigitale.dev</a> - une suite d'outils gratuits, sans compte, sans pub, conçus pour l'éducation.
+                    <h2 style="font-family:'Crimson Pro',serif;font-size:2.25rem;color:#0f5e66;margin-bottom:0.25rem;">La Digitale - outils pédagogiques libres</h2>
+                    <p style="color:#0a6f78;font-size:1.05rem;">
+                        <a href="https://ladigitale.dev/" target="_blank" style="color:#0a6f78;font-weight:600;text-decoration:underline;">ladigitale.dev</a> - une suite d'outils gratuits, sans compte, sans pub, conçus pour l'éducation.
                     </p>
                 </div>
             </div>
@@ -2053,51 +2062,51 @@
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;">
 
                 <div class="digitale-tile">
-                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🎙️</span><span>Digirecord</span></strong><a href="https://ladigitale.dev/digirecord/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet d'enregistrer et de partager des fichiers audio.</p>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><a href="https://ladigitale.dev/digirecord/" target="_blank" class="digitale-name-link"><strong style="color:#0f5e66;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🎙️</span><span>Digirecord</span></strong></a><a href="https://ladigitale.dev/digirecord/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">➚</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#0a6f78;">Permet d'enregistrer et de partager des fichiers audio.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🗣️</span><span>Digispeech</span></strong><a href="https://ladigitale.dev/digispeech/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de générer un fichier audio à partir d'un texte.</p>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><a href="https://ladigitale.dev/digispeech/" target="_blank" class="digitale-name-link"><strong style="color:#0f5e66;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🗣️</span><span>Digispeech</span></strong></a><a href="https://ladigitale.dev/digispeech/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">➚</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#0a6f78;">Permet de générer un fichier audio à partir d'un texte.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">✂️</span><span>Digicut</span></strong><a href="https://ladigitale.dev/digicut/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de découper un extrait d'un fichier audio ou d'une vidéo.</p>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><a href="https://ladigitale.dev/digicut/" target="_blank" class="digitale-name-link"><strong style="color:#0f5e66;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">✂️</span><span>Digicut</span></strong></a><a href="https://ladigitale.dev/digicut/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">➚</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#0a6f78;">Permet de découper un extrait d'un fichier audio ou d'une vidéo.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🔁</span><span>Digitranscode</span></strong><a href="https://ladigitale.dev/digitranscode/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de convertir des fichiers audio et des vidéos.</p>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><a href="https://ladigitale.dev/digitranscode/" target="_blank" class="digitale-name-link"><strong style="color:#0f5e66;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🔁</span><span>Digitranscode</span></strong></a><a href="https://ladigitale.dev/digitranscode/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">➚</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#0a6f78;">Permet de convertir des fichiers audio et des vidéos.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🧩</span><span>Digimerge</span></strong><a href="https://ladigitale.dev/digimerge/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet d'assembler des fichiers audio ou des vidéos.</p>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><a href="https://ladigitale.dev/digimerge/" target="_blank" class="digitale-name-link"><strong style="color:#0f5e66;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🧩</span><span>Digimerge</span></strong></a><a href="https://ladigitale.dev/digimerge/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">➚</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#0a6f78;">Permet d'assembler des fichiers audio ou des vidéos.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🔄</span><span>Digiflip</span></strong><a href="https://ladigitale.dev/digiflip/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de publier des fichiers PDF sous forme de flipbooks.</p>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><a href="https://ladigitale.dev/digiflip/" target="_blank" class="digitale-name-link"><strong style="color:#0f5e66;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🔄</span><span>Digiflip</span></strong></a><a href="https://ladigitale.dev/digiflip/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">➚</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#0a6f78;">Permet de publier des fichiers PDF sous forme de flipbooks.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">📄</span><span>DigiPDF</span></strong><a href="https://digipdf.app/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Propose une série d'outils pour travailler avec les fichiers PDF.</p>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><a href="https://digipdf.app/" target="_blank" class="digitale-name-link"><strong style="color:#0f5e66;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">📄</span><span>DigiPDF</span></strong></a><a href="https://digipdf.app/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">➚</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#0a6f78;">Propose une série d'outils pour travailler avec les fichiers PDF.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🖼️</span><span>DigiremoveBG</span></strong><a href="https://ladigitale.dev/digiremovebg/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de supprimer le fond d'une image ou d'une photo.</p>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><a href="https://ladigitale.dev/digiremovebg/" target="_blank" class="digitale-name-link"><strong style="color:#0f5e66;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🖼️</span><span>DigiremoveBG</span></strong></a><a href="https://ladigitale.dev/digiremovebg/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">➚</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#0a6f78;">Permet de supprimer le fond d'une image ou d'une photo.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🫥</span><span>Digiblur</span></strong><a href="https://ladigitale.dev/digiblur/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de masquer les visages sur une photo.</p>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><a href="https://ladigitale.dev/digiblur/" target="_blank" class="digitale-name-link"><strong style="color:#0f5e66;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🫥</span><span>Digiblur</span></strong></a><a href="https://ladigitale.dev/digiblur/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">➚</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#0a6f78;">Permet de masquer les visages sur une photo.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🎨</span><span>Digidesign</span></strong><a href="https://ladigitale.dev/digidesign/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de créer des compositions graphiques. Alternative à Canva.</p>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><a href="https://ladigitale.dev/digidesign/" target="_blank" class="digitale-name-link"><strong style="color:#0f5e66;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🎨</span><span>Digidesign</span></strong></a><a href="https://ladigitale.dev/digidesign/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">➚</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#0a6f78;">Permet de créer des compositions graphiques. Alternative à Canva.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🧑‍💻</span><span>Digicode</span></strong><a href="https://ladigitale.dev/digicode/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de créer des codes QR pour partager simplement des contenus sur mobiles.</p>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><a href="https://ladigitale.dev/digicode/" target="_blank" class="digitale-name-link"><strong style="color:#0f5e66;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🧑‍💻</span><span>Digicode</span></strong></a><a href="https://ladigitale.dev/digicode/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">➚</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#0a6f78;">Permet de créer des codes QR pour partager simplement des contenus sur mobiles.</p>
                 </div>
 
                 <div class="digitale-tile">
-                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><strong style="color:#065f46;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🗂️</span><span>Digipad</span></strong><a href="https://digipad.app/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">🗗</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#047857;">Permet de créer des murs multimédias collaboratifs.</p>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:0.6rem;"><a href="https://digipad.app/" target="_blank" class="digitale-name-link"><strong style="color:#0f5e66;display:flex;align-items:center;gap:0.45rem;"><span style="font-size:1.5rem;line-height:1;">🗂️</span><span>Digipad</span></strong></a><a href="https://digipad.app/" target="_blank" class="digitale-open-btn" aria-label="Ouvrir l'outil" title="Ouvrir l'outil">➚</a></div><p style="font-size:0.9rem;margin-top:0.4rem;color:#0a6f78;">Permet de créer des murs multimédias collaboratifs.</p>
                 </div>
 
             </div>
@@ -2623,6 +2632,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
+
+
 
 
 
