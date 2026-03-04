@@ -571,7 +571,7 @@
     <!-- INTRO -->
     <div class="intro">
         <h2>Travailler plus vite, plus sereinement</h2>
-        <p>Cette trousse regroupe des petits trucs - souvent méconnus - qui font une vraie différence au quotidien. Pas besoin d'être expert : chaque astuce est expliquée simplement, avec les étapes pour l'activer. Picorez ce qui vous parle!</p>
+        <p>Cette trousse regroupe des petits trucs - souvent méconnus - qui font une vraie différence au quotidien. Pas besoin d'être expert : chaque astuce est expliquée simplement, avec les étapes pour l'activer. Explorez à votre rythme et gardez ce qui vous aide vraiment!</p>
     </div>
 
     <!-- TABLE DES MATIÈRES -->
@@ -2337,7 +2337,7 @@
                 <div style="font-size:3rem;margin-bottom:1rem;">💬</div>
                 <h2 class="feedback-title">Commentaires et suggestions</h2>
                 <p class="feedback-text">
-                    Vous avez un truc pratique qui n'est pas dans cette trousse? Une correction à suggérer? Vos retours nous aident à l'améliorer pour tout le monde.
+                    Votre expérience et vos astuces sont précieuses! Vous avez découvert un autre truc pratique? Une amélioration à suggérer? Nous serions ravis de connaître votre avis afin d’enrichir cette trousse et de la rendre encore plus utile pour l’ensemble des employé(e)s du cégep.
                 </p>
                 <button class="btn btn-secondary feedback-btn" onclick="sendFeedback()">
                     <span style="font-size:1.3rem;">📧</span>
@@ -2347,9 +2347,6 @@
             <div class="feedback-card">
                 <div style="font-size:3rem;margin-bottom:1rem;">🏫</div>
                 <h2 class="feedback-title" style="margin-bottom:0.75rem;">Trousse techno en classe</h2>
-                <p class="feedback-text">
-                    Bonnes pratiques et outils pour enseigner efficacement en classe
-                </p>
                 <p class="feedback-text-small">
                     Cette trousse rassemble des trucs et astuces pratiques pour configurer l'ordinateur en mode présentation. Explorez les outils disponibles, apprenez les raccourcis essentiels, et découvrez comment protéger votre vie privée tout en offrant une expérience optimale en classe.
                 </p>
@@ -2368,9 +2365,7 @@ function sendFeedback() {
     var lines = [
         "Bonjour,","",
         "Je vous écris concernant la Trousse techno Productivité du Cégep Gérald-Godin.","",
-        "[Partagez ici vos commentaires, suggestions ou astuces]","",
-        "---","Nom : ","Département : ","",
-        "Merci de contribuer à l'amélioration de nos outils!"
+        "[Partagez ici vos commentaires, suggestions ou astuces]",""
     ];
     var body = encodeURIComponent(lines.join("\n"));
     window.location.href = "mailto:aidetechno@cgodin.qc.ca?subject=" + subject + "&body=" + body;
